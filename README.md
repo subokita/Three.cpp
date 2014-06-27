@@ -19,8 +19,28 @@ Still very early, nothing can be shown yet, some of the math-related classes hav
 
 * glfw (http://www.glfw.org): library for creating windows with OpenGL context
 
+* googletest (https://code.google.com/p/googletest/) : for unit testing, I'm trying to avoid boost, because it's such a kitchen sink.
+
 * three.js (http://threejs.org): as the original library to be ported from. The main reason, is that three.js, as a WebGL library, has a fairly simple and clean implementation.
+
+
+Installation
+============
+* Use homebrew(http://brew.sh) to install glm and glfw libraries. 
+* If you need to create the unit tests, googletest has a documentation to show you how to compile the library
+
 
 FAQ
 ===
-* Why?
+* Why those 3rd party libraries?
+I played with those before, so it's better for me to use something that I already know. I want to have something that's simpler and direct, not an end product that new users would need to spent hours wrangling with where to install the libraries, what should be included, how to compile with libc++ instead of libstdc++, etc.
+
+* Can I contribute?
+Please do so, I'm not super programmer, any help is welcomed.
+
+* Why are these codes so unoptimized?
+I'm fairly average programmer, experienced, but not super programmer. Plus, it's in the early phase, I'd like to go for optimization later on.
+
+* Why is it OS X centric (e.g. XCode, Homebrew, etc)?
+I only own a Macbook Air.
+
