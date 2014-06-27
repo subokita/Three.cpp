@@ -16,6 +16,7 @@ namespace three {
     class Math {
     public:
         static float getMaxScaleOnAxis( glm::mat4x4& mat );
+        static float clamp( float val, float min, float max );
     };
 }
 

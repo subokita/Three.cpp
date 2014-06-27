@@ -18,4 +18,12 @@ namespace three {
         
         return sqrtf(std::max( scale_x, std::max( scale_y, scale_z ) ));
     }
+    
+    float Math::clamp( float val, float min, float max ) {
+        if( val < min )
+            val = min;
+        else if( val > max )
+            val = max;
+        return val;
+    }
 }

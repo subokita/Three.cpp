@@ -16,6 +16,7 @@
 		A8439B5D195D3F7900DF2B47 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B48195D3F1500DF2B47 /* Box3.cpp */; };
 		A8439B5E195D3F7900DF2B47 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4A195D3F1500DF2B47 /* Math.cpp */; };
 		A8439B5F195D3F7900DF2B47 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4C195D3F1500DF2B47 /* Sphere.cpp */; };
+		A8439B62195D4EFE00DF2B47 /* Line3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B60195D4EFE00DF2B47 /* Line3.cpp */; };
 		A8959CD1195C4A9000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CD0195C4A9000CE9522 /* main.cpp */; };
 		A8959CD3195C4A9000CE9522 /* Three_cpp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8959CD2195C4A9000CE9522 /* Three_cpp.1 */; };
 		A8959CF3195C87A000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CF2195C87A000CE9522 /* main.cpp */; };
@@ -56,6 +57,8 @@
 		A8439B4B195D3F1500DF2B47 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		A8439B4C195D3F1500DF2B47 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		A8439B4D195D3F1500DF2B47 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		A8439B60195D4EFE00DF2B47 /* Line3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line3.cpp; sourceTree = "<group>"; };
+		A8439B61195D4EFE00DF2B47 /* Line3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line3.h; sourceTree = "<group>"; };
 		A8959CCD195C4A9000CE9522 /* Three.cpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Three.cpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8959CD0195C4A9000CE9522 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A8959CD2195C4A9000CE9522 /* Three_cpp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Three_cpp.1; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				A8439B4B195D3F1500DF2B47 /* Math.h */,
 				A8439B4C195D3F1500DF2B47 /* Sphere.cpp */,
 				A8439B4D195D3F1500DF2B47 /* Sphere.h */,
+				A8439B60195D4EFE00DF2B47 /* Line3.cpp */,
+				A8439B61195D4EFE00DF2B47 /* Line3.h */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */,
 				A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */,
 				A8959CD1195C4A9000CE9522 /* main.cpp in Sources */,
+				A8439B62195D4EFE00DF2B47 /* Line3.cpp in Sources */,
 				A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */,
 				A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */,
 			);

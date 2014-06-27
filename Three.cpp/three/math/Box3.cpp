@@ -15,14 +15,14 @@ using namespace std;
 namespace three {
     
     Box3::Box3() :
-    min(glm::vec3( numeric_limits<float>::max(), numeric_limits<float>::max(), numeric_limits<float>::max() )),
-    max(glm::vec3( numeric_limits<float>::min(), numeric_limits<float>::min(), numeric_limits<float>::min() ))
+        min(glm::vec3( numeric_limits<float>::max(), numeric_limits<float>::max(), numeric_limits<float>::max() )),
+        max(glm::vec3( numeric_limits<float>::min(), numeric_limits<float>::min(), numeric_limits<float>::min() ))
     { }
     
     
     Box3::Box3( glm::vec3& min_vec, glm::vec3& max_vec ) :
-    min( min_vec ),
-    max( max_vec )
+        min( min_vec ),
+        max( max_vec )
     {}
     
     Box3::~Box3() {
