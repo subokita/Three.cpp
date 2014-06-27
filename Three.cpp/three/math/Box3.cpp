@@ -7,6 +7,7 @@
 //
 
 #include "Box3.h"
+#include "Constants.h"
 #include "Sphere.h"
 #include <numeric>
 
@@ -15,8 +16,8 @@ using namespace std;
 namespace three {
     
     Box3::Box3() :
-        min(glm::vec3( numeric_limits<float>::max(), numeric_limits<float>::max(), numeric_limits<float>::max() )),
-        max(glm::vec3( numeric_limits<float>::min(), numeric_limits<float>::min(), numeric_limits<float>::min() ))
+        min(glm::vec3( MAX_FLOAT, MAX_FLOAT, MAX_FLOAT )),
+        max(glm::vec3( MIN_FLOAT, MIN_FLOAT, MIN_FLOAT ))
     { }
     
     
@@ -186,8 +187,8 @@ namespace three {
     
     
     Box3& Box3::makeEmpty() {
-        min = glm::vec3( numeric_limits<float>::max(), numeric_limits<float>::max(), numeric_limits<float>::max() );
-        max = glm::vec3( numeric_limits<float>::min(), numeric_limits<float>::min(), numeric_limits<float>::min() );
+        min = glm::vec3( MAX_FLOAT, MAX_FLOAT, MAX_FLOAT );
+        max = glm::vec3( MIN_FLOAT, MIN_FLOAT, MIN_FLOAT );
         return *this;
     }
     

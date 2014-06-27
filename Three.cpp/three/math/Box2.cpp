@@ -7,6 +7,7 @@
 //
 
 #include "Box2.h"
+#include "Constants.h"
 #include <numeric>
 
 using namespace std;
@@ -14,8 +15,8 @@ using namespace std;
 namespace three {
     
     Box2::Box2() :
-        min(glm::vec2( std::numeric_limits<float>::max(), std::numeric_limits<float>::max() )),
-        max(glm::vec2( std::numeric_limits<float>::min(), std::numeric_limits<float>::min() ))
+        min(glm::vec2( MAX_FLOAT, MAX_FLOAT )),
+        max(glm::vec2( MIN_FLOAT, MIN_FLOAT ))
     { }
     
     
@@ -126,8 +127,8 @@ namespace three {
     
     
     Box2& Box2::makeEmpty() {
-        min = glm::vec2( std::numeric_limits<float>::max(), std::numeric_limits<float>::max() );
-        max = glm::vec2( std::numeric_limits<float>::min(), std::numeric_limits<float>::min() );
+        min = glm::vec2( MAX_FLOAT, MAX_FLOAT );
+        max = glm::vec2( MIN_FLOAT, MIN_FLOAT );
         return *this;
     }
     

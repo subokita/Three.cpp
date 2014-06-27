@@ -15,6 +15,10 @@ using namespace std;
 
 namespace three {
     
+    /**
+     * Generate universal unique ID, based on: http://www.broofa.com/Tools/Math.uuid.htm
+     * FIXME: Still not tested, not sure if the differences between datatypes in C++ and JavaScript might cause issues
+     */
     string Math::generateUUID() {
         static const char chars[63] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         

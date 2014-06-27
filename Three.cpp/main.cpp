@@ -13,8 +13,5 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-    string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    cout << str.length() << endl;
-    
     return 0;
 }

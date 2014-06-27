@@ -14,12 +14,16 @@
 namespace three {
     
     Sphere::Sphere() :
-    center(glm::vec3(0, 0, 0)), radius(0.0f) {
+        center(glm::vec3(0, 0, 0)),
+        radius(0.0f)
+    {
     }
     
     
     Sphere::Sphere( glm::vec3& param_center, float param_radius ):
-    center( param_center ), radius(param_radius) {
+        center( param_center ),
+        radius(param_radius)
+    {
         
     }
     
@@ -83,7 +87,7 @@ namespace three {
     
     bool Sphere::doesIntersect( Sphere& sphere ) {
         float radius_sum = this->radius + sphere.radius;
-        return glm::distance( sphere.center, this->center ) <= radius;
+        return glm::distance( sphere.center, this->center ) <= radius_sum;
     }
     
     glm::vec3 Sphere::clamp( glm::vec3& point ) {
