@@ -32,6 +32,13 @@ Installation
 * If you need to create the unit tests, googletest has a documentation to show you how to compile the library
 
 
+Rule of thumb
+=============
+* Try to keep codes clean, simple and readable. Richard Feynman once said that for any topic to be considered as properly understood, it must be explainable to and understable by college freshmen.
+* It's 2014, variables named like dxdylam can be quickly and easily renamed in the scope to dx_dy_div_lambda. Keep it readable
+* Make it run correctly first, optimization can come later.
+* Object oriented, it's okay to take some performance hit, for the sake of readability and ease of extension.
+
 FAQ
 ===
 * Why those 3rd party libraries?
