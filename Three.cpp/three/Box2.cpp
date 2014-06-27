@@ -69,9 +69,13 @@ namespace three {
     }
     
     
-    void Box2::operator=( const Box2& others ) {
+    Box2& Box2::operator=( const Box2& others ) {
+        if( this == &others )
+            return *this;
+        
         this->min = others.min;
         this->max = others.max;
+        return *this;
     }
 
     bool Box2::empty() {

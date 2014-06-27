@@ -45,7 +45,7 @@ namespace three {
             Box2 clone();
         
             bool empty();
-            void operator=( const Box2& others );
+            Box2& operator=( const Box2& others );
         
             glm::vec2 min;
             glm::vec2 max;
