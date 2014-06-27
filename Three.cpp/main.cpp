@@ -7,12 +7,13 @@
 //
 
 #include <iostream>
-#include <chrono>
-#include <glm/glm.hpp>
-#include <gtest/gtest.h>
+#include "Math.h"
+#include "Sphere.h"
 
 using namespace std;
 
 int main(int argc, char **argv) {
+    
+    
     return 0;
 }

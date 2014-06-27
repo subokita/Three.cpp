@@ -319,7 +319,6 @@ TEST_F( Box2Test, functions_2 ) {
     }
     
     
-    box.set( min_vec, max_vec );
     vector<glm::vec2> offsets = {
         glm::vec2( 0.0, 0.0 ),
         glm::vec2( 1.0, 2.0 ),
@@ -328,13 +327,57 @@ TEST_F( Box2Test, functions_2 ) {
         glm::vec2( 3.0, 3.0 ),
     };
     
-    EXPECT_EQ( glm::vec2(0.0, 0.0), box.translate( offsets[0] ) );
+    box.set( min_vec, max_vec );
+    box.translate( offsets[0] );
+    EXPECT_EQ( min_vec, box.min );
+    EXPECT_EQ( max_vec, box.max );
     
-//    Box2& translate( glm::vec2 offset );
-//    bool equals( Box2& box );
-//    Box2 clone();
-//    
-//    bool empty();
-//    void operator=( const Box2& others );
+    box.set( min_vec, max_vec );
+    box.translate( offsets[1] );
+    EXPECT_EQ( glm::vec2(-1.0, 0.0), box.min );
+    EXPECT_EQ( glm::vec2(3.0, 4.0), box.max );
+    
+    box.set( min_vec, max_vec );
+    box.translate( offsets[1] );
+    EXPECT_EQ( glm::vec2(-1.0, 0.0), box.min );
+    EXPECT_EQ( glm::vec2(3.0, 4.0), box.max );
+    
+    box.set( min_vec, max_vec );
+    box.translate( offsets[2] );
+    EXPECT_EQ( glm::vec2(-4.0, -1.0), box.min );
+    EXPECT_EQ( glm::vec2( 0.0, 3.0), box.max );
+    
+    box.set( min_vec, max_vec );
+    box.translate( offsets[3] );
+    EXPECT_EQ( glm::vec2(-5.0, -5.0), box.min );
+    EXPECT_EQ( glm::vec2(-1.0, -1.0), box.max );
+    
+    box.set( min_vec, max_vec );
+    box.translate( offsets[4] );
+    EXPECT_EQ( glm::vec2( 1.0, 1.0), box.min );
+    EXPECT_EQ( glm::vec2( 5.0, 5.0), box.max );
+    
+    box.set( min_vec, max_vec );
+    box_2 = three::Box2( min_vec, max_vec );
+    
+    EXPECT_TRUE( box.equals(box_2 ));
+    EXPECT_TRUE( box.equals(box ));
+    box_2.expandByScalar(1.0);
+    EXPECT_FALSE( box.equals(box_2 ));
+    
+    box = box_2.clone();
+    EXPECT_TRUE( box.equals(box_2 ));
+    
+    EXPECT_FALSE( box.empty() );
+    box.set( max_vec, min_vec );
+    EXPECT_TRUE( box.empty() );
+    box = three::Box2();
+    EXPECT_TRUE( box.empty() );
 
+    box = box_2;
+    EXPECT_TRUE( box.equals( box_2 ) );
+    box_2.expandByScalar(5.0);
+    EXPECT_FALSE( box.equals( box_2 ) );
+    box = box_2;
+    EXPECT_TRUE( box.equals( box_2 ) );
 }

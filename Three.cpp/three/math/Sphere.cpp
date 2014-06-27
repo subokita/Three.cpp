@@ -8,10 +8,19 @@
 
 #include "Sphere.h"
 #include "Box3.h"
+#include "Math.h"
+#include <glm/gtc/matrix_access.hpp>
 
 namespace three {
     
-    Sphere::Sphere() : center(glm::vec3(0, 0, 0)), radius(0.0f) {
+    Sphere::Sphere() :
+    center(glm::vec3(0, 0, 0)), radius(0.0f) {
+    }
+    
+    
+    Sphere::Sphere( glm::vec3& param_center, float param_radius ):
+    center( param_center ), radius(param_radius) {
+        
     }
     
     Sphere::~Sphere(){
@@ -48,9 +57,13 @@ namespace three {
         return *this;
     }
     
-    void Sphere::operator=( const Sphere& others ) {
+    Sphere& Sphere::operator=( const Sphere& others ) {
+        if( this == &others )
+            return *this;
+        
         this->center = others.center;
         this->radius = others.radius;
+        return *this;
     }
     
     bool Sphere::empty() {
@@ -93,13 +106,11 @@ namespace three {
         return box;
     }
     
-    // FIXME:
-    void Sphere::applyMatrix( glm::mat4x4& mat ) {
-        glm::vec4 temp( center, 1 );
-        temp = mat * temp;
-        this->center = glm::vec3( temp );
-        
-        
+    Sphere& Sphere::applyMatrix( glm::mat4x4& mat ) {
+        glm::vec4 temp = glm::vec4( center, 1 ) * mat;
+        this->center   = glm::vec3( temp );
+        this->radius   = this->radius * three::Math::getMaxScaleOnAxis( mat );
+        return *this;
     }
     
     Sphere& Sphere::translate( glm::vec3& offset ) {

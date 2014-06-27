@@ -128,9 +128,12 @@ namespace three {
     }
     
     
-    void Box3::operator=( const Box3& others ) {
+    Box3& Box3::operator=( const Box3& others ) {
+        if( this == &others )
+            return *this;
         this->min = others.min;
         this->max = others.max;
+        return *this;
     }
     
     bool Box3::empty() {
@@ -210,7 +213,7 @@ namespace three {
     }
     
     float Box3::distanceTo( glm::vec3& point ) {
-        glm::vec3 v1 = glm::clamp( v1, min, max );
+        glm::vec3 v1 = glm::clamp( point, min, max );
         return glm::length( v1 - point );
     }
     
@@ -222,7 +225,7 @@ namespace three {
         return result;
     }
     
-    // FIXME: Implement Matrix first
+    // FIXME: Test
     Box3& Box3::applyMatrix( glm::mat4x4& mat ) {
         vector<glm::vec4> points {
             glm::vec4(min.x, min.y, min.z, 1),
@@ -236,7 +239,7 @@ namespace three {
         };
 
         for( int i = 0; i < 8; i++ )
-            points[i]  = mat * points[i];
+            points[i]  = points[i] * mat;
         
         this->makeEmpty();
         this->setFrom( points );

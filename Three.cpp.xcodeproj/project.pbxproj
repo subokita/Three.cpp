@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8439B3D195D36CF00DF2B47 /* Box2Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B3B195D36CF00DF2B47 /* Box2Test.cpp */; };
+		A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B46195D3F1500DF2B47 /* Box2.cpp */; };
+		A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B48195D3F1500DF2B47 /* Box3.cpp */; };
+		A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4A195D3F1500DF2B47 /* Math.cpp */; };
+		A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4C195D3F1500DF2B47 /* Sphere.cpp */; };
+		A8439B5C195D3F7900DF2B47 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B46195D3F1500DF2B47 /* Box2.cpp */; };
+		A8439B5D195D3F7900DF2B47 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B48195D3F1500DF2B47 /* Box3.cpp */; };
+		A8439B5E195D3F7900DF2B47 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4A195D3F1500DF2B47 /* Math.cpp */; };
+		A8439B5F195D3F7900DF2B47 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4C195D3F1500DF2B47 /* Sphere.cpp */; };
 		A8959CD1195C4A9000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CD0195C4A9000CE9522 /* main.cpp */; };
 		A8959CD3195C4A9000CE9522 /* Three_cpp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8959CD2195C4A9000CE9522 /* Three_cpp.1 */; };
-		A8959CE2195C6C0B00CE9522 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CE0195C6C0B00CE9522 /* Box2.cpp */; };
 		A8959CF3195C87A000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CF2195C87A000CE9522 /* main.cpp */; };
 		A8959CF5195C87A000CE9522 /* UnitTests.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8959CF4195C87A000CE9522 /* UnitTests.1 */; };
-		A8959D04195C892400CE9522 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CE0195C6C0B00CE9522 /* Box2.cpp */; };
-		A8959D05195C892400CE9522 /* Box2.h in Sources */ = {isa = PBXBuildFile; fileRef = A8959CE1195C6C0B00CE9522 /* Box2.h */; };
-		A8959D08195C8B3E00CE9522 /* Box2Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959D06195C8B3E00CE9522 /* Box2Test.cpp */; };
-		A8959D0E195C9A7700CE9522 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959D0C195C9A7700CE9522 /* Box3.cpp */; };
-		A8959D11195CA69200CE9522 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959D0F195CA69200CE9522 /* Sphere.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,20 +46,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A8439B3B195D36CF00DF2B47 /* Box2Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2Test.cpp; sourceTree = "<group>"; };
+		A8439B3C195D36CF00DF2B47 /* Box2Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2Test.h; sourceTree = "<group>"; };
+		A8439B46195D3F1500DF2B47 /* Box2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2.cpp; sourceTree = "<group>"; };
+		A8439B47195D3F1500DF2B47 /* Box2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2.h; sourceTree = "<group>"; };
+		A8439B48195D3F1500DF2B47 /* Box3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box3.cpp; sourceTree = "<group>"; };
+		A8439B49195D3F1500DF2B47 /* Box3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box3.h; sourceTree = "<group>"; };
+		A8439B4A195D3F1500DF2B47 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
+		A8439B4B195D3F1500DF2B47 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
+		A8439B4C195D3F1500DF2B47 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		A8439B4D195D3F1500DF2B47 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		A8959CCD195C4A9000CE9522 /* Three.cpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Three.cpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8959CD0195C4A9000CE9522 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A8959CD2195C4A9000CE9522 /* Three_cpp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Three_cpp.1; sourceTree = "<group>"; };
-		A8959CE0195C6C0B00CE9522 /* Box2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2.cpp; sourceTree = "<group>"; };
-		A8959CE1195C6C0B00CE9522 /* Box2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2.h; sourceTree = "<group>"; };
 		A8959CF0195C87A000CE9522 /* UnitTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8959CF2195C87A000CE9522 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A8959CF4195C87A000CE9522 /* UnitTests.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = UnitTests.1; sourceTree = "<group>"; };
-		A8959D06195C8B3E00CE9522 /* Box2Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2Test.cpp; sourceTree = "<group>"; };
-		A8959D07195C8B3E00CE9522 /* Box2Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2Test.h; sourceTree = "<group>"; };
-		A8959D0C195C9A7700CE9522 /* Box3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box3.cpp; sourceTree = "<group>"; };
-		A8959D0D195C9A7700CE9522 /* Box3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box3.h; sourceTree = "<group>"; };
-		A8959D0F195CA69200CE9522 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
-		A8959D10195CA69200CE9522 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +82,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8439B45195D3F1500DF2B47 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				A8439B46195D3F1500DF2B47 /* Box2.cpp */,
+				A8439B47195D3F1500DF2B47 /* Box2.h */,
+				A8439B48195D3F1500DF2B47 /* Box3.cpp */,
+				A8439B49195D3F1500DF2B47 /* Box3.h */,
+				A8439B4A195D3F1500DF2B47 /* Math.cpp */,
+				A8439B4B195D3F1500DF2B47 /* Math.h */,
+				A8439B4C195D3F1500DF2B47 /* Sphere.cpp */,
+				A8439B4D195D3F1500DF2B47 /* Sphere.h */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
 		A8959CC4195C4A9000CE9522 = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +128,7 @@
 		A8959CD9195C4AE100CE9522 /* three */ = {
 			isa = PBXGroup;
 			children = (
-				A8959CE0195C6C0B00CE9522 /* Box2.cpp */,
-				A8959CE1195C6C0B00CE9522 /* Box2.h */,
-				A8959D0C195C9A7700CE9522 /* Box3.cpp */,
-				A8959D0D195C9A7700CE9522 /* Box3.h */,
-				A8959D0F195CA69200CE9522 /* Sphere.cpp */,
-				A8959D10195CA69200CE9522 /* Sphere.h */,
+				A8439B45195D3F1500DF2B47 /* math */,
 			);
 			path = three;
 			sourceTree = "<group>";
@@ -121,8 +136,8 @@
 		A8959CF1195C87A000CE9522 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A8959D06195C8B3E00CE9522 /* Box2Test.cpp */,
-				A8959D07195C8B3E00CE9522 /* Box2Test.h */,
+				A8439B3B195D36CF00DF2B47 /* Box2Test.cpp */,
+				A8439B3C195D36CF00DF2B47 /* Box2Test.h */,
 				A8959CF2195C87A000CE9522 /* main.cpp */,
 				A8959CF4195C87A000CE9522 /* UnitTests.1 */,
 			);
@@ -198,10 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8959D0E195C9A7700CE9522 /* Box3.cpp in Sources */,
-				A8959CE2195C6C0B00CE9522 /* Box2.cpp in Sources */,
-				A8959D11195CA69200CE9522 /* Sphere.cpp in Sources */,
+				A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */,
+				A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */,
 				A8959CD1195C4A9000CE9522 /* main.cpp in Sources */,
+				A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */,
+				A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8959D08195C8B3E00CE9522 /* Box2Test.cpp in Sources */,
-				A8959D04195C892400CE9522 /* Box2.cpp in Sources */,
-				A8959D05195C892400CE9522 /* Box2.h in Sources */,
+				A8439B5C195D3F7900DF2B47 /* Box2.cpp in Sources */,
+				A8439B5D195D3F7900DF2B47 /* Box3.cpp in Sources */,
+				A8439B5E195D3F7900DF2B47 /* Math.cpp in Sources */,
+				A8439B5F195D3F7900DF2B47 /* Sphere.cpp in Sources */,
+				A8439B3D195D36CF00DF2B47 /* Box2Test.cpp in Sources */,
 				A8959CF3195C87A000CE9522 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

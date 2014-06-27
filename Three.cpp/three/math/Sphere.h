@@ -19,12 +19,13 @@ namespace three {
     class Sphere {
     public:
         Sphere();
+        Sphere( glm::vec3& center, float radius );
         ~Sphere();
         
         Sphere& set( glm::vec3& center, float radius );
         Sphere& setFrom( std::vector<glm::vec3>& points );
         Sphere& setFrom( std::vector<glm::vec3>& points, glm::vec3& center );
-        void operator=( const Sphere& others );
+        Sphere& operator=( const Sphere& others );
         
         bool empty();
         bool contains( glm::vec3& point );
@@ -33,8 +34,7 @@ namespace three {
         glm::vec3 clamp( glm::vec3& point );
         Box3 getBoundingBox();
         
-        // FIXME:
-        void applyMatrix( glm::mat4x4& mat );
+        Sphere& applyMatrix( glm::mat4x4& mat );
         
         Sphere& translate( glm::vec3& offset );
         bool equals( Sphere& other );
