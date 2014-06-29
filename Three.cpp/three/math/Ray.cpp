@@ -275,16 +275,62 @@ namespace three {
     }
     
     // FIXME: Fill this in
-    glm::vec3 Ray::intersects(Triangle& triangle ){
-        return glm::vec3(0, 0, 0);
+    /**
+     * http://www.geometrictools.com/LibMathematics/Intersection/Wm5IntrRay3Triangle3.cpp
+     */
+    glm::vec3 Ray::intersects(Triangle& triangle, bool cull_backface ){
+
+        
+        // Solve Q + t*D = b1*E1 + b2*E2 (Q = kDiff, D = ray direction,
+        // E1 = kEdge1, E2 = kEdge2, N = Cross(E1,E2)) by
+        //   |Dot(D,N)|*b1 = sign(Dot(D,N))*Dot(D,Cross(Q,E2))
+        //   |Dot(D,N)|*b2 = sign(Dot(D,N))*Dot(D,Cross(E1,Q))
+        //   |Dot(D,N)|*t = -sign(Dot(D,N))*Dot(Q,N)
+        
+        glm::vec3 edge_1 = triangle.b - triangle.a;
+        glm::vec3 edge_2 = triangle.c - triangle.a;
+        glm::vec3 normal = glm::cross( edge_1, edge_2 );
+        
+        float dir_dot_normal = glm::dot( direction, normal );
+        float sign;
+        
+        if( dir_dot_normal > 0.0 ) {
+            if( cull_backface )
+                return NULL_VEC3;
+            sign =  1.0;
+        }
+        else if( dir_dot_normal < 0.0 ) {
+            sign = -1.0;
+            dir_dot_normal = -dir_dot_normal;
+        }
+        else {
+            return NULL_VEC3;
+        }
+        
+        glm::vec3 diff = origin - triangle.a;
+        float b1 = sign * glm::dot( direction, glm::cross(diff, edge_2) );
+        if( b1 < 0.0 )
+            return NULL_VEC3;
+        
+        
+        float b2 = sign * glm::dot( direction, glm::cross(diff, edge_1) );
+        if( b2 < 0.0 )
+            return NULL_VEC3;
+        
+        if( b1 + b2 > dir_dot_normal )
+            return NULL_VEC3;
+        
+        float t = -sign * glm::dot( diff, normal );
+        if( t < 0.0 )
+            return NULL_VEC3;
+        return at( t / dir_dot_normal );
+        return glm::vec3(0.0, 0.0, 0.0);
     }
     
     Ray& Ray::applyMatrix( glm::mat4x4& mat ) {
-        direction += origin;
-        direction *= mat;
-        origin *= mat;
-        direction = direction - origin;
-        glm::normalize( direction );
+        direction = direction + origin;
+        origin = glm::vec3( glm::vec4( origin, 1 ) * mat );
+        direction = glm::normalize(direction - origin);
         return *this;
     }
     

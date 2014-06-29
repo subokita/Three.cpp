@@ -13,8 +13,8 @@
 #include <glm/glm.hpp>
 #include <numeric>
 
-#define MAX_FLOAT (std::numeric_limits<float>::max())
-#define MIN_FLOAT (std::numeric_limits<float>::min())
-#define NULL_VEC3 (glm::vec3( MIN_FLOAT, MIN_FLOAT, MIN_FLOAT ))
+static const float MAX_FLOAT = std::numeric_limits<float>::max();
+static const float MIN_FLOAT = std::numeric_limits<float>::min();
+static const glm::vec3 NULL_VEC3 = glm::vec3( MIN_FLOAT, MIN_FLOAT, MIN_FLOAT );
 
 #endif /* defined(__Three_cpp__Constants__) */

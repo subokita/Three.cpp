@@ -39,7 +39,7 @@ namespace three {
             float distanceTo( Plane& plane );
             glm::vec3 intersects( Plane& plane );
             glm::vec3 intersects( Box3& box );
-            glm::vec3 intersects(Triangle& triangle );
+            glm::vec3 intersects(Triangle& triangle, bool cull_backface );
         
             Ray& applyMatrix( glm::mat4x4& mat );
             bool equals(Ray& other);

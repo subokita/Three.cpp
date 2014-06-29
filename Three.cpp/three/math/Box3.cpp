@@ -92,22 +92,8 @@ namespace three {
             this->min = points[0];
             this->max = points[0];
             
-            for( size_t i = 1; i < points.size(); i++ ) {
-                if( points[i].x < min.x )
-                    min.x = points[i].x;
-                else if( points[i].x > max.x )
-                    max.x = points[i].x;
-                
-                if( points[i].y < min.y )
-                    min.y = points[i].y;
-                else if( points[i].y > max.y )
-                    max.y = points[i].y;
-                
-                if( points[i].z < min.z )
-                    min.z = points[i].z;
-                else if( points[i].z > max.z )
-                    max.z = points[i].z;
-            }
+            for( size_t i = 1; i < points.size(); i++ )
+                addPoint( points[i] );
         }
         return * this;
     }
