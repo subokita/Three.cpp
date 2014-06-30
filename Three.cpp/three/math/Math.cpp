@@ -114,4 +114,21 @@ namespace three {
         return (value & (value - 1)) == 0 && value != 0;
     }
     
+    
+    float Math::hueToRGB( float p, float q, float t ) {
+        if( t < 0.0 )
+            t += 1.0;
+        if( t > 1.0 )
+            t -= 1.0;
+        
+        if( t < (1.0 / 6.0))
+            return p + (q - p) * 6 * t;
+        
+        if( t < (1.0 / 2.0))
+            return q;
+        
+        if( t < (2.0 / 3.0))
+            return p + (q - p) * 6 * (2.0 / 3.0 - t);
+        return p;
+    }
 }

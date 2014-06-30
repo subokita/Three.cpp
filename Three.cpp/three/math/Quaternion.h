@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <vector>
 
 namespace three {
     class Euler;
@@ -35,12 +37,24 @@ namespace three {
             float length();
             Quaternion& normalize();
         
+            static Quaternion multiply(Quaternion& a, Quaternion& b);
             Quaternion& multiply(Quaternion& q);
+            Quaternion& slerp( Quaternion& q, float t );
+            bool equals( Quaternion& q );
+            
+            Quaternion& fromArray( std::vector<float>& vec );
+            std::vector<float> toArray();
+            Quaternion clone();
         
             float x;
             float y;
             float z;
             float w;
+        
+            friend std::ostream &operator <<( std::ostream& os, const Quaternion& q ) {
+                os << "(" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")" ;
+                return os;
+            }
     };
 }
 

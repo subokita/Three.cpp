@@ -21,7 +21,7 @@ namespace three {
     { }
     
     
-    Box3::Box3( glm::vec3& min_vec, glm::vec3& max_vec ) :
+    Box3::Box3( glm::vec3 min_vec, glm::vec3 max_vec ) :
         min( min_vec ),
         max( max_vec )
     {}
@@ -37,7 +37,7 @@ namespace three {
     }
     
     
-    Box3& Box3::addPoint( glm::vec3& point ) {
+    Box3& Box3::addPoint( glm::vec3 point ) {
         if( point.x < min.x )
             min.x = point.x;
         else if( point.x > max.x )
@@ -99,7 +99,7 @@ namespace three {
     }
     
     
-    Box3& Box3::setFrom( glm::vec3& center, glm::vec3& size ) {
+    Box3& Box3::setFrom( glm::vec3 center, glm::vec3 size ) {
         glm::vec3 half_size = size;
         half_size /= 2.0;
         
@@ -138,14 +138,14 @@ namespace three {
         return this->max - this->min;
     }
     
-    Box3& Box3::expandByPoint(glm::vec3 &point) {
+    Box3& Box3::expandByPoint(glm::vec3 point) {
         this->min = glm::min( this->min, point );
         this->max = glm::max( this->max, point );
         return *this;
     }
     
     
-    Box3& Box3::expandByVector( glm::vec3& vector ) {
+    Box3& Box3::expandByVector( glm::vec3 vector ) {
         this->min -= vector;
         this->max += vector;
         return *this;
@@ -157,7 +157,7 @@ namespace three {
         return *this;
     }
     
-    bool Box3::contains( glm::vec3& point ) {
+    bool Box3::contains( glm::vec3 point ) {
         if( point.x < min.x || point.y < min.y || point.z < min.z ||
             point.x > max.x || point.y > max.y || point.z > max.z )
             return false;
@@ -193,13 +193,13 @@ namespace three {
         return true;
     }
     
-    glm::vec3 Box3::clamp( glm::vec3& point ) {
+    glm::vec3 Box3::clamp( glm::vec3 point ) {
         glm::vec3 result = point;
         result = glm::clamp( result, min, max );
         return result;
     }
     
-    float Box3::distanceTo( glm::vec3& point ) {
+    float Box3::distanceTo( glm::vec3 point ) {
         glm::vec3 v1 = glm::clamp( point, min, max );
         return glm::length( v1 - point );
     }

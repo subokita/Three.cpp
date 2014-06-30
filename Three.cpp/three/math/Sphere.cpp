@@ -20,25 +20,24 @@ namespace three {
     }
     
     
-    Sphere::Sphere( glm::vec3& param_center, float param_radius ):
+    Sphere::Sphere( glm::vec3 param_center, float param_radius ):
         center( param_center ),
         radius(param_radius)
     {
-        
     }
     
     Sphere::~Sphere(){
     }
     
     
-    Sphere& Sphere::set( glm::vec3& center, float radius ) {
+    Sphere& Sphere::set( glm::vec3 center, float radius ) {
         this->center = center;
         this->radius = radius;
         return *this;
     }
     
     
-    Sphere& Sphere::setFrom( std::vector<glm::vec3>& points, glm::vec3& center ) {
+    Sphere& Sphere::setFrom( std::vector<glm::vec3>& points, glm::vec3 center ) {
         this->center = center;
         
         float max_radius = 0.0;
@@ -75,12 +74,12 @@ namespace three {
     }
     
     
-    bool Sphere::contains( glm::vec3& point ) {
+    bool Sphere::contains( glm::vec3 point ) {
         return glm::distance(point, this->center) <= (this->radius);
     }
     
     
-    float Sphere::distanceTo( glm::vec3& point ) {
+    float Sphere::distanceTo( glm::vec3 point ) {
         return glm::distance( point, center ) - this->radius;
     }
     
@@ -90,7 +89,7 @@ namespace three {
         return glm::distance( sphere.center, this->center ) <= radius_sum;
     }
     
-    glm::vec3 Sphere::clamp( glm::vec3& point ) {
+    glm::vec3 Sphere::clamp( glm::vec3 point ) {
         float distance = glm::distance(center, point);
         glm::vec3 result = point;
         
@@ -117,7 +116,7 @@ namespace three {
         return *this;
     }
     
-    Sphere& Sphere::translate( glm::vec3& offset ) {
+    Sphere& Sphere::translate( glm::vec3 offset ) {
         this->center += offset;
         return *this;
     }

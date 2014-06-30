@@ -39,6 +39,12 @@
 		A8439B68195D798700DF2B47 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B66195D798700DF2B47 /* Triangle.cpp */; };
 		A8439B6B195D82F600DF2B47 /* Ray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B69195D82F600DF2B47 /* Ray.cpp */; };
 		A8439B6E195DD40A00DF2B47 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B6C195DD40A00DF2B47 /* Constants.cpp */; };
+		A853C78719612EB200F9E39E /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C78519612EB200F9E39E /* Renderer.cpp */; };
+		A853C78919612EC000F9E39E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A853C78819612EBF00F9E39E /* OpenGL.framework */; };
+		A853C78D196133DC00F9E39E /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C78B196133DC00F9E39E /* Utils.cpp */; };
+		A853C79219613DFA00F9E39E /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C79019613DFA00F9E39E /* Color.cpp */; };
+		A853C79519614D6E00F9E39E /* Frustum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C79319614D6E00F9E39E /* Frustum.cpp */; };
+		A853C7981961648400F9E39E /* Spline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C7961961648400F9E39E /* Spline.cpp */; };
 		A8959CD1195C4A9000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CD0195C4A9000CE9522 /* main.cpp */; };
 		A8959CD3195C4A9000CE9522 /* Three_cpp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8959CD2195C4A9000CE9522 /* Three_cpp.1 */; };
 		A8959CF3195C87A000CE9522 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8959CF2195C87A000CE9522 /* main.cpp */; };
@@ -94,6 +100,18 @@
 		A8439B6A195D82F600DF2B47 /* Ray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ray.h; sourceTree = "<group>"; };
 		A8439B6C195DD40A00DF2B47 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
 		A8439B6D195DD40A00DF2B47 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A853C78519612EB200F9E39E /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		A853C78619612EB200F9E39E /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		A853C78819612EBF00F9E39E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		A853C78B196133DC00F9E39E /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		A853C78C196133DC00F9E39E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		A853C78F19613A2400F9E39E /* three.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = three.h; sourceTree = "<group>"; };
+		A853C79019613DFA00F9E39E /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
+		A853C79119613DFA00F9E39E /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		A853C79319614D6E00F9E39E /* Frustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frustum.cpp; sourceTree = "<group>"; };
+		A853C79419614D6E00F9E39E /* Frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frustum.h; sourceTree = "<group>"; };
+		A853C7961961648400F9E39E /* Spline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spline.cpp; sourceTree = "<group>"; };
+		A853C7971961648400F9E39E /* Spline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spline.h; sourceTree = "<group>"; };
 		A8959CCD195C4A9000CE9522 /* Three.cpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Three.cpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8959CD0195C4A9000CE9522 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A8959CD2195C4A9000CE9522 /* Three_cpp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Three_cpp.1; sourceTree = "<group>"; };
@@ -109,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A853C78919612EC000F9E39E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A81A94A61961739E005A4092 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A853C78819612EBF00F9E39E /* OpenGL.framework */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		A8439B45195D3F1500DF2B47 /* math */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,30 +157,118 @@
 				A8439B46195D3F1500DF2B47 /* Box2.cpp */,
 				A8439B47195D3F1500DF2B47 /* Box2.h */,
 				A8439B48195D3F1500DF2B47 /* Box3.cpp */,
-				A8D180DD1960587500BDD1A6 /* Quaternion.cpp */,
-				A8D180DE1960587500BDD1A6 /* Quaternion.h */,
 				A8439B49195D3F1500DF2B47 /* Box3.h */,
+				A853C79019613DFA00F9E39E /* Color.cpp */,
+				A853C79119613DFA00F9E39E /* Color.h */,
 				A816A9F4195F0F8A00113E4C /* Euler.cpp */,
 				A816A9F5195F0F8A00113E4C /* Euler.h */,
-				A8439B4A195D3F1500DF2B47 /* Math.cpp */,
-				A8439B4B195D3F1500DF2B47 /* Math.h */,
-				A8439B4C195D3F1500DF2B47 /* Sphere.cpp */,
-				A8439B4D195D3F1500DF2B47 /* Sphere.h */,
+				A853C79319614D6E00F9E39E /* Frustum.cpp */,
+				A853C79419614D6E00F9E39E /* Frustum.h */,
 				A8439B60195D4EFE00DF2B47 /* Line3.cpp */,
 				A8439B61195D4EFE00DF2B47 /* Line3.h */,
+				A8439B4A195D3F1500DF2B47 /* Math.cpp */,
+				A8439B4B195D3F1500DF2B47 /* Math.h */,
 				A8439B63195D680A00DF2B47 /* Plane.cpp */,
 				A8439B64195D680A00DF2B47 /* Plane.h */,
-				A8439B66195D798700DF2B47 /* Triangle.cpp */,
-				A8439B67195D798700DF2B47 /* Triangle.h */,
+				A8D180DD1960587500BDD1A6 /* Quaternion.cpp */,
+				A8D180DE1960587500BDD1A6 /* Quaternion.h */,
 				A8439B69195D82F600DF2B47 /* Ray.cpp */,
 				A8439B6A195D82F600DF2B47 /* Ray.h */,
+				A8439B4C195D3F1500DF2B47 /* Sphere.cpp */,
+				A8439B4D195D3F1500DF2B47 /* Sphere.h */,
+				A853C7961961648400F9E39E /* Spline.cpp */,
+				A853C7971961648400F9E39E /* Spline.h */,
+				A8439B66195D798700DF2B47 /* Triangle.cpp */,
+				A8439B67195D798700DF2B47 /* Triangle.h */,
 			);
 			path = math;
+			sourceTree = "<group>";
+		};
+		A853C77B19612EA900F9E39E /* cameras */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cameras;
+			sourceTree = "<group>";
+		};
+		A853C77C19612EA900F9E39E /* cores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cores;
+			sourceTree = "<group>";
+		};
+		A853C77D19612EA900F9E39E /* extras */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extras;
+			sourceTree = "<group>";
+		};
+		A853C77E19612EA900F9E39E /* lights */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lights;
+			sourceTree = "<group>";
+		};
+		A853C77F19612EA900F9E39E /* loaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = loaders;
+			sourceTree = "<group>";
+		};
+		A853C78019612EA900F9E39E /* materials */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = materials;
+			sourceTree = "<group>";
+		};
+		A853C78119612EA900F9E39E /* objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
+		A853C78219612EA900F9E39E /* renderers */ = {
+			isa = PBXGroup;
+			children = (
+				A853C78519612EB200F9E39E /* Renderer.cpp */,
+				A853C78619612EB200F9E39E /* Renderer.h */,
+			);
+			path = renderers;
+			sourceTree = "<group>";
+		};
+		A853C78319612EA900F9E39E /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		A853C78419612EA900F9E39E /* textures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
+		A853C78A196133D400F9E39E /* others */ = {
+			isa = PBXGroup;
+			children = (
+				A853C78B196133DC00F9E39E /* Utils.cpp */,
+				A853C78C196133DC00F9E39E /* Utils.h */,
+			);
+			path = others;
 			sourceTree = "<group>";
 		};
 		A8959CC4195C4A9000CE9522 = {
 			isa = PBXGroup;
 			children = (
+				A81A94A61961739E005A4092 /* lib */,
 				A8959CCF195C4A9000CE9522 /* Three.cpp */,
 				A8959CF1195C87A000CE9522 /* UnitTests */,
 				A8959CCE195C4A9000CE9522 /* Products */,
@@ -182,7 +297,19 @@
 		A8959CD9195C4AE100CE9522 /* three */ = {
 			isa = PBXGroup;
 			children = (
+				A853C78F19613A2400F9E39E /* three.h */,
+				A853C78A196133D400F9E39E /* others */,
+				A853C77B19612EA900F9E39E /* cameras */,
+				A853C77C19612EA900F9E39E /* cores */,
+				A853C77D19612EA900F9E39E /* extras */,
+				A853C77E19612EA900F9E39E /* lights */,
+				A853C77F19612EA900F9E39E /* loaders */,
 				A8439B45195D3F1500DF2B47 /* math */,
+				A853C78019612EA900F9E39E /* materials */,
+				A853C78119612EA900F9E39E /* objects */,
+				A853C78219612EA900F9E39E /* renderers */,
+				A853C78319612EA900F9E39E /* scenes */,
+				A853C78419612EA900F9E39E /* textures */,
 			);
 			path = three;
 			sourceTree = "<group>";
@@ -271,12 +398,17 @@
 			files = (
 				A8439B6B195D82F600DF2B47 /* Ray.cpp in Sources */,
 				A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */,
+				A853C79519614D6E00F9E39E /* Frustum.cpp in Sources */,
 				A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */,
 				A8959CD1195C4A9000CE9522 /* main.cpp in Sources */,
 				A8439B68195D798700DF2B47 /* Triangle.cpp in Sources */,
 				A8D180DF1960587500BDD1A6 /* Quaternion.cpp in Sources */,
+				A853C78719612EB200F9E39E /* Renderer.cpp in Sources */,
+				A853C7981961648400F9E39E /* Spline.cpp in Sources */,
+				A853C79219613DFA00F9E39E /* Color.cpp in Sources */,
 				A816A9F6195F0F8A00113E4C /* Euler.cpp in Sources */,
 				A8439B62195D4EFE00DF2B47 /* Line3.cpp in Sources */,
+				A853C78D196133DC00F9E39E /* Utils.cpp in Sources */,
 				A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */,
 				A8439B6E195DD40A00DF2B47 /* Constants.cpp in Sources */,
 				A8439B65195D680A00DF2B47 /* Plane.cpp in Sources */,
@@ -395,8 +527,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/glm/0.9.5.3/include,
 					/usr/local/include,
+					/usr/local/Cellar/glfw3/3.0.4/include,
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glfw3/3.0.4/lib;
+				OTHER_LDFLAGS = "-lglfw3.3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -409,8 +543,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/glm/0.9.5.3/include,
 					/usr/local/include,
+					/usr/local/Cellar/glfw3/3.0.4/include,
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glfw3/3.0.4/lib;
+				OTHER_LDFLAGS = "-lglfw3.3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

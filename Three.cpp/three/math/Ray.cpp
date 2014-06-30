@@ -19,7 +19,7 @@ namespace three {
         direction(glm::vec3(0, 0, 0))
     { }
     
-    Ray::Ray( glm::vec3& param_origin, glm::vec3& param_direction ):
+    Ray::Ray( glm::vec3 param_origin, glm::vec3 param_direction ):
         origin(param_origin),
         direction(param_direction)
     {}
@@ -27,7 +27,7 @@ namespace three {
     Ray::~Ray() {
     }
     
-    Ray& Ray::set( glm::vec3& origin, glm::vec3& direction ){
+    Ray& Ray::set( glm::vec3 origin, glm::vec3 direction ){
         this->origin    = origin;
         this->direction = direction;
         return *this;
@@ -53,7 +53,7 @@ namespace three {
         return *this;
     }
     
-    glm::vec3 Ray::closestPointTo( glm::vec3& point ){
+    glm::vec3 Ray::closestPointTo( glm::vec3 point ){
         float direction_distance = glm::dot( point - origin, direction );
         
         if( direction_distance < 0.0 )
@@ -62,7 +62,7 @@ namespace three {
         return (this->direction * direction_distance) + origin;
     }
     
-    float Ray::distanceTo( glm::vec3& point ){
+    float Ray::distanceTo( glm::vec3 point ){
         float direction_distance = glm::dot( point - origin, direction );
         if( direction_distance < 0.0 )
             return glm::distance( origin, point );
@@ -80,7 +80,7 @@ namespace three {
      * - The closes point to segment
      */
     
-    float Ray::distanceSquaredToSegment( glm::vec3& v0, glm::vec3& v1, glm::vec3& point_to_ray, glm::vec3& point_to_segment ) {
+    float Ray::distanceSquaredToSegment( glm::vec3 v0, glm::vec3 v1, glm::vec3 point_to_ray, glm::vec3 point_to_segment ) {
         glm::vec3 segment_center = (v0 + v1);
         segment_center *= 0.5;
         

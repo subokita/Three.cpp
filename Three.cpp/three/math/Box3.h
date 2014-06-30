@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <glm/glm.hpp>
-
+#include "Utils.h"
 
 namespace three {
     class Sphere;
@@ -20,15 +20,15 @@ namespace three {
     class Box3 {
         public:
             Box3();
-            Box3( glm::vec3& min_vec, glm::vec3& max_vec );
+            Box3( glm::vec3 min_vec, glm::vec3 max_vec );
             ~Box3();
         
         
-            Box3& addPoint( glm::vec3& point );
+            Box3& addPoint( glm::vec3 point );
             Box3& set( glm::vec3 min_vec, glm::vec3 max_vec );
             Box3& setFrom( std::vector<glm::vec4>& points );
             Box3& setFrom( std::vector<glm::vec3>& points );
-            Box3& setFrom( glm::vec3& center, glm::vec3& size );
+            Box3& setFrom( glm::vec3 center, glm::vec3 size );
         
             // FIXME: Implement Object3D first
             Box3& setFromObject();
@@ -37,16 +37,16 @@ namespace three {
             glm::vec3 center();
             glm::vec3 size();
             
-            Box3& expandByPoint( glm::vec3& point );
-            Box3& expandByVector( glm::vec3& vector );
+            Box3& expandByPoint( glm::vec3 point );
+            Box3& expandByVector( glm::vec3 vector );
             Box3& expandByScalar( float scalar );
             
-            bool contains( glm::vec3& point );
+            bool contains( glm::vec3 point );
             bool contains( Box3& box );
             glm::vec3 getParameter( glm::vec3 point );
             bool doesIntersect( Box3& box );
-            glm::vec3 clamp( glm::vec3& point );
-            float distanceTo( glm::vec3& point );
+            glm::vec3 clamp( glm::vec3 point );
+            float distanceTo( glm::vec3 point );
         
             Sphere getBoundingSphere();
         
@@ -65,7 +65,7 @@ namespace three {
             glm::vec3 max;
             
             friend std::ostream &operator <<( std::ostream& os, const Box3& box ) {
-                os << "(" << box.min.x << ", " << box.min.y<< ", " << box.min.z << ") to (" << box.max.x << ", " << box.max.y << ", " << box.max.z << ")" ;
+                os << Utils::toString( box.min ) << " to " << Utils::toString( box.max );
                 return os;
             }
     };

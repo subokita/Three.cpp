@@ -19,32 +19,32 @@ namespace three {
         constant( 0.0 )
     {}
     
-    Plane::Plane( glm::vec3& param_normal, float param_constant ):
+    Plane::Plane( glm::vec3 param_normal, float param_constant ):
         normal( param_normal ),
         constant( param_constant )
     {}
     
     Plane::~Plane(){}
     
-    Plane& Plane::set( glm::vec3& normal, float constant ){
+    Plane& Plane::set( glm::vec3 normal, float constant ){
         this->normal    = normal;
         this->constant  = constant;
         return *this;
     }
     
-    Plane& Plane::setComponents( float x, float y, float z, float w ){
+    Plane& Plane::set( float x, float y, float z, float w ){
         this->normal    = glm::vec3( x, y, z );
         this->constant  = w;
         return *this;
     }
     
-    Plane& Plane::setFromNormalAndCoplanarPoint( glm::vec3& normal, glm::vec3& point ){
+    Plane& Plane::setFromNormalAndCoplanarPoint( glm::vec3 normal, glm::vec3 point ){
         this->normal    = normal;
         this->constant  = glm::dot( -point, normal );
         return *this;
     }
     
-    Plane& Plane::setFromCoplanarPoints( glm::vec3& a, glm::vec3& b, glm::vec3& c ){
+    Plane& Plane::setFromCoplanarPoints( glm::vec3 a, glm::vec3 b, glm::vec3 c ){
         glm::vec3 normal = glm::normalize(glm::cross( c-b, a-b));
         this->setFromNormalAndCoplanarPoint( normal, a );
         return *this;
@@ -72,7 +72,7 @@ namespace three {
     }
     
     
-    float Plane::distanceTo( glm::vec3& point ) {
+    float Plane::distanceTo( glm::vec3 point ) {
         return glm::dot( normal, point ) + constant;
     }
     
@@ -81,14 +81,14 @@ namespace three {
     }
     
     
-    glm::vec3 Plane::orthoPoint( glm::vec3& point ) {
+    glm::vec3 Plane::orthoPoint( glm::vec3 point ) {
         float perpendicular_magnitude = distanceTo( point );
         glm::vec3 result = normal * perpendicular_magnitude;
         return result;
     }
     
     
-    glm::vec3 Plane::projectPoint( glm::vec3& point ) {
+    glm::vec3 Plane::projectPoint( glm::vec3 point ) {
         glm::vec3 result = orthoPoint( point ) - point;
         result *= -1;
         return result;
@@ -135,7 +135,7 @@ namespace three {
     }
     
     
-    Plane& Plane::translate( glm::vec3& offset ) {
+    Plane& Plane::translate( glm::vec3 offset ) {
         constant = constant - glm::dot( offset, normal );
         return *this;
     }

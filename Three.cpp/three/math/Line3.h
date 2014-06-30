@@ -11,15 +11,16 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
+#include "Utils.h"
 
 namespace three {
     class Line3 {
         public:
             Line3();
-            Line3( glm::vec3& param_start, glm::vec3& param_end );
+            Line3( glm::vec3 param_start, glm::vec3 param_end );
             ~Line3();
         
-            Line3& set( glm::vec3& param_start, glm::vec3& param_end );
+            Line3& set( glm::vec3 param_start, glm::vec3 param_end );
             Line3& operator=( const Line3& other );
             glm::vec3 center();
             glm::vec3 delta();
@@ -28,8 +29,8 @@ namespace three {
             float distance();
         
             glm::vec3 at( float t );
-            float closestPointToPointParameter( glm::vec3& point, bool clamp_to_line );
-            glm::vec3 closestPointToPoint( glm::vec3& point, bool clamp_to_line );
+            float closestPointToPointParameter( glm::vec3 point, bool clamp_to_line );
+            glm::vec3 closestPointToPoint( glm::vec3 point, bool clamp_to_line );
         
             Line3& applyMatrix( glm::mat4x4& mat );
             bool equals( Line3& other );
@@ -37,6 +38,11 @@ namespace three {
         
             glm::vec3 start;
             glm::vec3 end;
+        
+            friend std::ostream &operator <<( std::ostream& os, const Line3& line ) {
+                os << Utils::toString( line.start ) << " to " << Utils::toString( line.end );
+                return os;
+            }
     };
 }
 

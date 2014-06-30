@@ -21,7 +21,7 @@ namespace three {
     {
     }
     
-    Triangle::Triangle( glm::vec3& param_a, glm::vec3& param_b, glm::vec3& param_c ) :
+    Triangle::Triangle( glm::vec3 param_a, glm::vec3 param_b, glm::vec3 param_c ) :
         a( param_a ),
         b( param_b ),
         c( param_c )
@@ -30,14 +30,14 @@ namespace three {
     Triangle::~Triangle(){
     }
     
-    Triangle& Triangle::set( glm::vec3& a, glm::vec3& b, glm::vec3& c ){
+    Triangle& Triangle::set( glm::vec3 a, glm::vec3 b, glm::vec3 c ){
         this->a = a;
         this->b = b;
         this->c = c;
         return *this;
     }
     
-    glm::vec3 Triangle::normal( glm::vec3& a, glm::vec3& b, glm::vec3& c ){
+    glm::vec3 Triangle::normal( glm::vec3 a, glm::vec3 b, glm::vec3 c ){
         glm::vec3 normal;
         normal = glm::cross(c - b, a - b);
         
@@ -52,7 +52,7 @@ namespace three {
      * Barycentric technique for point in triangle test
      * http://www.blackpawn.com/texts/pointinpoly/default.html
      */
-    glm::vec3 Triangle::baryCoordFromPoint( glm::vec3& point, glm::vec3& a, glm::vec3& b, glm::vec3& c ){
+    glm::vec3 Triangle::baryCoordFromPoint( glm::vec3 point, glm::vec3 a, glm::vec3 b, glm::vec3 c ){
         glm::vec3 v0 = c - a;
         glm::vec3 v1 = b - a;
         glm::vec3 v2 = point - a;
@@ -73,7 +73,7 @@ namespace three {
         return glm::vec3( 1 - u - v, v, u );
     }
     
-    bool Triangle::containsPoint( glm::vec3& point, glm::vec3& a, glm::vec3& b, glm::vec3& c ){
+    bool Triangle::containsPoint( glm::vec3 point, glm::vec3 a, glm::vec3 b, glm::vec3 c ){
         glm::vec3 result = baryCoordFromPoint( point, a, b, c );
         return result.x >= 0 && result.y >= 0 && ((result.x + result.y) <= 1.0);
     }
@@ -116,11 +116,11 @@ namespace three {
         return plane;
     }
     
-    glm::vec3 Triangle::baryCoordFromPoint( glm::vec3& point ) {
+    glm::vec3 Triangle::baryCoordFromPoint( glm::vec3 point ) {
         return Triangle::baryCoordFromPoint( point, a, b, c );
     }
     
-    bool Triangle::contains( glm::vec3& point ) {
+    bool Triangle::contains( glm::vec3 point ) {
         return Triangle::containsPoint( point, a, b, c );
     }
     

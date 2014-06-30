@@ -45,11 +45,23 @@ namespace three {
             Euler clone();
         
         
-        
             float x;
             float y;
             float z;
             RotationOrders order = RotationOrders::XYZ;
+        
+            friend std::ostream &operator <<( std::ostream& os, const Euler& euler ) {
+                os << "(" << euler.x << ", " << euler.y << ", " << euler.z << ", " ;
+                switch ( euler.order) {
+                    case RotationOrders::XYZ: os << "XYZ)"; break;
+                    case RotationOrders::YXZ: os << "YXZ)"; break;
+                    case RotationOrders::ZXY: os << "ZXY)"; break;
+                    case RotationOrders::ZYX: os << "ZYX)"; break;
+                    case RotationOrders::YZX: os << "YZX)"; break;
+                    case RotationOrders::XZY: os << "XZY)"; break;
+                }
+                return os;
+            }
     };
 }
 

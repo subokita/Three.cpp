@@ -17,7 +17,7 @@ namespace three {
     {
     }
     
-    Line3::Line3( glm::vec3& param_start, glm::vec3& param_end ):
+    Line3::Line3( glm::vec3 param_start, glm::vec3 param_end ):
         start( param_start ),
         end( param_end )
     {
@@ -27,7 +27,7 @@ namespace three {
         
     }
     
-    Line3& Line3::set( glm::vec3& param_start, glm::vec3& param_end ){
+    Line3& Line3::set( glm::vec3 param_start, glm::vec3 param_end ){
         this->start = param_start;
         this->end   = param_end;
         return *this;
@@ -66,7 +66,7 @@ namespace three {
     }
     
     
-    float Line3::closestPointToPointParameter( glm::vec3& point, bool clamp_to_line ) {
+    float Line3::closestPointToPointParameter( glm::vec3 point, bool clamp_to_line ) {
         glm::vec3 start_point= point - start;
         glm::vec3 start_end  = end - start;
         
@@ -77,7 +77,7 @@ namespace three {
         return clamp_to_line ? three::Math::clamp( t, 0.0, 1.0 ) : t;
     }
     
-    glm::vec3 Line3::closestPointToPoint( glm::vec3& point, bool clamp_to_line ) {
+    glm::vec3 Line3::closestPointToPoint( glm::vec3 point, bool clamp_to_line ) {
         float t = closestPointToPointParameter( point, clamp_to_line );
         return delta() * t + start;
     }

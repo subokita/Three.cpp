@@ -30,6 +30,8 @@ namespace three {
         static float degToRad( float degree );
         static float radToDeg( float radians );
         static bool isPowerOfTwo( int value );
+        
+        static float hueToRGB( float p, float q, float t );
     };
 }
 

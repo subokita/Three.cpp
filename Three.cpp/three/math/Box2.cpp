@@ -19,8 +19,7 @@ namespace three {
         max(glm::vec2( MIN_FLOAT, MIN_FLOAT ))
     { }
     
-    
-    Box2::Box2( glm::vec2& min_vec, glm::vec2& max_vec ) :
+    Box2::Box2( glm::vec2 min_vec, glm::vec2 max_vec ) :
         min( min_vec ),
         max( max_vec )
     {}
@@ -28,7 +27,6 @@ namespace three {
     Box2::~Box2() {
     }
  
-    
     Box2& Box2::set( glm::vec2 min_vec, glm::vec2 max_vec ) {
         this->min = min_vec;
         this->max = max_vec;
@@ -59,7 +57,7 @@ namespace three {
     }
     
     
-    Box2& Box2::setFrom( glm::vec2& center, glm::vec2& size ) {
+    Box2& Box2::setFrom( glm::vec2 center, glm::vec2 size ) {
         glm::vec2 half_size = size;
         half_size /= 2.0;
         
@@ -94,14 +92,14 @@ namespace three {
         return this->max - this->min;
     }
     
-    Box2& Box2::expandByPoint(glm::vec2 &point) {
+    Box2& Box2::expandByPoint(glm::vec2 point) {
         this->min = glm::min( this->min, point );
         this->max = glm::max( this->max, point );
         return *this;
     }
     
     
-    Box2& Box2::expandByVector( glm::vec2& vector ) {
+    Box2& Box2::expandByVector( glm::vec2 vector ) {
         this->min -= vector;
         this->max += vector;
         return *this;
@@ -113,7 +111,7 @@ namespace three {
         return *this;
     }
     
-    bool Box2::contains( glm::vec2& point ) {
+    bool Box2::contains( glm::vec2 point ) {
         if( point.x < min.x || point.y < min.y || point.x > max.x || point.y > max.y )
             return false;
         return true;
@@ -143,13 +141,13 @@ namespace three {
         return true;
     }
     
-    glm::vec2 Box2::clamp( glm::vec2& point ) {
+    glm::vec2 Box2::clamp( glm::vec2 point ) {
         glm::vec2 result = point;
         result = glm::clamp( result, min, max );
         return result;
     }
     
-    float Box2::distanceTo( glm::vec2& point ) {
+    float Box2::distanceTo( glm::vec2 point ) {
         glm::vec2 v1 = glm::clamp( point, min, max );
         return glm::length(v1 - point);
     }

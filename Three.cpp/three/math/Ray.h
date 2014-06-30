@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
+#include "Utils.h"
 
 namespace three {
     class Plane;
@@ -21,17 +22,17 @@ namespace three {
     class Ray{
         public:
             Ray();
-            Ray( glm::vec3& param_origin, glm::vec3& param_direction );
+            Ray( glm::vec3 param_origin, glm::vec3 param_direction );
             ~Ray();
         
-            Ray& set( glm::vec3& origin, glm::vec3& direction );
+            Ray& set( glm::vec3 origin, glm::vec3 direction );
             Ray& operator=(const Ray& other );
             glm::vec3 at( float t );
             Ray& recast( float t );
-            glm::vec3 closestPointTo( glm::vec3& point );
-            float distanceTo( glm::vec3& point );
+            glm::vec3 closestPointTo( glm::vec3 point );
+            float distanceTo( glm::vec3 point );
         
-            float distanceSquaredToSegment( glm::vec3& v0, glm::vec3& v1, glm::vec3& point_to_ray, glm::vec3& point_to_segment );
+            float distanceSquaredToSegment( glm::vec3 v0, glm::vec3 v1, glm::vec3 point_to_ray, glm::vec3 point_to_segment );
         
             bool doesIntersect(Sphere& sphere);
             bool doesIntersect(Plane& plane);
@@ -47,6 +48,13 @@ namespace three {
         
             glm::vec3 origin;
             glm::vec3 direction;
+        
+        
+            friend std::ostream &operator <<( std::ostream& os, const Ray& ray ) {
+                os  << "origin: " << Utils::toString( ray.origin )
+                    << " direction: " << Utils::toString( ray.direction );
+                return os;
+            }
     };
 }
 

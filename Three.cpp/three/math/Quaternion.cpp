@@ -235,9 +235,85 @@ namespace three {
     }
     
     
-    Quaternion& Quaternion::multiply(Quaternion& q) {
+    Quaternion Quaternion::multiply(Quaternion& a, Quaternion& b) {
+        float x = a.x * b.w + a.w * b.x + a.y * b.z - a.z * b.y;
+        float y = a.y * b.w + a.w * b.y + a.z * b.x - a.x * b.z;
+        float z = a.z * b.w + a.w * b.z + a.x * b.y - a.y * b.x;
+        float w = a.w * b.w - a.x * b.x - a.y * b.y - a.z * b.z;
         
+        return Quaternion( x, y, z, w );
+    }
+    
+    Quaternion& Quaternion::multiply(Quaternion& q) {
+        *this = multiply(*this, q);
         return (*this);
     }
     
+    
+    Quaternion& Quaternion::slerp( Quaternion& q, float t ) {
+        float cos_half_theta = w * q.w + x * q.x + y * q.y + z * q.z;
+        
+        if( cos_half_theta < 0.0 ) {
+            w = -q.w;
+            x = -q.x;
+            y = -q.y;
+            z = -q.z;
+            cos_half_theta = -cos_half_theta;
+        }
+        else {
+            *this = q;
+        }
+        
+        if( cos_half_theta >= 1.0 ) {
+            *this = q;
+            return *this;
+        }
+        
+        float half_theta = acos( cos_half_theta );
+        float sin_half_theta = sqrt( 1.0 - cos_half_theta * cos_half_theta );
+        
+        if( fabsf(sin_half_theta) < 0.001 ) {
+            w = 0.5 * ( q.w + w );
+            x = 0.5 * ( q.x + x );
+            y = 0.5 * ( q.y + y );
+            z = 0.5 * ( q.z + z );
+            return *this;
+        }
+        
+        float ratio_a = sinf( (1.0 - t) * half_theta ) / sin_half_theta;
+        float ratio_b = sinf(        t  * half_theta ) / sin_half_theta;
+        
+        w = ( q.w * ratio_a + w * ratio_b );
+        x = ( q.x * ratio_a + x * ratio_b );
+        y = ( q.y * ratio_a + y * ratio_b );
+        z = ( q.z * ratio_a + z * ratio_b );
+        
+        //FIXME: onChangecallback
+        
+        return *this;
+    }
+    
+    bool Quaternion::equals( Quaternion& q ) {
+        return x == q.x && y == q.y && z == q.z && w == q.w;
+    }
+    
+    
+    Quaternion& Quaternion::fromArray( vector<float>& vec ) {
+        // FIXME: on change callback
+        x = vec[0];
+        y = vec[1];
+        z = vec[2];
+        w = vec[3];
+        return *this;
+    }
+    
+    vector<float> Quaternion::toArray(){
+        return vector<float> {
+            x, y, z, w
+        };
+    }
+    
+    Quaternion Quaternion::clone(){
+        return Quaternion( x, y, z, w );
+    }
 }
