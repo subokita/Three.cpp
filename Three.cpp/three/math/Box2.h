@@ -50,8 +50,7 @@ namespace three {
         
             glm::vec2 min;
             glm::vec2 max;
-        
-        
+            
             friend std::ostream &operator <<( std::ostream& os, const Box2& box ) {
                 os << three::Utils::toString( box.min ) << " to " << three::Utils::toString( box.max );
                 return os;

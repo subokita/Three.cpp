@@ -56,4 +56,37 @@ namespace three {
         float v1 = (p3 - p1) * 0.5;
 		return ( 2 * ( p1 - p2 ) + v0 + v1 ) * t3 + ( - 3 * ( p1 - p2 ) - 2 * v0 - v1 ) * t2 + v0 * t + p1;
     }
+    
+    //FIXME: Looks suspiciously buggy due to typecasting
+    ApproxLength Spline::getLength( int subdivisions ) {
+        ApproxLength approx;
+//        
+//        approx.chunkLengths.push_back( 0.0 );
+//        
+//        if( subdivisions < 1 )
+//            subdivisions = 100;
+//        
+//        int no_of_samples = static_cast<int>(points.size()) * subdivisions;
+//        
+//        glm::vec3 old_pos = points[0];
+//        float point = 0.0;
+//        float int_point = 0.0;
+//        float old_int_point = 0.0;
+//        
+//        for( int i = 1; i < no_of_samples; i++ ) {
+//            float index = i / no_of_samples;
+//            
+//            glm::vec3 pos = getPoint( index );
+//            approx.totalLength += glm::distance( pos, old_pos );
+//            
+//            old_pos = pos;
+//            
+//            point = (points.size() - 1) * index;
+//            int_point = floor( point );
+//            
+//
+//        }
+//        
+        return approx;
+    }
 }

@@ -23,7 +23,6 @@ namespace three {
             Box3( glm::vec3 min_vec, glm::vec3 max_vec );
             ~Box3();
         
-        
             Box3& addPoint( glm::vec3 point );
             Box3& set( glm::vec3 min_vec, glm::vec3 max_vec );
             Box3& setFrom( std::vector<glm::vec4>& points );
@@ -60,7 +59,7 @@ namespace three {
             
             bool empty();
             Box3& operator=( const Box3& others );
-            
+        
             glm::vec3 min;
             glm::vec3 max;
             

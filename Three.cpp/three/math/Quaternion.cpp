@@ -29,14 +29,34 @@ namespace three {
         w(param_w)
     {}
     
+    
+    Quaternion& Quaternion::setX( float x ){
+        this->x = x;
+        onChangeCallback();
+        return *this;
+    }
+    Quaternion& Quaternion::setY( float y ){
+        this->y = y;
+        onChangeCallback();
+        return *this;
+    }
+    Quaternion& Quaternion::setZ( float z ){
+        this->z = z;
+        onChangeCallback();
+        return *this;
+    }
+    Quaternion& Quaternion::setW( float w ){
+        this->w = w;
+        onChangeCallback();
+        return *this;
+    }
+    
     Quaternion& Quaternion::set( float x, float y, float z, float w ){
         this->x = x;
         this->y = y;
         this->z = z;
         this->w = w;
-        
-        //FIXME: onChangeCallback
-        
+        onChangeCallback();
         return *this;
     }
     
@@ -49,11 +69,11 @@ namespace three {
         this->y = other.y;
         this->z = other.z;
         this->w = other.w;
-        
+        onChangeCallback();
         return *this;
     }
     
-    Quaternion& Quaternion::setFrom( Euler& euler ) {
+    Quaternion& Quaternion::setFrom( Euler& euler, bool update ) {
         float cos_x = cosf( euler.x / 2.0 );
         float cos_y = cosf( euler.y / 2.0 );
         float cos_z = cosf( euler.z / 2.0 );
@@ -105,8 +125,8 @@ namespace three {
                 break;
         }
         
-        // FIXME:
-//		if ( update !== false ) this.onChangeCallback();
+        if( update )
+            onChangeCallback();
         
         return *this;
     }
@@ -119,7 +139,7 @@ namespace three {
         this->y = axis.y * sin_half_angle;
         this->z = axis.z * sin_half_angle;
         this->w = cosf( half_angle );
-        //FIXME: onChangeCallback()
+        onChangeCallback();
         return *this;
     }
     
@@ -160,7 +180,7 @@ namespace three {
 			this->z = 0.25 * s;
 		}
         
-        //FIXME: onchangecallback
+        onChangeCallback();
         
         return *this;
     }
@@ -202,7 +222,7 @@ namespace three {
         this->y *= -1.0;
         this->z *= -1.0;
         
-        //FIXME: onChangeCallback
+        onChangeCallback();
         return *this;
     }
     
@@ -230,7 +250,7 @@ namespace three {
             this->w = this->w * len;
         }
         
-        //FIXME: onchangecallback
+        onChangeCallback();
         return *this;
     }
     
@@ -246,6 +266,7 @@ namespace three {
     
     Quaternion& Quaternion::multiply(Quaternion& q) {
         *this = multiply(*this, q);
+        onChangeCallback();
         return (*this);
     }
     
@@ -288,18 +309,22 @@ namespace three {
         y = ( q.y * ratio_a + y * ratio_b );
         z = ( q.z * ratio_a + z * ratio_b );
         
-        //FIXME: onChangecallback
+        onChangeCallback();
         
         return *this;
+    }
+    
+    
+    Quaternion Quaternion::slerp( Quaternion& a, Quaternion& b, float t ) {
+        Quaternion temp = a;
+        return temp.slerp( b, t );
     }
     
     bool Quaternion::equals( Quaternion& q ) {
         return x == q.x && y == q.y && z == q.z && w == q.w;
     }
     
-    
     Quaternion& Quaternion::fromArray( vector<float>& vec ) {
-        // FIXME: on change callback
         x = vec[0];
         y = vec[1];
         z = vec[2];
@@ -311,6 +336,12 @@ namespace three {
         return vector<float> {
             x, y, z, w
         };
+    }
+    
+    
+    Quaternion& Quaternion::onChange( std::function<void()> callback ) {
+        onChangeCallback = callback;
+        return *this;
     }
     
     Quaternion Quaternion::clone(){

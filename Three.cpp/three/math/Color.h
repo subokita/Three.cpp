@@ -50,20 +50,20 @@ namespace three {
             Color operator*( float scalar );
             Color& operator*=( float scalar );
         
-        Color& lerp(Color& other, float alpha);
-        bool equals( Color& other );
-        Color& fromArray( std::vector<float>& vec );
-        std::vector<float> toArray();
-        Color clone();
+            Color& lerp(Color& other, float alpha);
+            bool equals( Color& other );
+            Color& fromArray( std::vector<float>& vec );
+            std::vector<float> toArray();
+            Color clone();
+            
+            float r;
+            float g;
+            float b;
         
-        float r;
-        float g;
-        float b;
-    
-        friend std::ostream &operator <<( std::ostream& os, const Color& color ) {
-            os << "(" << color.r << " " << color.g << " " << color.b << ")";
-            return os;
-        }
+            friend std::ostream &operator <<( std::ostream& os, const Color& color ) {
+                os << "(" << color.r << " " << color.g << " " << color.b << ")";
+                return os;
+            }
     };
 }
 

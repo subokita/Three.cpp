@@ -8,6 +8,7 @@
 
 #include "Euler.h"
 #include "Math.h"
+#include "Quaternion.h"
 
 using namespace std;
 
@@ -18,27 +19,26 @@ namespace three {
         y(0.0),
         z(0.0),
         order( RotationOrders::XYZ )
-    {
-    }
+    {}
     
     Euler::Euler( float x_val, float y_val, float z_val, RotationOrders rot_order ):
         x(x_val),
         y(y_val),
         z(z_val),
         order( rot_order )
-    {
-    }
+    {}
     
-    Euler::~Euler() {
-    }
+    Euler::~Euler() {}
     
     Euler& Euler::set( float x, float y, float z, RotationOrders order ){
         this->x     = x;
         this->y     = y;
         this->z     = z;
         this->order = order;
+        onChangeCallback();
         return *this;
     }
+    
     Euler& Euler::operator=( const Euler& other ){
         if( this == &other )
             return *this;
@@ -47,10 +47,36 @@ namespace three {
         this->y     = other.y;
         this->z     = other.z;
         this->order = other.order;
+        onChangeCallback();
         return *this;
     }
     
-    Euler& Euler::setFrom( glm::mat4x4& mat, RotationOrders order  ){
+    
+    Euler& Euler::setX( float x ) {
+        this->x = x;
+        onChangeCallback();
+        return *this;
+    }
+    
+    Euler& Euler::setY( float y ){
+        this->y = y;
+        onChangeCallback();
+        return *this;
+    }
+    
+    Euler& Euler::setZ( float z ){
+        this->z = z;
+        onChangeCallback();
+        return *this;
+    }
+    
+    Euler& Euler::setRotationOrder( RotationOrders order ){
+        this->order = order;
+        onChangeCallback();
+        return *this;
+    }
+    
+    Euler& Euler::setFrom( glm::mat4x4& mat, RotationOrders order ){
         this->order = order;
         
         switch ( order ) {
@@ -128,8 +154,7 @@ namespace three {
                 break;
         }
         
-        
-//      FIXME:  this->onChangeCallback()
+        onChangeCallback();
         
         return *this;
     }
@@ -138,14 +163,13 @@ namespace three {
     /**
      * From http://www.mathworks.com/matlabcentral/fileexchange/20696-function-to-convert-between-dcm-euler-angles-quaternions-and-euler-vectors/content/SpinCalc.m
      */
-    Euler& Euler::setFrom( glm::quat& q, RotationOrders order ){
+    Euler& Euler::setFrom( Quaternion& q, RotationOrders order, bool update ){
         float sqx = q.x * q.x;
         float sqy = q.y * q.y;
         float sqz = q.z * q.z;
         float sqw = q.w * q.w;
         
         this->order = order;
-        
         
         switch( this->order ) {
             case RotationOrders::XYZ:
@@ -185,14 +209,16 @@ namespace three {
                 break;
         }
         
-        
-        //FIXME:
-//		if ( update !== false ) this.onChangeCallback();
-        
+        if( update )
+            onChangeCallback();
         return *this;
     }
+    
+    
     void Euler::reorder( RotationOrders new_order ){
-        // FIXME: Implement Quaternion first
+        Quaternion q;
+        q.setFrom( *this, false );
+        this->setFrom( q, new_order, false );
     }
     
     bool Euler::equals( Euler& other ){
@@ -221,7 +247,7 @@ namespace three {
                 this->order = RotationOrders::ZYX;
         }
         
-        //FIXME: onChangeCallback()
+        onChangeCallback();
         
         return *this;
     }
@@ -243,11 +269,15 @@ namespace three {
         
         return array;
     }
+ 
     
-    //FIXME: onChange() ?
-    
+    Euler& Euler::onChange( std::function<void()> callback ) {
+        onChangeCallback = callback;
+        return *this;
+    }
     
     Euler Euler::clone(){
         return Euler( this->x, this->y, this->z, this->order );
     }
+
 }

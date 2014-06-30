@@ -15,41 +15,96 @@
 #include <glm/gtc/quaternion.hpp>
 
 namespace three {
+    /* Declaring to avoid circular reference */
+    class Quaternion;
     
+    /**
+     * Enum for Euler rotation order
+     */
     enum class RotationOrders {
-        XYZ = 0,
-        YZX = 1,
-        ZXY = 2,
-        XZY = 3,
-        YXZ = 4,
-        ZYX = 5
+        XYZ = 0, YZX = 1, ZXY = 2,
+        XZY = 3, YXZ = 4, ZYX = 5
     };
     
     class Euler {
         public:
+            /**
+             * Default constructor
+             */
             Euler();
+        
+            /**
+             * Constructor that sets the x, y, z, and the order of the Euler angle
+             */
             Euler( float x_val, float y_val, float z_val, RotationOrders rot_order );
+        
+            /**
+             * Destructor
+             */
             ~Euler();
+        
+            Euler& setX( float x );
+            Euler& setY( float y );
+            Euler& setZ( float z );
+            Euler& setRotationOrder( RotationOrders order );
         
             Euler& set( float x, float y, float z, RotationOrders order );
             Euler& operator=( const Euler& other );
+        
+            /**
+             * Set Euler angles from 4x4 matrix
+             */
             Euler& setFrom( glm::mat4x4& mat, RotationOrders order  );
-            Euler& setFrom( glm::quat& q, RotationOrders order );
+        
+            /**
+             * Set Euler angles from quaternion q, q is assumed to be normalized
+             * Based on: http://www.mathworks.com/matlabcentral/fileexchange/20696-function-to-convert-between-dcm-euler-angles-quaternions-and-euler-vectors/content/SpinCalc.m
+             */
+            Euler& setFrom( Quaternion& q, RotationOrders order, bool update );
+        
+            /**
+             * Change the rotation order
+             * This discards revolution information
+             */
             void reorder( RotationOrders new_order );
+        
+            /**
+             * Returns true if all the members of this euler object
+             * match other's
+             */
             bool equals( Euler& other );
         
+            /**
+             * Set the Euler angle from an array (vector)
+             */
             Euler& fromArray( std::vector<float>& array );
+        
+            /**
+             * From euler angle to array representation
+             */
             std::vector<float> toArray();
         
-            //FIXME: onChange() ?
+            /**
+             * Clone the current object
+             */
             Euler clone();
+        
+            /**
+             * Set the callback function
+             */
+            Euler& onChange( std::function<void()> callback );
         
         
             float x;
             float y;
             float z;
-            RotationOrders order = RotationOrders::XYZ;
+            RotationOrders order;
+            std::function<void()> onChangeCallback = [](){};
         
+        
+            /**
+             * Stream overloading for printing
+             */
             friend std::ostream &operator <<( std::ostream& os, const Euler& euler ) {
                 os << "(" << euler.x << ", " << euler.y << ", " << euler.z << ", " ;
                 switch ( euler.order) {

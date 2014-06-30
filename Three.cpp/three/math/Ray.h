@@ -12,6 +12,7 @@
 #include <iostream>
 #include <glm/glm.hpp>
 #include "Utils.h"
+#include "Plane.h"
 
 namespace three {
     class Plane;
@@ -48,7 +49,6 @@ namespace three {
         
             glm::vec3 origin;
             glm::vec3 direction;
-        
         
             friend std::ostream &operator <<( std::ostream& os, const Ray& ray ) {
                 os  << "origin: " << Utils::toString( ray.origin )

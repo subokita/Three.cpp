@@ -14,12 +14,19 @@
 #include <vector>
 
 namespace three {
+    struct ApproxLength {
+        std::vector<float> chunkLengths;
+        float totalLength;
+    };
+    
     class Spline {
         public:
             void initFromArray( std::vector<std::vector<float>>& a );
             glm::vec3 getPoint( float k );
             std::vector<glm::vec3> getControlPoints();
             float interpolate( float p0, float p1, float p2, float p3, float t, float t2, float t3 );
+        
+            ApproxLength getLength( int subdivisions );
         
             std::vector<glm::vec3> points;
             std::vector<int> c;

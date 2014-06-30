@@ -30,6 +30,9 @@
 		A816A9F2195F0C5900113E4C /* Box3Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A816A9DB195F0B9800113E4C /* Box3Test.cpp */; };
 		A816A9F3195F0C5900113E4C /* Box3Test.h in Sources */ = {isa = PBXBuildFile; fileRef = A816A9DC195F0B9800113E4C /* Box3Test.h */; };
 		A816A9F6195F0F8A00113E4C /* Euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A816A9F4195F0F8A00113E4C /* Euler.cpp */; };
+		A81A94A9196188C6005A4092 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94A7196188C6005A4092 /* Material.cpp */; };
+		A81A94AC1961A3E7005A4092 /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */; };
+		A81A94AF1961AA9F005A4092 /* Object3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AD1961AA9F005A4092 /* Object3D.cpp */; };
 		A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B46195D3F1500DF2B47 /* Box2.cpp */; };
 		A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B48195D3F1500DF2B47 /* Box3.cpp */; };
 		A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B4A195D3F1500DF2B47 /* Math.cpp */; };
@@ -80,6 +83,12 @@
 		A816A9DC195F0B9800113E4C /* Box3Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box3Test.h; sourceTree = "<group>"; };
 		A816A9F4195F0F8A00113E4C /* Euler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Euler.cpp; sourceTree = "<group>"; };
 		A816A9F5195F0F8A00113E4C /* Euler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Euler.h; sourceTree = "<group>"; };
+		A81A94A7196188C6005A4092 /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		A81A94A8196188C6005A4092 /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventDispatcher.cpp; sourceTree = "<group>"; };
+		A81A94AB1961A3E7005A4092 /* EventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDispatcher.h; sourceTree = "<group>"; };
+		A81A94AD1961AA9F005A4092 /* Object3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object3D.cpp; sourceTree = "<group>"; };
+		A81A94AE1961AA9F005A4092 /* Object3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		A8439B3B195D36CF00DF2B47 /* Box2Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2Test.cpp; sourceTree = "<group>"; };
 		A8439B3C195D36CF00DF2B47 /* Box2Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2Test.h; sourceTree = "<group>"; };
 		A8439B46195D3F1500DF2B47 /* Box2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box2.cpp; sourceTree = "<group>"; };
@@ -194,6 +203,10 @@
 		A853C77C19612EA900F9E39E /* cores */ = {
 			isa = PBXGroup;
 			children = (
+				A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */,
+				A81A94AB1961A3E7005A4092 /* EventDispatcher.h */,
+				A81A94AD1961AA9F005A4092 /* Object3D.cpp */,
+				A81A94AE1961AA9F005A4092 /* Object3D.h */,
 			);
 			path = cores;
 			sourceTree = "<group>";
@@ -222,6 +235,8 @@
 		A853C78019612EA900F9E39E /* materials */ = {
 			isa = PBXGroup;
 			children = (
+				A81A94A7196188C6005A4092 /* Material.cpp */,
+				A81A94A8196188C6005A4092 /* Material.h */,
 			);
 			path = materials;
 			sourceTree = "<group>";
@@ -304,8 +319,8 @@
 				A853C77D19612EA900F9E39E /* extras */,
 				A853C77E19612EA900F9E39E /* lights */,
 				A853C77F19612EA900F9E39E /* loaders */,
-				A8439B45195D3F1500DF2B47 /* math */,
 				A853C78019612EA900F9E39E /* materials */,
+				A8439B45195D3F1500DF2B47 /* math */,
 				A853C78119612EA900F9E39E /* objects */,
 				A853C78219612EA900F9E39E /* renderers */,
 				A853C78319612EA900F9E39E /* scenes */,
@@ -404,12 +419,15 @@
 				A8439B68195D798700DF2B47 /* Triangle.cpp in Sources */,
 				A8D180DF1960587500BDD1A6 /* Quaternion.cpp in Sources */,
 				A853C78719612EB200F9E39E /* Renderer.cpp in Sources */,
+				A81A94A9196188C6005A4092 /* Material.cpp in Sources */,
 				A853C7981961648400F9E39E /* Spline.cpp in Sources */,
 				A853C79219613DFA00F9E39E /* Color.cpp in Sources */,
+				A81A94AF1961AA9F005A4092 /* Object3D.cpp in Sources */,
 				A816A9F6195F0F8A00113E4C /* Euler.cpp in Sources */,
 				A8439B62195D4EFE00DF2B47 /* Line3.cpp in Sources */,
 				A853C78D196133DC00F9E39E /* Utils.cpp in Sources */,
 				A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */,
+				A81A94AC1961A3E7005A4092 /* EventDispatcher.cpp in Sources */,
 				A8439B6E195DD40A00DF2B47 /* Constants.cpp in Sources */,
 				A8439B65195D680A00DF2B47 /* Plane.cpp in Sources */,
 				A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */,

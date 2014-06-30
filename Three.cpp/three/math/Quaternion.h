@@ -14,6 +14,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <vector>
 
+
 namespace three {
     class Euler;
     
@@ -22,10 +23,15 @@ namespace three {
             Quaternion();
             ~Quaternion();
             Quaternion( float param_x, float param_y, float param_z, float param_w );
-            Quaternion& set( float x, float y, float z, float w );
         
+            Quaternion& setX( float x );
+            Quaternion& setY( float y );
+            Quaternion& setZ( float z );
+            Quaternion& setW( float w );
+        
+            Quaternion& set( float x, float y, float z, float w );
             Quaternion& operator=( const Quaternion& other );
-            Quaternion& setFrom( Euler& euler );
+            Quaternion& setFrom( Euler& euler, bool update );
             Quaternion& setFrom( glm::vec3& axis, float angle );
         
             Quaternion& setFrom( glm::mat4x4& mat );
@@ -37,6 +43,8 @@ namespace three {
             float length();
             Quaternion& normalize();
         
+            static Quaternion slerp( Quaternion& a, Quaternion& b, float t );
+        
             static Quaternion multiply(Quaternion& a, Quaternion& b);
             Quaternion& multiply(Quaternion& q);
             Quaternion& slerp( Quaternion& q, float t );
@@ -46,11 +54,18 @@ namespace three {
             std::vector<float> toArray();
             Quaternion clone();
         
+            Quaternion& onChange( std::function<void()> callback );
+        
+        
             float x;
             float y;
             float z;
             float w;
+            std::function<void()> onChangeCallback = [](){};
         
+            /**
+             * Stream overloading for printing
+             */
             friend std::ostream &operator <<( std::ostream& os, const Quaternion& q ) {
                 os << "(" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")" ;
                 return os;

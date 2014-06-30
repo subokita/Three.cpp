@@ -48,7 +48,6 @@ namespace three {
             glm::vec3 normal;
             float constant;
         
-        
             friend std::ostream &operator <<( std::ostream& os, const Plane& plane ) {
                 os << Utils::toString( plane.normal ) << " constant: " << plane.constant;
                 return os;

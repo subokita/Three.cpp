@@ -18,6 +18,17 @@ int main(int argc, char **argv) {
     three::Quaternion q1( 1.0, 2.0, 3.0, 4.0 );
     three::Quaternion q2( 10.0, 12.0, 9.0, 1.0 );
     
+    three::Euler euler;
+    euler.onChange( [&]() {
+        cout << q2 << endl;
+    });
+    
+    three::Quaternion q3 = q2.clone();
+    cout << q3 << endl;
+    
+    
+    euler.setFrom(q1, three::RotationOrders::XYZ, false );
+    cout << euler << endl;
     
     return 0;
 }

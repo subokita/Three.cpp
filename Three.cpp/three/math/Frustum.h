@@ -38,6 +38,7 @@ namespace three {
         
             std::vector<Plane> planes;
         
+        
             friend std::ostream &operator <<( std::ostream& os, const Frustum& frustum ) {
                 for( int i = 0; i < 6; i++ )
                     os << frustum.planes[i] << std::endl;
