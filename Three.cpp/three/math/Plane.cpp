@@ -19,12 +19,18 @@ namespace three {
         constant( 0.0 )
     {}
     
-    Plane::Plane( glm::vec3 param_normal, float param_constant ):
-        normal( param_normal ),
-        constant( param_constant )
+    Plane::Plane( glm::vec3 normal, float constant ):
+        normal( normal ),
+        constant( constant )
     {}
     
     Plane::~Plane(){}
+    
+    
+    Plane::Plane(const Plane& rhs ):
+        normal( rhs.normal ),
+        constant( rhs.constant )
+    {}
     
     Plane& Plane::set( glm::vec3 normal, float constant ){
         this->normal    = normal;
@@ -50,11 +56,11 @@ namespace three {
         return *this;
     }
     
-    Plane& Plane::operator=( const Plane& other ){
-        if( this == &other )
+    Plane& Plane::operator=( const Plane& rhs ){
+        if( this == &rhs )
             return *this;
-        this->normal    = other.normal;
-        this->constant  = other.constant;
+        this->normal    = rhs.normal;
+        this->constant  = rhs.constant;
         return *this;
     }
     
@@ -140,11 +146,11 @@ namespace three {
         return *this;
     }
     
-    bool Plane::equals(Plane& other ) {
-        return normal == other.normal && constant == other.constant;
+    bool Plane::equals(Plane& rhs ) {
+        return normal == rhs.normal && constant == rhs.constant;
     }
     
     Plane Plane::clone() {
-        return Plane(normal, constant);
+        return Plane(*this);
     }
 }

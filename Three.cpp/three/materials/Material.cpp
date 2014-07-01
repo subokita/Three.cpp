@@ -43,32 +43,33 @@ namespace three {
     }
     
     
+    Material::Material(const Material& other) {
+        this->name                = other.name;
+        this->side                = other.side;
+        this->opacity             = other.opacity;
+        this->transparent         = other.transparent;
+        
+        this->blending            = other.blending;
+        this->blendSrc            = other.blendSrc;
+        this->blendDst            = other.blendDst;
+        this->blendEquation       = other.blendEquation;
+        
+        this->depthTest           = other.depthTest;
+        this->depthWrite          = other.depthWrite;
+        
+        this->polygonOffset       = other.polygonOffset;
+        this->polygonOffsetFactor = other.polygonOffsetFactor;
+        this->polygonOffsetUnits  = other.polygonOffsetUnits;
+        
+        this->alphaTest           = other.alphaTest;
+        
+        this->overdraw            = other.overdraw;
+        
+        this->visible             = other.visible;
+    }
+    
     Material Material::clone() {
-        Material mat;
-        
-        mat.name                = name;
-        mat.side                = side;
-        mat.opacity             = opacity;
-        mat.transparent         = transparent;
-        
-        mat.blending            = blending;
-        mat.blendSrc            = blendSrc;
-        mat.blendDst            = blendDst;
-        mat.blendEquation       = blendEquation;
-        
-        mat.depthTest           = depthTest;
-        mat.depthWrite          = depthWrite;
-        
-        mat.polygonOffset       = polygonOffset;
-        mat.polygonOffsetFactor = polygonOffsetFactor;
-        mat.polygonOffsetUnits  = polygonOffsetUnits;
-        
-        mat.alphaTest           = alphaTest;
-        
-        mat.overdraw            = overdraw;
-        
-        mat.visible             = visible;
-        return mat;
+        return Material ( *this );
     }
     
     //FIXME: dispose()

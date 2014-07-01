@@ -27,6 +27,7 @@ namespace three {
         castShadow             = false;
         receiveShadow          = false;
         frustumCulled          = true;
+        userData               = json_object_new_object();
         
         rotation.onChange([&]() {
             quaternion.setFrom( rotation, false );
@@ -234,6 +235,20 @@ namespace three {
         this->quaternion = other.quaternion;
         this->scale = other.scale;
         
+        //FIXME: renderDepth???
+        
+        this->rotationAutoUpdate = other.rotationAutoUpdate;
+        this->matrix = other.matrix;
+        this->matrixWorld = other.matrixWorld;
+        this->matrixAutoUpdate = other.matrixAutoUpdate;
+        this->matrixWorldNeedsUpdate = other.matrixWorldNeedsUpdate;
+        
+        this->visible = other.visible;
+        this->castShadow = other.castShadow;
+        this->frustumCulled = other.frustumCulled;
+
+        // FIXME: this is not right, should find a proper cloning function
+        this->userData = other.userData;
         
         return *this;
     }

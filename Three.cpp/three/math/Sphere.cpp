@@ -20,13 +20,21 @@ namespace three {
     }
     
     
-    Sphere::Sphere( glm::vec3 param_center, float param_radius ):
-        center( param_center ),
-        radius(param_radius)
+    Sphere::Sphere( glm::vec3 center, float radius ):
+        center(center),
+        radius(radius)
     {
     }
     
     Sphere::~Sphere(){
+    }
+    
+    
+    Sphere::Sphere( const Sphere& rhs ) :
+        center( rhs.center ),
+        radius( rhs.radius )
+    {
+        
     }
     
     
@@ -126,8 +134,6 @@ namespace three {
     }
     
     Sphere Sphere::clone() {
-        Sphere sphere;
-        sphere.set( this->center, this->radius );
-        return sphere;
+        return Sphere(*this);
     }
 }

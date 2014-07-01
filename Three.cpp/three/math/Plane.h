@@ -20,6 +20,8 @@ namespace three {
     class Plane {
         public:
             Plane();
+            Plane(const Plane& rhs );
+        
             Plane( glm::vec3 param_normal, float param_constant );
             ~Plane();
         
@@ -27,7 +29,7 @@ namespace three {
             Plane& set( float x, float y, float z, float w );
             Plane& setFromNormalAndCoplanarPoint( glm::vec3 normal, glm::vec3 point );
             Plane& setFromCoplanarPoints( glm::vec3 a, glm::vec3 b, glm::vec3 c );
-            Plane& operator=( const Plane& other );
+            Plane& operator=( const Plane& rhs );
             Plane& normalize();
             Plane& negate();
             float distanceTo( glm::vec3 point );

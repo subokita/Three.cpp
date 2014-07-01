@@ -20,13 +20,14 @@ namespace three {
     class Sphere {
     public:
         Sphere();
+        Sphere( const Sphere& rhs );
         Sphere( glm::vec3 center, float radius );
         ~Sphere();
         
         Sphere& set( glm::vec3 center, float radius );
         Sphere& setFrom( std::vector<glm::vec3>& points );
         Sphere& setFrom( std::vector<glm::vec3>& points, glm::vec3 center );
-        Sphere& operator=( const Sphere& others );
+        Sphere& operator=( const Sphere& rhs );
         
         bool empty();
         bool contains( glm::vec3 point );
@@ -38,7 +39,7 @@ namespace three {
         Sphere& applyMatrix( glm::mat4x4& mat );
         
         Sphere& translate( glm::vec3 offset );
-        bool equals( Sphere& other );
+        bool equals( Sphere& rhs );
         Sphere clone();
         
         glm::vec3 center;

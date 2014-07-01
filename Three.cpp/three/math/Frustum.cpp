@@ -18,17 +18,21 @@ namespace three {
         planes(vector<Plane>(6))
     {}
     
-    Frustum::Frustum( Plane& param_p0, Plane& param_p1, Plane& param_p2,
-                      Plane& param_p3, Plane& param_p4, Plane& param_p5 )
+    Frustum::Frustum( Plane& p0, Plane& p1, Plane& p2,
+                      Plane& p3, Plane& p4, Plane& p5 )
     
     {
         planes = vector<Plane>(6);
-        planes[0] = param_p0;
-        planes[1] = param_p1;
-        planes[2] = param_p2;
-        planes[3] = param_p3;
-        planes[4] = param_p4;
-        planes[5] = param_p5;
+        planes[0] = p0;
+        planes[1] = p1;
+        planes[2] = p2;
+        planes[3] = p3;
+        planes[4] = p4;
+        planes[5] = p5;
+    }
+    
+    Frustum::Frustum( const Frustum& rhs ) {
+        copy( rhs.planes.begin(), rhs.planes.end(), back_inserter(this->planes));
     }
     
     Frustum::~Frustum(){}
@@ -43,9 +47,9 @@ namespace three {
         return *this;
     }
     
-    Frustum& Frustum::operator=( const Frustum& other ){
+    Frustum& Frustum::operator=( const Frustum& rhs ){
         for( int i = 0; i < 6; i++ )
-            planes[i] = other.planes[i];
+            planes[i] = rhs.planes[i];
         return *this;
     }
     
@@ -108,7 +112,6 @@ namespace three {
     
     
     Frustum Frustum::clone(){
-        Frustum result = *this;
-        return result;
+        return Frustum(*this);
     }
 }

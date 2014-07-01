@@ -21,11 +21,22 @@ namespace three {
         b(1.0)
     {}
     
-    Color::Color( float param_r, float param_g, float param_b ):
-        r( param_r ),
-        g( param_g ),
-        b( param_b )
+    Color::Color( float r, float g, float b ):
+        r( r ),
+        g( g ),
+        b( b )
     {}
+    
+    Color::Color(const Color& rhs) :
+        r(rhs.r),
+        g(rhs.g),
+        b(rhs.b)
+    {}
+    
+    
+    Color::Color( int hex_value ) {
+        set( hex_value );
+    }
     
     Color::~Color(){
     }
@@ -44,6 +55,7 @@ namespace three {
         return *this;
     }
     
+    //FIXME: ???
     Color& Color::set( std::string style ){
         return *this;
     }
@@ -66,28 +78,28 @@ namespace three {
         return *this;
     }
     
-    Color& Color::operator=( Color& other ){
-        if( this == &other )
+    Color& Color::operator=( const Color& rhs ){
+        if( this == &rhs )
             return *this;
         
-        this->r = other.r;
-        this->g = other.g;
-        this->b = other.b;
+        this->r = rhs.r;
+        this->g = rhs.g;
+        this->b = rhs.b;
         
         return *this;
     }
     
-    Color& Color::copyGammaToLinear( Color& other ){
-        this->r = other.r * other.r;
-        this->g = other.g * other.g;
-        this->b = other.b * other.b;
+    Color& Color::copyGammaToLinear( Color& rhs ){
+        this->r = rhs.r * rhs.r;
+        this->g = rhs.g * rhs.g;
+        this->b = rhs.b * rhs.b;
         return *this;
     }
     
-    Color& Color::copyLinearToGamma( Color& other ){
-        this->r = sqrt( other.r );
-        this->g = sqrt( other.g );
-        this->b = sqrt( other.b );
+    Color& Color::copyLinearToGamma( Color& rhs ){
+        this->r = sqrt( rhs.r );
+        this->g = sqrt( rhs.g );
+        this->b = sqrt( rhs.b );
         return *this;
     }
     
@@ -119,6 +131,7 @@ namespace three {
     }
     
     HSL Color::getHSL(){
+        
         HSL hsl;
         hsl.h = 0.0;
         hsl.s = 0.0;
@@ -165,14 +178,14 @@ namespace three {
         return *this;
     }
     
-    Color Color::operator+(const Color& other){
-        return Color( r + other.r, g + other.g, b + other.b );
+    Color Color::operator+(const Color& rhs){
+        return Color( r + rhs.r, g + rhs.g, b + rhs.b );
     }
     
-    Color& Color::operator+=(const Color& other){
-        r += other.r;
-        g += other.g;
-        b += other.b;
+    Color& Color::operator+=(const Color& rhs){
+        r += rhs.r;
+        g += rhs.g;
+        b += rhs.b;
         return *this;
     }
     
@@ -187,14 +200,14 @@ namespace three {
         return (*this);
     }
     
-    Color Color::operator*( const Color& other ){
-        return Color( r * other.r, g * other.g, b * other.b );
+    Color Color::operator*( const Color& rhs ){
+        return Color( r * rhs.r, g * rhs.g, b * rhs.b );
     }
     
-    Color& Color::operator*=( const Color& other ){
-        r *= other.r;
-        g *= other.g;
-        b *= other.b;
+    Color& Color::operator*=( const Color& rhs ){
+        r *= rhs.r;
+        g *= rhs.g;
+        b *= rhs.b;
         return *this;
     }
     
@@ -209,15 +222,15 @@ namespace three {
         return *this;
     }
     
-    Color& Color::lerp(Color& other, float alpha) {
-        r += (other.r - r) * alpha;
-        g += (other.g - g) * alpha;
-        b += (other.b - b) * alpha;
+    Color& Color::lerp(Color& rhs, float alpha) {
+        r += (rhs.r - r) * alpha;
+        g += (rhs.g - g) * alpha;
+        b += (rhs.b - b) * alpha;
         return *this;
     }
     
-    bool Color::equals( Color& other ){
-        return r == other.r && g == other.g && b == other.b;
+    bool Color::equals( Color& rhs ){
+        return r == rhs.r && g == rhs.g && b == rhs.b;
     }
     
     Color& Color::fromArray( std::vector<float>& vec ){
@@ -232,7 +245,7 @@ namespace three {
     }
     
     Color Color::clone() {
-        return Color( r, g, b );
+        return Color( *this );
     }
     
 }

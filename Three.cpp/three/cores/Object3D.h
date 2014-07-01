@@ -14,10 +14,13 @@
 #include <map>
 #include <memory>
 
+#include <json-c/json.h>
 #include <glm/glm.hpp>
 
+#include "EventDispatcher.h"
 #include "Euler.h"
 #include "Quaternion.h"
+
 
 using namespace std;
 
@@ -25,7 +28,7 @@ namespace three {
     /* Keep state of next object ID */
     static int Object3DIDCount = 0;
     
-    class Object3D {
+    class Object3D : public EventDispatcher {
         public:
             Object3D();
         
@@ -88,7 +91,9 @@ namespace three {
             bool castShadow;
             bool receiveShadow;
             bool frustumCulled;
-            
+        
+            json_object* userData;
+        
     };
 }
 

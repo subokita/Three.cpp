@@ -20,12 +20,13 @@ namespace three {
     class Triangle {
         public:
             Triangle();
+            Triangle(const Triangle& rhs);
             Triangle( glm::vec3 a, glm::vec3 b, glm::vec3 c );
             ~Triangle();
         
             Triangle& set( glm::vec3 a, glm::vec3 b, glm::vec3 c );
             Triangle& setFromPointsAndIndices( std::vector<glm::vec3>& points, int index_0, int index_1, int index_2 );
-            Triangle& operator=( const Triangle& other );
+            Triangle& operator=( const Triangle& rhs );
             float area();
             glm::vec3 midpoint();
             glm::vec3 normal();
@@ -33,7 +34,7 @@ namespace three {
             Plane plane();
             glm::vec3 baryCoordFromPoint( glm::vec3 point );
             bool contains( glm::vec3 point );
-            bool equals( Triangle& other );
+            bool equals( Triangle& rhs );
             Triangle clone();
         
             static glm::vec3 normal( glm::vec3 a, glm::vec3 b, glm::vec3 c );

@@ -23,11 +23,12 @@ namespace three {
     class Ray{
         public:
             Ray();
+            Ray( const Ray& rhs );
             Ray( glm::vec3 param_origin, glm::vec3 param_direction );
             ~Ray();
         
             Ray& set( glm::vec3 origin, glm::vec3 direction );
-            Ray& operator=(const Ray& other );
+            Ray& operator=(const Ray& rhs );
             glm::vec3 at( float t );
             Ray& recast( float t );
             glm::vec3 closestPointTo( glm::vec3 point );
@@ -44,7 +45,7 @@ namespace three {
             glm::vec3 intersects(Triangle& triangle, bool cull_backface );
         
             Ray& applyMatrix( glm::mat4x4& mat );
-            bool equals(Ray& other);
+            bool equals(Ray& rhs);
             Ray clone();
         
             glm::vec3 origin;

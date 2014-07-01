@@ -23,11 +23,12 @@ namespace three {
     class Frustum {
         public:
             Frustum();
-            Frustum( Plane& param_p0, Plane& param_p1, Plane& param_p2, Plane& param_p3, Plane& param_p4, Plane& param_p5 );
+            Frustum( Plane& p0, Plane& p1, Plane& p2, Plane& p3, Plane& p4, Plane& p5 );
+            Frustum( const Frustum& rhs );
             ~Frustum();
             
             Frustum& set( Plane& p0, Plane& p1, Plane& p2, Plane& p3, Plane& p4, Plane& p5 );
-            Frustum& operator=( const Frustum& other );
+            Frustum& operator=( const Frustum& rhs );
             Frustum& setFrom( glm::mat4x4& mat );
         
             //FIXME: intersectsObject

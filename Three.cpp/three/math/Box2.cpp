@@ -27,6 +27,11 @@ namespace three {
     Box2::~Box2() {
     }
  
+    Box2::Box2( const Box2& rhs ) :
+        min(rhs.min),
+        max(rhs.max)
+    {}
+    
     Box2& Box2::set( glm::vec2 min_vec, glm::vec2 max_vec ) {
         this->min = min_vec;
         this->max = max_vec;
@@ -68,12 +73,12 @@ namespace three {
     }
     
     
-    Box2& Box2::operator=( const Box2& others ) {
-        if( this == &others )
+    Box2& Box2::operator=( const Box2& rhss ) {
+        if( this == &rhss )
             return *this;
         
-        this->min = others.min;
-        this->max = others.max;
+        this->min = rhss.min;
+        this->max = rhss.max;
         return *this;
     }
 
@@ -175,8 +180,7 @@ namespace three {
     }
     
     Box2 Box2::clone() {
-        return Box2( this->min, this->max );
+        return Box2( *this );
     }
-    
 }
 

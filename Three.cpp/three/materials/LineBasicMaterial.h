@@ -1,0 +1,35 @@
+//
+//  LineBasicMaterial.h
+//  Three.cpp
+//
+//  Created by Saburo Okita on 01/07/14.
+//  Copyright (c) 2014 Saburo Okita. All rights reserved.
+//
+
+#ifndef __Three_cpp__LineBasicMaterial__
+#define __Three_cpp__LineBasicMaterial__
+
+#include <iostream>
+#include "Material.h"
+#include "Color.h"
+
+namespace three {
+    class LineBasicMaterial : public Material {
+        public:
+            LineBasicMaterial();
+            ~LineBasicMaterial();
+        
+            LineBasicMaterial( const LineBasicMaterial& rhs );
+        
+            LineBasicMaterial clone();
+        
+            int linewidth;
+            std::string linecap;
+            std::string linejoin;
+            bool vertexColors;
+            bool fog;
+            Color color;
+    };
+}
+
+#endif /* defined(__Three_cpp__LineBasicMaterial__) */

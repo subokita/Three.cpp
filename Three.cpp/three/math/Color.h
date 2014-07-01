@@ -13,25 +13,26 @@
 #include <vector>
 
 namespace three {
+    /* Small datastructure to represent HSL */
     struct HSL {
-        float h;
-        float s;
-        float l;
+        float h, s, l;
     };
     
     class Color {
         public:
             Color();
-            Color( float param_r, float param_g, float param_b );
+            Color( int hex_value );
+            Color( float r, float g, float b );
+            Color(const Color& rhs);
             ~Color();
         
             Color& set( float r, float g, float b );
             Color& set( int hex );
             Color& set( std::string style );
             Color& setHSL( float h, float s, float l );
-            Color& operator=( Color& other );
-            Color& copyGammaToLinear( Color& other );
-            Color& copyLinearToGamma( Color& other );
+            Color& operator=( const Color& rhs );
+            Color& copyGammaToLinear( Color& rhs );
+            Color& copyLinearToGamma( Color& rhs );
         
             Color& convertGammaToLinear();
             Color& convertLinearToGamma();
@@ -41,17 +42,17 @@ namespace three {
             HSL getHSL();
             Color& offsetHSL( float h, float s, float l );
         
-            Color operator+(const Color& other);
-            Color& operator+=(const Color& other);
+            Color operator+(const Color& rhs);
+            Color& operator+=(const Color& rhs);
             Color operator+(float scalar);
             Color& operator+=(float scalar);
-            Color operator*( const Color& other );
-            Color& operator*=( const Color& other );
+            Color operator*( const Color& rhs );
+            Color& operator*=( const Color& rhs );
             Color operator*( float scalar );
             Color& operator*=( float scalar );
         
-            Color& lerp(Color& other, float alpha);
-            bool equals( Color& other );
+            Color& lerp(Color& rhs, float alpha);
+            bool equals( Color& rhs );
             Color& fromArray( std::vector<float>& vec );
             std::vector<float> toArray();
             Color clone();

@@ -19,6 +19,7 @@ namespace three {
         public:
             Box2();
             Box2( glm::vec2 min_vec, glm::vec2 max_vec );
+            Box2( const Box2& rhs );
             ~Box2();
         
             Box2& set( glm::vec2 min_vec, glm::vec2 max_vec );
@@ -46,7 +47,7 @@ namespace three {
             Box2 clone();
         
             bool empty();
-            Box2& operator=( const Box2& others );
+            Box2& operator=( const Box2& rhss );
         
             glm::vec2 min;
             glm::vec2 max;

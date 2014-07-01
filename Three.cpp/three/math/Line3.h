@@ -18,10 +18,11 @@ namespace three {
         public:
             Line3();
             Line3( glm::vec3 param_start, glm::vec3 param_end );
+            Line3( const Line3& rhs );
             ~Line3();
         
             Line3& set( glm::vec3 param_start, glm::vec3 param_end );
-            Line3& operator=( const Line3& other );
+            Line3& operator=( const Line3& rhs );
             glm::vec3 center();
             glm::vec3 delta();
         

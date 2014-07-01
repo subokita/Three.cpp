@@ -17,9 +17,15 @@ namespace three {
     {
     }
     
-    Line3::Line3( glm::vec3 param_start, glm::vec3 param_end ):
-        start( param_start ),
-        end( param_end )
+    Line3::Line3( glm::vec3 start, glm::vec3 end ):
+        start( start ),
+        end( end )
+    {
+    }
+    
+    Line3::Line3( const Line3& rhs ) :
+        start( rhs.start ),
+        end( rhs.end )
     {
     }
     
@@ -27,17 +33,17 @@ namespace three {
         
     }
     
-    Line3& Line3::set( glm::vec3 param_start, glm::vec3 param_end ){
-        this->start = param_start;
-        this->end   = param_end;
+    Line3& Line3::set( glm::vec3 start, glm::vec3 end ){
+        this->start = start;
+        this->end   = end;
         return *this;
     }
     
-    Line3& Line3::operator=( const Line3& other ){
-        if( this == &other )
+    Line3& Line3::operator=( const Line3& rhs ){
+        if( this == &rhs )
             return *this;
-        this->start = other.start;
-        this->end   = other.end;
+        this->start = rhs.start;
+        this->end   = rhs.end;
         return *this;
     }
     
@@ -89,11 +95,11 @@ namespace three {
         return *this;
     }
     
-    bool Line3::equals( Line3& other ) {
-        return start == other.start && end == other.end;
+    bool Line3::equals( Line3& rhs ) {
+        return start == rhs.start && end == rhs.end;
     }
     
     Line3 Line3::clone() {
-        return Line3( this->start, this->end );
+        return Line3( *this );
     }
 }

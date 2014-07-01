@@ -21,10 +21,17 @@ namespace three {
     {
     }
     
-    Triangle::Triangle( glm::vec3 param_a, glm::vec3 param_b, glm::vec3 param_c ) :
-        a( param_a ),
-        b( param_b ),
-        c( param_c )
+    Triangle::Triangle( glm::vec3 a, glm::vec3 b, glm::vec3 c ) :
+        a( a ),
+        b( b ),
+        c( c )
+    {}
+    
+    
+    Triangle::Triangle(const Triangle& rhs) :
+        a( rhs.a ),
+        b( rhs.b ),
+        c( rhs.c )
     {}
     
     Triangle::~Triangle(){
@@ -85,12 +92,12 @@ namespace three {
         return *this;
     }
     
-    Triangle& Triangle::operator=( const Triangle& other ) {
-        if( this == &other )
+    Triangle& Triangle::operator=( const Triangle& rhs ) {
+        if( this == &rhs )
             return *this;
-        this->a = other.a;
-        this->b = other.b;
-        this->c = other.c;
+        this->a = rhs.a;
+        this->b = rhs.b;
+        this->c = rhs.c;
         return *this;
     }
     
@@ -124,12 +131,12 @@ namespace three {
         return Triangle::containsPoint( point, a, b, c );
     }
     
-    bool Triangle::equals( Triangle& other ){
-        return a == other.a && b == other.b && c == other.c;
+    bool Triangle::equals( Triangle& rhs ){
+        return a == rhs.a && b == rhs.b && c == rhs.c;
     }
     
     Triangle Triangle::clone() {
-        return Triangle( a, b, c );
+        return Triangle( *this );
     }
     
 }

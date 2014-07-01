@@ -11,7 +11,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <GLFW/glfw3.h>
 #include "three/three.h"
-
+#include <json-c/json.h>
 
 using namespace std;
 
@@ -40,7 +40,8 @@ int main(int argc, char **argv) {
     
     mat = three::Math::composeMatrix( position, quat, scale );
     
-    cout << three::Utils::toString( mat ) << endl;
+    three::Color c(10, 10, 10);
+    cout << c << endl;
     
 //    var position = new THREE.Vector3(10.0, 20.0, 30.0);
 //    var quaternion = new THREE.Quaternion( 3.0, 4.0, 5.0, 2.0 );

@@ -29,6 +29,7 @@ namespace three {
         
     public:
         Material();
+        Material(const Material& other);
         ~Material();
         
         Material clone();

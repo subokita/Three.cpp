@@ -21,6 +21,7 @@ namespace three {
     class Quaternion {
         public:
             Quaternion();
+            Quaternion(const Quaternion& rhs);
             ~Quaternion();
             Quaternion( float param_x, float param_y, float param_z, float param_w );
         
@@ -30,8 +31,8 @@ namespace three {
             Quaternion& setW( float w );
         
             Quaternion& set( float x, float y, float z, float w );
-            Quaternion& operator=( const Quaternion& other );
-            Quaternion& operator=( const glm::quat& other );
+            Quaternion& operator=( const Quaternion& rhs );
+            Quaternion& operator=( const glm::quat& rhs );
             Quaternion& setFrom( Euler& euler, bool update );
             Quaternion& setFrom( glm::vec3& axis, float angle );
         

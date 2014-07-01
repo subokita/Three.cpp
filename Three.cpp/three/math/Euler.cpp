@@ -21,11 +21,19 @@ namespace three {
         order( RotationOrders::XYZ )
     {}
     
-    Euler::Euler( float x_val, float y_val, float z_val, RotationOrders rot_order ):
-        x(x_val),
-        y(y_val),
-        z(z_val),
+    Euler::Euler( float x, float y, float z, RotationOrders rot_order ):
+        x(x),
+        y(y),
+        z(z),
         order( rot_order )
+    {}
+    
+    
+    Euler::Euler( const Euler& rhs ) :
+        x(rhs.x),
+        y(rhs.y),
+        z(rhs.z),
+        order( rhs.order )
     {}
     
     Euler::~Euler() {}
@@ -277,7 +285,7 @@ namespace three {
     }
     
     Euler Euler::clone(){
-        return Euler( this->x, this->y, this->z, this->order );
+        return Euler( *this );
     }
 
 }

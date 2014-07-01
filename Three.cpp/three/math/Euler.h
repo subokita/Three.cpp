@@ -36,7 +36,12 @@ namespace three {
             /**
              * Constructor that sets the x, y, z, and the order of the Euler angle
              */
-            Euler( float x_val, float y_val, float z_val, RotationOrders rot_order );
+            Euler( float x, float y, float z, RotationOrders rot_order );
+        
+            /**
+             * Copy constructor
+             */
+            Euler( const Euler& rhs );
         
             /**
              * Destructor
@@ -49,7 +54,7 @@ namespace three {
             Euler& setRotationOrder( RotationOrders order );
         
             Euler& set( float x, float y, float z, RotationOrders order );
-            Euler& operator=( const Euler& other );
+            Euler& operator=( const Euler& rhs );
         
             /**
              * Set Euler angles from 4x4 matrix
@@ -70,9 +75,9 @@ namespace three {
         
             /**
              * Returns true if all the members of this euler object
-             * match other's
+             * match rhs's
              */
-            bool equals( Euler& other );
+            bool equals( Euler& rhs );
         
             /**
              * Set the Euler angle from an array (vector)

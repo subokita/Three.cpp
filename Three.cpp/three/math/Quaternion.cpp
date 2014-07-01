@@ -24,6 +24,10 @@ namespace three {
     {}
     
     
+    Quaternion::Quaternion(const Quaternion& rhs) :
+        rep( rhs.rep )
+    {}
+    
     Quaternion& Quaternion::setX( float x ){
         this->rep.x = x;
         onChangeCallback();
@@ -57,17 +61,17 @@ namespace three {
         return *this;
     }
     
-    Quaternion& Quaternion::operator=( const glm::quat& other ) {
-        this->rep = other;
+    Quaternion& Quaternion::operator=( const glm::quat& rhs ) {
+        this->rep = rhs;
         return *this;
     }
     
     
-    Quaternion& Quaternion::operator=( const Quaternion& other ) {
-        if( this == &other )
+    Quaternion& Quaternion::operator=( const Quaternion& rhs ) {
+        if( this == &rhs )
             return *this;
         
-        this->rep = other.rep;
+        this->rep = rhs.rep;
         onChangeCallback();
         return *this;
     }
@@ -257,6 +261,6 @@ namespace three {
     }
     
     Quaternion Quaternion::clone(){
-        return Quaternion( rep.x, rep.y, rep.z, rep.w );
+        return Quaternion( *this );
     }
 }

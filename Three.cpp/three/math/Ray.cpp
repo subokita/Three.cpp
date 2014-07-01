@@ -19,10 +19,18 @@ namespace three {
         direction(glm::vec3(0, 0, 0))
     { }
     
-    Ray::Ray( glm::vec3 param_origin, glm::vec3 param_direction ):
-        origin(param_origin),
-        direction(param_direction)
+    Ray::Ray( glm::vec3 origin, glm::vec3 direction ):
+        origin(origin),
+        direction(direction)
     {}
+    
+    
+    Ray::Ray( const Ray& rhs ) :
+        origin(rhs.origin),
+        direction(rhs.direction)
+    {
+        
+    }
     
     Ray::~Ray() {
     }
@@ -33,19 +41,17 @@ namespace three {
         return *this;
     }
     
-    Ray& Ray::operator=(const Ray& other ){
-        if( this == &other )
+    Ray& Ray::operator=(const Ray& rhs ){
+        if( this == &rhs )
             return *this;
         
-        this->direction = other.direction;
-        this->origin    = other.origin;
+        this->direction = rhs.direction;
+        this->origin    = rhs.origin;
         return *this;
     }
     
     glm::vec3 Ray::at( float t ){
-        glm::vec3 result = direction;
-        result = (result * t) + origin;
-        return result;
+        return (direction * t) + origin;
     }
     
     Ray& Ray::recast( float t ){
@@ -334,11 +340,11 @@ namespace three {
         return *this;
     }
     
-    bool Ray::equals(Ray& other){
-        return origin == other.origin && direction == other.direction;
+    bool Ray::equals(Ray& rhs){
+        return origin == rhs.origin && direction == rhs.direction;
     }
     
     Ray Ray::clone() {
-        return Ray(origin, direction );
+        return Ray( *this );
     }
 }
