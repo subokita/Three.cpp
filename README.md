@@ -15,29 +15,6 @@ Current Progress
 Still very early, nothing can be shown yet, some of the math-related classes have already been implemented.
 
 
-3rd party libraries to be used
-=============================
-* glm (http://glm.g-truc.net/0.9.5/index.html) : for 3d math libraries. It's used because it's very close to GLSL, and writing my own library means that it's prone to bugs and slowdowns
-
-* glfw (http://www.glfw.org): library for creating windows with OpenGL context
-
-* googletest (https://code.google.com/p/googletest/) : for unit testing, I'm trying to avoid boost, because it's such a kitchen sink.
-
-* three.js (http://threejs.org): as the original library to be ported from. The main reason, is that three.js, as a WebGL library, has a fairly simple and clean implementation.
-
-
-Installation
-============
-* Use homebrew(http://brew.sh) to install glm and glfw libraries. 
-* If you need to create the unit tests, googletest has a documentation to show you how to compile the library
-
-
-Guidelines
-=============
-* Try to keep codes clean, simple and readable. Richard Feynman once said that for any topic to be considered as properly understood, it must be explainable to and understable by college freshmen.
-* It's 2014, variables named like dxdylam can be quickly and easily renamed in the scope to dx_dy_div_lambda. Keep it readable
-* Make it run correctly first, optimization can come later.
-* Object oriented, it's okay to take some performance hit, for the sake of readability and ease of extension.
 
 FAQ
 ===
