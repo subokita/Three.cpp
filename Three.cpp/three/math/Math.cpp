@@ -9,6 +9,7 @@
 #include "Math.h"
 #include <algorithm>
 #include <glm/gtc/matrix_access.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <cstdlib>
 #include "Quaternion.h"
 
@@ -134,6 +135,11 @@ namespace three {
     }
     
     
+    glm::mat4x4 Math::composeMatrix( glm::vec3& position, Quaternion& quaternion, glm::vec3& scale ) {
+        return  glm::translate( glm::mat4x4(0.0), position ) +
+                glm::scale( glm::mat4_cast( quaternion.rep ), scale );
+    }
+    
     void Math::decomposeMatrix( glm::mat4x4& mat, glm::vec3& position, Quaternion& quaternion, glm::vec3& scale ) {
         float sx = glm::length( glm::vec3( mat[0][0], mat[1][0], mat[2][0] ) );
         float sy = glm::length( glm::vec3( mat[0][1], mat[1][1], mat[2][1] ) );
@@ -168,5 +174,25 @@ namespace three {
         scale.x = sx;
         scale.y = sy;
         scale.z = sz;
+    }
+    
+    
+    glm::vec3 Math::applyQuaternion( glm::vec3& vec, Quaternion& q ) {
+        return applyQuaternion( vec, q.rep );
+    }
+    
+    glm::vec3 Math::applyQuaternion( glm::vec3& vec, glm::quat& q ) {
+        glm::vec3 result;
+        
+		float ix =  q.w * vec.x + q.y * vec.z - q.z * vec.y;
+		float iy =  q.w * vec.y + q.z * vec.x - q.x * vec.z;
+		float iz =  q.w * vec.z + q.x * vec.y - q.y * vec.x;
+		float iw = -q.x * vec.x - q.y * vec.y - q.z * vec.z;
+        
+		result.x = ix * q.w + iw * -q.x + iy * -q.z - iz * -q.y;
+		result.y = iy * q.w + iw * -q.y + iz * -q.x - ix * -q.z;
+		result.z = iz * q.w + iw * -q.z + ix * -q.y - iy * -q.x;
+        
+        return result;
     }
 }

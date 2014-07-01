@@ -25,4 +25,7 @@
 #include "Triangle.h"
 #include "Utils.h"
 
+
+#include "Object3D.h"
+
 #endif

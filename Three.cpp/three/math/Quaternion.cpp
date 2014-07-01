@@ -13,14 +13,14 @@ using namespace std;
 
 namespace three {
     Quaternion::Quaternion() :
-        rep(0, 0, 0, 1)
+        rep(1, 0, 0, 0)
     {
     }
     
     Quaternion::~Quaternion(){}
     
     Quaternion::Quaternion( float x, float y, float z, float w ):
-        rep(x, y, z, w)
+        rep(w, x, y, z)
     {}
     
     

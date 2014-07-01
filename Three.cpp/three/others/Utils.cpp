@@ -7,7 +7,7 @@
 //
 
 #include "Utils.h"
-
+#include <glm/gtc/quaternion.hpp>
 
 namespace three {
     
@@ -24,6 +24,12 @@ namespace three {
     }
     
     std::string Utils::toString( const glm::vec4& vec ) {
+        char temp[100];
+        sprintf( temp, "(%.2f, %.2f, %.2f, %.2f)", vec.x, vec.y, vec.z, vec.w );
+        return std::string( temp );
+    }
+    
+    std::string Utils::toString( const glm::quat& vec ) {
         char temp[100];
         sprintf( temp, "(%.2f, %.2f, %.2f, %.2f)", vec.x, vec.y, vec.z, vec.w );
         return std::string( temp );

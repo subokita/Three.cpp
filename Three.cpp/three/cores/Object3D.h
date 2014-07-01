@@ -11,13 +11,18 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
+#include <memory>
+
 #include <glm/glm.hpp>
+
 #include "Euler.h"
 #include "Quaternion.h"
 
 using namespace std;
 
 namespace three {
+    /* Keep state of next object ID */
     static int Object3DIDCount = 0;
     
     class Object3D {
@@ -35,13 +40,37 @@ namespace three {
             Object3D& rotateY( float angle );
             Object3D& rotateZ( float angle );
             Object3D& translate( glm::vec3& axis, float distance );
+            Object3D& translateX( float distance );
+            Object3D& translateY( float distance );
+            Object3D& translateZ( float distance );
+        
+            glm::vec3 localToWorld( glm::vec3& vec );
+            glm::vec4 localToWorld( glm::vec4& vec );
+        
+            glm::vec3 worldToLocal( glm::vec3& vec );
+            glm::vec4 worldToLocal( glm::vec4& vec );
+            void lookAt( glm::vec3& eye );
+        
+            void add( Object3D& object );
+            void remove( Object3D& object );
+            void traverse( std::function<void(Object3D&)> callback );
+            shared_ptr<Object3D> getObjectById( int id, bool recursive );
+            shared_ptr<Object3D> getObjectByName( string name, bool recursive );
+            map<int, shared_ptr<Object3D>> getDescendants();
+            void updateMatrix();
+            void updateMatrixWorld( bool force );
+            Object3D& operator=( const Object3D& other );
+            Object3D clone( bool recursive = true );
+        
+        
+            /* Data members, should have different access members, but let's wait and see */
         
             int id;
             string uuid;
             string name;
             
             shared_ptr<Object3D> parent;
-            vector<Object3D> children;
+            map<int, shared_ptr<Object3D>> children;
             glm::vec3 position;
             glm::vec3 up;
             Euler rotation;

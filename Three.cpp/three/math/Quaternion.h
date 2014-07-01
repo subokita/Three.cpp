@@ -13,7 +13,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <vector>
-
+#include "Utils.h"
 
 namespace three {
     class Euler;
@@ -65,7 +65,7 @@ namespace three {
              * Stream overloading for printing
              */
             friend std::ostream &operator <<( std::ostream& os, const Quaternion& q ) {
-                os << "(" << q.rep.x << ", " << q.rep.y << ", " << q.rep.z << ", " << q.rep.w << ")" ;
+                os << Utils::toString( q.rep ) ;
                 return os;
             }
     };

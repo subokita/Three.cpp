@@ -15,6 +15,17 @@
 
 using namespace std;
 
+
+three::Object3D obj;
+
+void test() {
+    
+    three::Object3D obj2, obj3;
+    
+    obj.add( obj2 );
+    obj.add( obj3 );
+}
+
 int main(int argc, char **argv) {
     glm::mat4x4 mat(
         1, 5, 9, 13,
@@ -23,13 +34,18 @@ int main(int argc, char **argv) {
         4, 8, 12, 16
     );
     
-    glm::vec3 position, scale;
-    three::Quaternion quaternion(0.0, 0.0, 0.0, 0.0);
-    three::Math::decomposeMatrix( mat, position, quaternion, scale );
+    glm::vec3 position ( 10.0, 20.0, 30.0 );
+    three::Quaternion quat( 3.0, 4.0, 5.0, 2.0 );
+    glm::vec3 scale( 2.0, 3.0, 4.0 );
     
-    cout << three::Utils::toString( position ) << endl;
-    cout << quaternion << endl;
-    cout << three::Utils::toString( scale ) << endl;
+    mat = three::Math::composeMatrix( position, quat, scale );
+    
+    cout << three::Utils::toString( mat ) << endl;
+    
+//    var position = new THREE.Vector3(10.0, 20.0, 30.0);
+//    var quaternion = new THREE.Quaternion( 3.0, 4.0, 5.0, 2.0 );
+//    var scale = new THREE.Vector3( 2.0, 3.0, 4.0 );
+//    mat.compose( position, quaternion, scale );
     
     return 0;
 }

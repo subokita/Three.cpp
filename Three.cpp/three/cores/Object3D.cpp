@@ -8,6 +8,7 @@
 
 #include "Object3D.h"
 #include "Math.h"
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace three {
     Object3D::Object3D() {
@@ -83,8 +84,163 @@ namespace three {
     }
     
     Object3D& Object3D::translate( glm::vec3& axis, float distance ) {
-        glm::vec3 vec = axis;
-        //FIXME: Complete this
+        glm::vec3 vec = Math::applyQuaternion( axis, this->quaternion );
+        this->position += (vec * distance);
         return *this;
+    }
+    
+    Object3D& Object3D::translateX( float distance ) {
+        glm::vec3 axis( 1.0, 0.0, 0.0 );
+        return translate( axis, distance );
+    }
+    
+    Object3D& Object3D::translateY( float distance ){
+        glm::vec3 axis( 0.0, 1.0, 0.0 );
+        return translate( axis, distance );
+    }
+    
+    Object3D& Object3D::translateZ( float distance ) {
+        glm::vec3 axis( 0.0, 0.0, 1.0 );
+        return translate( axis, distance );
+    }
+    
+    glm::vec3 Object3D::localToWorld( glm::vec3& vec ) {
+        return glm::vec3(glm::vec4(vec, 1.0) * matrixWorld);
+    }
+    
+    glm::vec4 Object3D::localToWorld( glm::vec4& vec ) {
+        return vec * matrixWorld;
+    }
+    
+    glm::vec3 Object3D::worldToLocal( glm::vec3& vec ) {
+        return glm::vec3(glm::vec4( vec, 1.0 ) * glm::inverse( matrixWorld ));
+    }
+    
+    glm::vec4 Object3D::worldToLocal( glm::vec4& vec ) {
+        return vec * glm::inverse( matrixWorld );
+    }
+    
+    void Object3D::lookAt( glm::vec3& eye ) {
+        glm::mat4x4 mat = glm::lookAt( eye, this->position, this->up );
+        this->quaternion.setFrom( mat );
+    }
+    
+    void Object3D::add( Object3D& object ) {
+        
+        if( object.parent != nullptr )
+            object.parent->remove( object );
+        
+        object.parent = make_shared<Object3D>(*this);
+        //FIXME: dispatchEvent;
+        
+        children[object.id] = make_shared<Object3D>(object);
+        
+        //FIXME: Add to Scene
+    }
+    
+    
+    void Object3D::remove( Object3D& object ) {
+        if( this->children[object.id] != nullptr ) {
+            this->children.erase( object.id );
+            object.parent = nullptr;
+            
+            //FIXME: Remove from Scene
+        }
+    }
+    
+    
+    void Object3D::traverse( std::function<void(Object3D&)> callback ) {
+        callback(*this);
+        for( auto entry: children )
+            entry.second->traverse( callback );
+    }
+    
+    shared_ptr<Object3D> Object3D::getObjectById( int id, bool recursive ) {    
+        if( children.count(id) != 0 ) {
+            return children[id];
+        }
+        else if( recursive ){
+            for( auto entry: children ) {
+                shared_ptr<Object3D> child = entry.second->getObjectById( id, true );
+                if( child != nullptr )
+                    return child;
+            }
+        }
+        
+        return nullptr;
+    }
+    
+    
+    shared_ptr<Object3D> Object3D::getObjectByName( string name, bool recursive ) {
+        if( recursive ) {
+            for( auto entry: children ) {
+                if( entry.second->name.compare( name ) == 0 )
+                    return entry.second;
+                
+                shared_ptr<Object3D> child = getObjectByName( name, recursive );
+                if( child != nullptr )
+                    return child;
+            }
+        }
+        else {
+            for( auto entry: children ) {
+                if( entry.second->name.compare( name ) == 0 )
+                    return entry.second;
+            }
+        }
+        
+        return nullptr;
+    }
+    
+    map<int, shared_ptr<Object3D>> Object3D::getDescendants() {
+        map<int, shared_ptr<Object3D>> result = children;
+
+        for( auto entry: children ){
+            map<int, shared_ptr<Object3D>> grandchildren = entry.second->getDescendants();
+            result.insert( grandchildren.begin(), grandchildren.end() );
+        }
+        
+        return result;
+    }
+    
+    void Object3D::updateMatrix() {
+        this->matrix = Math::composeMatrix( this->position, this->quaternion, this->scale );
+        this->matrixWorldNeedsUpdate = true;
+    }
+    
+    
+    void Object3D::updateMatrixWorld( bool force ) {
+        if( this->matrixAutoUpdate )
+            updateMatrix();
+        
+        if( this-matrixWorldNeedsUpdate || force ) {
+            if( parent == nullptr )
+                matrixWorld = matrix;
+            else
+                matrixWorld = matrixWorld * matrix;
+            
+            this->matrixWorldNeedsUpdate = false;
+            force = true;
+        }
+        
+        for( auto entry: children )
+            entry.second->updateMatrixWorld(force);
+    }
+    
+    Object3D& Object3D::operator=( const Object3D& other ) {
+        this->name = other.name;
+        this->up = other.up;
+        this->position = other.position;
+        this->quaternion = other.quaternion;
+        this->scale = other.scale;
+        
+        
+        return *this;
+    }
+    
+    Object3D Object3D::clone(bool recursive) {
+        
+        
+        return Object3D();
     }
 }
