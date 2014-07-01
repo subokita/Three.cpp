@@ -23,5 +23,6 @@
 #include "Sphere.h"
 #include "Spline.h"
 #include "Triangle.h"
+#include "Utils.h"
 
 #endif

@@ -18,6 +18,7 @@ namespace three {
             static std::string toString( const glm::vec2& vec );
             static std::string toString( const glm::vec3& vec );
             static std::string toString( const glm::vec4& vec );
+            static std::string toString( const glm::mat4x4& mat );
     };
 }
 

@@ -164,48 +164,48 @@ namespace three {
      * From http://www.mathworks.com/matlabcentral/fileexchange/20696-function-to-convert-between-dcm-euler-angles-quaternions-and-euler-vectors/content/SpinCalc.m
      */
     Euler& Euler::setFrom( Quaternion& q, RotationOrders order, bool update ){
-        float sqx = q.x * q.x;
-        float sqy = q.y * q.y;
-        float sqz = q.z * q.z;
-        float sqw = q.w * q.w;
+        float sqx = q.rep.x * q.rep.x;
+        float sqy = q.rep.y * q.rep.y;
+        float sqz = q.rep.z * q.rep.z;
+        float sqw = q.rep.w * q.rep.w;
         
         this->order = order;
         
         switch( this->order ) {
             case RotationOrders::XYZ:
-                this->x = atan2( 2 * ( q.x * q.w - q.y * q.z ), ( sqw - sqx - sqy + sqz ) );
-                this->y = asin(  Math::clamp( 2 * ( q.x * q.z + q.y * q.w ), -1.0, 1.0 ) );
-                this->z = atan2( 2 * ( q.z * q.w - q.x * q.y ), ( sqw + sqx - sqy - sqz ) );
+                this->x = atan2( 2 * ( q.rep.x * q.rep.w - q.rep.y * q.rep.z ), ( sqw - sqx - sqy + sqz ) );
+                this->y = asin(  Math::clamp( 2 * ( q.rep.x * q.rep.z + q.rep.y * q.rep.w ), -1.0, 1.0 ) );
+                this->z = atan2( 2 * ( q.rep.z * q.rep.w - q.rep.x * q.rep.y ), ( sqw + sqx - sqy - sqz ) );
                 break;
                 
             case  RotationOrders::YXZ:
-                this->x = asin(  Math::clamp( 2 * ( q.x * q.w - q.y * q.z ), -1.0, 1.0 ) );
-                this->y = atan2( 2 * ( q.x * q.z + q.y * q.w ), ( sqw - sqx - sqy + sqz ) );
-                this->z = atan2( 2 * ( q.x * q.y + q.z * q.w ), ( sqw - sqx + sqy - sqz ) );
+                this->x = asin(  Math::clamp( 2 * ( q.rep.x * q.rep.w - q.rep.y * q.rep.z ), -1.0, 1.0 ) );
+                this->y = atan2( 2 * ( q.rep.x * q.rep.z + q.rep.y * q.rep.w ), ( sqw - sqx - sqy + sqz ) );
+                this->z = atan2( 2 * ( q.rep.x * q.rep.y + q.rep.z * q.rep.w ), ( sqw - sqx + sqy - sqz ) );
                 break;
                 
             case RotationOrders::ZXY:
-                this->x = asin(  Math::clamp( 2 * ( q.x * q.w + q.y * q.z ), -1.0, 1.0 ) );
-                this->y = atan2( 2 * ( q.y * q.w - q.z * q.x ), ( sqw - sqx - sqy + sqz ) );
-                this->z = atan2( 2 * ( q.z * q.w - q.x * q.y ), ( sqw - sqx + sqy - sqz ) );
+                this->x = asin(  Math::clamp( 2 * ( q.rep.x * q.rep.w + q.rep.y * q.rep.z ), -1.0, 1.0 ) );
+                this->y = atan2( 2 * ( q.rep.y * q.rep.w - q.rep.z * q.rep.x ), ( sqw - sqx - sqy + sqz ) );
+                this->z = atan2( 2 * ( q.rep.z * q.rep.w - q.rep.x * q.rep.y ), ( sqw - sqx + sqy - sqz ) );
                 break;
                 
             case RotationOrders::ZYX:
-                this->x = atan2( 2 * ( q.x * q.w + q.z * q.y ), ( sqw - sqx - sqy + sqz ) );
-                this->y = asin(  Math::clamp( 2 * ( q.y * q.w - q.x * q.z ), -1.0, 1.0 ) );
-                this->z = atan2( 2 * ( q.x * q.y + q.z * q.w ), ( sqw + sqx - sqy - sqz ) );
+                this->x = atan2( 2 * ( q.rep.x * q.rep.w + q.rep.z * q.rep.y ), ( sqw - sqx - sqy + sqz ) );
+                this->y = asin(  Math::clamp( 2 * ( q.rep.y * q.rep.w - q.rep.x * q.rep.z ), -1.0, 1.0 ) );
+                this->z = atan2( 2 * ( q.rep.x * q.rep.y + q.rep.z * q.rep.w ), ( sqw + sqx - sqy - sqz ) );
                 break;
                 
             case RotationOrders::YZX:
-                this->x = atan2( 2 * ( q.x * q.w - q.z * q.y ), ( sqw - sqx + sqy - sqz ) );
-                this->y = atan2( 2 * ( q.y * q.w - q.x * q.z ), ( sqw + sqx - sqy - sqz ) );
-                this->z = asin(  Math::clamp( 2 * ( q.x * q.y + q.z * q.w ), -1.0, 1.0 ) );
+                this->x = atan2( 2 * ( q.rep.x * q.rep.w - q.rep.z * q.rep.y ), ( sqw - sqx + sqy - sqz ) );
+                this->y = atan2( 2 * ( q.rep.y * q.rep.w - q.rep.x * q.rep.z ), ( sqw + sqx - sqy - sqz ) );
+                this->z = asin(  Math::clamp( 2 * ( q.rep.x * q.rep.y + q.rep.z * q.rep.w ), -1.0, 1.0 ) );
                 break;
                 
             case RotationOrders::XZY:
-                this->x = atan2( 2 * ( q.x * q.w + q.y * q.z ), ( sqw - sqx + sqy - sqz ) );
-                this->y = atan2( 2 * ( q.x * q.z + q.y * q.w ), ( sqw + sqx - sqy - sqz ) );
-                this->z = asin(  Math::clamp( 2 * ( q.z * q.w - q.x * q.y ), -1.0, 1.0 ) );
+                this->x = atan2( 2 * ( q.rep.x * q.rep.w + q.rep.y * q.rep.z ), ( sqw - sqx + sqy - sqz ) );
+                this->y = atan2( 2 * ( q.rep.x * q.rep.z + q.rep.y * q.rep.w ), ( sqw + sqx - sqy - sqz ) );
+                this->z = asin(  Math::clamp( 2 * ( q.rep.z * q.rep.w - q.rep.x * q.rep.y ), -1.0, 1.0 ) );
                 break;
         }
         

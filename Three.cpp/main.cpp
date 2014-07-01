@@ -12,23 +12,24 @@
 #include <GLFW/glfw3.h>
 #include "three/three.h"
 
+
 using namespace std;
 
 int main(int argc, char **argv) {
-    three::Quaternion q1( 1.0, 2.0, 3.0, 4.0 );
-    three::Quaternion q2( 10.0, 12.0, 9.0, 1.0 );
+    glm::mat4x4 mat(
+        1, 5, 9, 13,
+        2, 6, 10, 14,
+        3, 7, 11, 15,
+        4, 8, 12, 16
+    );
     
-    three::Euler euler;
-    euler.onChange( [&]() {
-        cout << q2 << endl;
-    });
+    glm::vec3 position, scale;
+    three::Quaternion quaternion(0.0, 0.0, 0.0, 0.0);
+    three::Math::decomposeMatrix( mat, position, quaternion, scale );
     
-    three::Quaternion q3 = q2.clone();
-    cout << q3 << endl;
-    
-    
-    euler.setFrom(q1, three::RotationOrders::XYZ, false );
-    cout << euler << endl;
+    cout << three::Utils::toString( position ) << endl;
+    cout << quaternion << endl;
+    cout << three::Utils::toString( scale ) << endl;
     
     return 0;
 }

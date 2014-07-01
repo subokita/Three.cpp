@@ -13,6 +13,8 @@
 #include <glm/glm.hpp>
 
 namespace three {
+    class Quaternion;
+    
     class Math {
     public:
         static std::string generateUUID();
@@ -32,6 +34,7 @@ namespace three {
         static bool isPowerOfTwo( int value );
         
         static float hueToRGB( float p, float q, float t );
+        static void decomposeMatrix( glm::mat4x4& mat, glm::vec3& position, Quaternion& quaternion, glm::vec3& scale );
     };
 }
 

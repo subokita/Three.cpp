@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <glm/gtc/matrix_access.hpp>
 #include <cstdlib>
+#include "Quaternion.h"
 
 using namespace std;
 
@@ -130,5 +131,42 @@ namespace three {
         if( t < (2.0 / 3.0))
             return p + (q - p) * 6 * (2.0 / 3.0 - t);
         return p;
+    }
+    
+    
+    void Math::decomposeMatrix( glm::mat4x4& mat, glm::vec3& position, Quaternion& quaternion, glm::vec3& scale ) {
+        float sx = glm::length( glm::vec3( mat[0][0], mat[1][0], mat[2][0] ) );
+        float sy = glm::length( glm::vec3( mat[0][1], mat[1][1], mat[2][1] ) );
+        float sz = glm::length( glm::vec3( mat[0][2], mat[1][2], mat[2][2] ) );
+        
+        float determinant = glm::determinant( mat );
+        if( determinant < 0.0 )
+            sx = -sx;
+        
+        position.x = mat[0][3];
+        position.y = mat[1][3];
+        position.z = mat[2][3];
+        
+        float inverse_sx = 1.0 / sx;
+        float inverse_sy = 1.0 / sy;
+        float inverse_sz = 1.0 / sz;
+        
+        mat[0][0] *= inverse_sx;
+        mat[1][0] *= inverse_sx;
+        mat[2][0] *= inverse_sx;
+        
+        mat[0][1] *= inverse_sy;
+        mat[1][1] *= inverse_sy;
+        mat[2][1] *= inverse_sy;
+        
+        mat[0][2] *= inverse_sz;
+        mat[1][2] *= inverse_sz;
+        mat[2][2] *= inverse_sz;
+        
+        quaternion.setFrom( mat );
+        
+        scale.x = sx;
+        scale.y = sy;
+        scale.z = sz;
     }
 }

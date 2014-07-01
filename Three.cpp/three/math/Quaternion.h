@@ -31,6 +31,7 @@ namespace three {
         
             Quaternion& set( float x, float y, float z, float w );
             Quaternion& operator=( const Quaternion& other );
+            Quaternion& operator=( const glm::quat& other );
             Quaternion& setFrom( Euler& euler, bool update );
             Quaternion& setFrom( glm::vec3& axis, float angle );
         
@@ -57,17 +58,14 @@ namespace three {
             Quaternion& onChange( std::function<void()> callback );
         
         
-            float x;
-            float y;
-            float z;
-            float w;
+            glm::quat rep;
             std::function<void()> onChangeCallback = [](){};
         
             /**
              * Stream overloading for printing
              */
             friend std::ostream &operator <<( std::ostream& os, const Quaternion& q ) {
-                os << "(" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")" ;
+                os << "(" << q.rep.x << ", " << q.rep.y << ", " << q.rep.z << ", " << q.rep.w << ")" ;
                 return os;
             }
     };

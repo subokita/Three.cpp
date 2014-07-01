@@ -13,50 +13,52 @@ using namespace std;
 
 namespace three {
     Quaternion::Quaternion() :
-        x(0),
-        y(0),
-        z(0),
-        w(1)
+        rep(0, 0, 0, 1)
     {
     }
     
     Quaternion::~Quaternion(){}
     
-    Quaternion::Quaternion( float param_x, float param_y, float param_z, float param_w ):
-        x(param_x),
-        y(param_y),
-        z(param_z),
-        w(param_w)
+    Quaternion::Quaternion( float x, float y, float z, float w ):
+        rep(x, y, z, w)
     {}
     
     
     Quaternion& Quaternion::setX( float x ){
-        this->x = x;
+        this->rep.x = x;
         onChangeCallback();
         return *this;
     }
+    
     Quaternion& Quaternion::setY( float y ){
-        this->y = y;
+        this->rep.y = y;
         onChangeCallback();
         return *this;
     }
+    
     Quaternion& Quaternion::setZ( float z ){
-        this->z = z;
+        this->rep.z = z;
         onChangeCallback();
         return *this;
     }
+    
     Quaternion& Quaternion::setW( float w ){
-        this->w = w;
+        this->rep.w = w;
         onChangeCallback();
         return *this;
     }
     
     Quaternion& Quaternion::set( float x, float y, float z, float w ){
-        this->x = x;
-        this->y = y;
-        this->z = z;
-        this->w = w;
+        this->rep.x = x;
+        this->rep.y = y;
+        this->rep.z = z;
+        this->rep.w = w;
         onChangeCallback();
+        return *this;
+    }
+    
+    Quaternion& Quaternion::operator=( const glm::quat& other ) {
+        this->rep = other;
         return *this;
     }
     
@@ -65,10 +67,7 @@ namespace three {
         if( this == &other )
             return *this;
         
-        this->x = other.x;
-        this->y = other.y;
-        this->z = other.z;
-        this->w = other.w;
+        this->rep = other.rep;
         onChangeCallback();
         return *this;
     }
@@ -83,45 +82,45 @@ namespace three {
         
         switch( euler.order ) {
             case RotationOrders::XYZ :
-                this->x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
                 break;
                 
             case RotationOrders::YXZ  :
-                this->x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
                 break;
                 
             case RotationOrders::ZXY  :
-                this->x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
                 break;
                 
             case RotationOrders::ZYX  :
-                this->x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
                 break;
                 
             case RotationOrders::YZX  :
-                this->x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z + cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z + sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z - sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z - sin_x * sin_y * sin_z;
                 break;
                 
             case RotationOrders::XZY  :
-                this->x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
-                this->y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
-                this->z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
-                this->w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
+                this->rep.x = sin_x * cos_y * cos_z - cos_x * sin_y * sin_z;
+                this->rep.y = cos_x * sin_y * cos_z - sin_x * cos_y * sin_z;
+                this->rep.z = cos_x * cos_y * sin_z + sin_x * sin_y * cos_z;
+                this->rep.w = cos_x * cos_y * cos_z + sin_x * sin_y * sin_z;
                 break;
         }
         
@@ -135,10 +134,10 @@ namespace three {
         float half_angle = angle / 2.0;
         float sin_half_angle = sinf( half_angle );
         
-        this->x = axis.x * sin_half_angle;
-        this->y = axis.y * sin_half_angle;
-        this->z = axis.z * sin_half_angle;
-        this->w = cosf( half_angle );
+        this->rep.x = axis.x * sin_half_angle;
+        this->rep.y = axis.y * sin_half_angle;
+        this->rep.z = axis.z * sin_half_angle;
+        this->rep.w = cosf( half_angle );
         onChangeCallback();
         return *this;
     }
@@ -148,38 +147,8 @@ namespace three {
      */
     Quaternion& Quaternion::setFrom( glm::mat4x4& mat ) {
         
-        float trace = mat[0][0] + mat[1][1] + mat[2][2];
-        float s;
-        
-		if ( trace > 0 ) {
-			s = 0.5 / sqrt( trace + 1.0 );
-			this->w = 0.25 / s;
-			this->x = ( mat[2][1] - mat[1][2] ) * s;
-			this->y = ( mat[0][2] - mat[2][0] ) * s;
-			this->z = ( mat[1][0] - mat[0][1] ) * s;
-		}
-        else if ( mat[0][0] > mat[1][1] && mat[0][0] > mat[2][2] ) {
-			s = 2.0 * sqrt( 1.0 + mat[0][0] - mat[1][1] - mat[2][2] );
-			this->w = (mat[2][1] - mat[1][2] ) / s;
-			this->x = 0.25 * s;
-			this->y = (mat[0][1] + mat[1][0] ) / s;
-			this->z = (mat[0][2] + mat[2][0] ) / s;
-		}
-        else if ( mat[1][1] > mat[2][2] ) {
-			s = 2.0 * sqrt( 1.0 + mat[1][1] - mat[0][0] - mat[2][2] );
-			this->w = (mat[0][2] - mat[2][0] ) / s;
-			this->x = (mat[0][1] + mat[1][0] ) / s;
-			this->y = 0.25 * s;
-			this->z = (mat[1][2] + mat[2][1] ) / s;
-		}
-        else {
-        	s = 2.0 * sqrt( 1.0 + mat[2][2] - mat[0][0] - mat[1][1] );
-        	this->w = ( mat[1][0] - mat[0][1] ) / s;
-			this->x = ( mat[0][2] + mat[2][0] ) / s;
-			this->y = ( mat[1][2] + mat[2][1] ) / s;
-			this->z = 0.25 * s;
-		}
-        
+        /* Conjugated because the original one has opposite sign for x, y, and z */
+        this->rep = glm::conjugate(glm::quat_cast( mat ));
         onChangeCallback();
         
         return *this;
@@ -202,10 +171,10 @@ namespace three {
             vec = glm::cross(v_from, v_to);
         }
         
-        this->x = vec.x;
-        this->y = vec.y;
-        this->z = vec.z;
-        this->w = r;
+        this->rep.x = vec.x;
+        this->rep.y = vec.y;
+        this->rep.z = vec.z;
+        this->rep.w = r;
         
         this->normalize();
         
@@ -218,123 +187,66 @@ namespace three {
     }
     
     Quaternion& Quaternion::conjugate(){
-        this->x *= -1.0;
-        this->y *= -1.0;
-        this->z *= -1.0;
-        
+        this->rep = glm::conjugate( rep );
         onChangeCallback();
         return *this;
     }
     
     float Quaternion::lengthSquared(){
-        return x * x + y * y + z * z + w * w;
+        return rep.x * rep.x + rep.y * rep.y + rep.z * rep.z + rep.w * rep.w;
     }
     
     float Quaternion::length(){
-        return sqrt( x * x + y * y + z * z + w * w );
+        return glm::length( rep );
     }
     
     Quaternion& Quaternion::normalize(){
-        float len = length();
-        if( len == 0.0 ) {
-            this->x = 0.0;
-            this->y = 0.0;
-            this->z = 0.0;
-            this->w = 1.0;
-        }
-        else {
-            len = 1.0 / len;
-            this->x = this->x * len;
-            this->y = this->y * len;
-            this->z = this->z * len;
-            this->w = this->w * len;
-        }
-        
+        rep = glm::normalize( rep );
         onChangeCallback();
         return *this;
     }
     
     
     Quaternion Quaternion::multiply(Quaternion& a, Quaternion& b) {
-        float x = a.x * b.w + a.w * b.x + a.y * b.z - a.z * b.y;
-        float y = a.y * b.w + a.w * b.y + a.z * b.x - a.x * b.z;
-        float z = a.z * b.w + a.w * b.z + a.x * b.y - a.y * b.x;
-        float w = a.w * b.w - a.x * b.x - a.y * b.y - a.z * b.z;
-        
-        return Quaternion( x, y, z, w );
+        glm::quat res = a.rep * b.rep;
+        return Quaternion( res.x, res.y, res.z, res.w );
     }
     
     Quaternion& Quaternion::multiply(Quaternion& q) {
-        *this = multiply(*this, q);
+        this->rep = this->rep  * q.rep;
         onChangeCallback();
         return (*this);
     }
     
     
     Quaternion& Quaternion::slerp( Quaternion& q, float t ) {
-        float cos_half_theta = w * q.w + x * q.x + y * q.y + z * q.z;
-        
-        if( cos_half_theta < 0.0 ) {
-            w = -q.w;
-            x = -q.x;
-            y = -q.y;
-            z = -q.z;
-            cos_half_theta = -cos_half_theta;
-        }
-        else {
-            *this = q;
-        }
-        
-        if( cos_half_theta >= 1.0 ) {
-            *this = q;
-            return *this;
-        }
-        
-        float half_theta = acos( cos_half_theta );
-        float sin_half_theta = sqrt( 1.0 - cos_half_theta * cos_half_theta );
-        
-        if( fabsf(sin_half_theta) < 0.001 ) {
-            w = 0.5 * ( q.w + w );
-            x = 0.5 * ( q.x + x );
-            y = 0.5 * ( q.y + y );
-            z = 0.5 * ( q.z + z );
-            return *this;
-        }
-        
-        float ratio_a = sinf( (1.0 - t) * half_theta ) / sin_half_theta;
-        float ratio_b = sinf(        t  * half_theta ) / sin_half_theta;
-        
-        w = ( q.w * ratio_a + w * ratio_b );
-        x = ( q.x * ratio_a + x * ratio_b );
-        y = ( q.y * ratio_a + y * ratio_b );
-        z = ( q.z * ratio_a + z * ratio_b );
-        
+        this->rep = glm::slerp( this->rep, q.rep, t );
         onChangeCallback();
-        
         return *this;
     }
     
     
     Quaternion Quaternion::slerp( Quaternion& a, Quaternion& b, float t ) {
-        Quaternion temp = a;
-        return temp.slerp( b, t );
+        Quaternion result;
+        result = glm::slerp( a.rep, b.rep, t );
+        return result;
     }
     
     bool Quaternion::equals( Quaternion& q ) {
-        return x == q.x && y == q.y && z == q.z && w == q.w;
+        return rep.x == q.rep.x && rep.y == q.rep.y && rep.z == q.rep.z && rep.w == q.rep.w;
     }
     
     Quaternion& Quaternion::fromArray( vector<float>& vec ) {
-        x = vec[0];
-        y = vec[1];
-        z = vec[2];
-        w = vec[3];
+        rep.x = vec[0];
+        rep.y = vec[1];
+        rep.z = vec[2];
+        rep.w = vec[3];
         return *this;
     }
     
     vector<float> Quaternion::toArray(){
         return vector<float> {
-            x, y, z, w
+            rep.x, rep.y, rep.z, rep.w
         };
     }
     
@@ -345,6 +257,6 @@ namespace three {
     }
     
     Quaternion Quaternion::clone(){
-        return Quaternion( x, y, z, w );
+        return Quaternion( rep.x, rep.y, rep.z, rep.w );
     }
 }
