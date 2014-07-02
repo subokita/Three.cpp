@@ -1,0 +1,7 @@
+
+            Color color;
+            Texture map;
+            float size;
+            bool sizeAttenuation;
+            bool vertexColors;
+            bool fog;
