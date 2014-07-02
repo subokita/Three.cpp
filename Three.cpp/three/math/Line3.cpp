@@ -12,20 +12,20 @@
 namespace three {
     
     Line3::Line3():
-        start(glm::vec3(0, 0, 0)),
-        end(glm::vec3(0, 0, 0))
+        start( glm::vec3(0, 0, 0) ),
+        end  ( glm::vec3(0, 0, 0) )
     {
     }
     
     Line3::Line3( glm::vec3 start, glm::vec3 end ):
         start( start ),
-        end( end )
+        end  ( end )
     {
     }
     
     Line3::Line3( const Line3& rhs ) :
         start( rhs.start ),
-        end( rhs.end )
+        end  ( rhs.end )
     {
     }
     

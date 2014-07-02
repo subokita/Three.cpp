@@ -11,24 +11,36 @@
 
 #include <iostream>
 #include "Material.h"
-#include "Color.h"
 
 namespace three {
     class LineBasicMaterial : public Material {
         public:
             LineBasicMaterial();
+            LineBasicMaterial( const LineBasicMaterial& rhs );
+            LineBasicMaterial clone() const;
             ~LineBasicMaterial();
         
-            LineBasicMaterial( const LineBasicMaterial& rhs );
-        
-            LineBasicMaterial clone();
-        
-            int linewidth;
+            /* Data members */
+            int         linewidth;
             std::string linecap;
             std::string linejoin;
-            bool vertexColors;
-            bool fog;
-            Color color;
+            bool        vertexColors;
+            bool        fog;
+            Color       color;
+            
+            
+            /** Output stream overloading */
+            friend std::ostream &operator <<( std::ostream& os, const LineBasicMaterial& obj ) {
+                os << "LineBasicMaterial {" << std::endl;
+                os << "\tlinewidth   : " << obj.linewidth    << std::endl;
+                os << "\tlinecap     : " << obj.linecap      << std::endl;
+                os << "\tlinejoin    : " << obj.linejoin     << std::endl;
+                os << "\tvertexColors: " << obj.vertexColors << std::endl;
+                os << "\tfog         : " << obj.fog          << std::endl;
+                os << "\tcolor       : " << obj.color        << std::endl;
+                os << "}";
+                return os;
+            }
     };
 }
 

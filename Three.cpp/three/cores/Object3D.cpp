@@ -8,7 +8,7 @@
 
 #include "Object3D.h"
 #include "Math.h"
-#include <glm/gtc/matrix_transform.hpp>
+#include "Event.h"
 
 namespace three {
     Object3D::Object3D() {
@@ -36,6 +36,10 @@ namespace three {
         quaternion.onChange([&]() {
             rotation.setFrom( quaternion, rotation.order, false );
         });
+    }
+    
+    Object3D::~Object3D(){
+        
     }
     
     
@@ -121,20 +125,24 @@ namespace three {
         return vec * glm::inverse( matrixWorld );
     }
     
-    void Object3D::lookAt( glm::vec3& eye ) {
-        glm::mat4x4 mat = glm::lookAt( eye, this->position, this->up );
+    void Object3D::lookAt( glm::vec3& vec ) {
+        glm::mat4x4 mat = glm::lookAt( this->position, vec, this->up );
         this->quaternion.setFrom( mat );
     }
     
     void Object3D::add( Object3D& object ) {
+        if( this == &object )
+            return;
         
         if( object.parent != nullptr )
             object.parent->remove( object );
         
         object.parent = make_shared<Object3D>(*this);
-        //FIXME: dispatchEvent;
         
+        object.dispatchEvent( Event{ "added" } );
         children[object.id] = make_shared<Object3D>(object);
+        
+        
         
         //FIXME: Add to Scene
     }
@@ -253,7 +261,7 @@ namespace three {
         return *this;
     }
     
-    Object3D Object3D::clone(bool recursive) {
+    Object3D Object3D::clone(bool recursive) const{
         
         
         return Object3D();

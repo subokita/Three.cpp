@@ -17,8 +17,8 @@ namespace three {
     
     Color::Color():
         r( 1.0 ),
-        g(1.0),
-        b(1.0)
+        g( 1.0 ),
+        b( 1.0 )
     {}
     
     Color::Color( float r, float g, float b ):
@@ -28,9 +28,9 @@ namespace three {
     {}
     
     Color::Color(const Color& rhs) :
-        r(rhs.r),
-        g(rhs.g),
-        b(rhs.b)
+        r( rhs.r ),
+        g( rhs.g ),
+        b( rhs.b )
     {}
     
     

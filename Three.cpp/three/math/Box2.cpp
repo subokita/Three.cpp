@@ -179,7 +179,7 @@ namespace three {
         return box.min == min && box.max == max;
     }
     
-    Box2 Box2::clone() {
+    Box2 Box2::clone()  const {
         return Box2( *this );
     }
 }

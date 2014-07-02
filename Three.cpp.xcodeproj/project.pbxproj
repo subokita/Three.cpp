@@ -7,9 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80D29D11963CDCB00EC5D8F /* LineDashedMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29CF1963CDCB00EC5D8F /* LineDashedMaterial.cpp */; };
+		A80D29E11963D2A600EC5D8F /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29DF1963D2A600EC5D8F /* EventDispatcher.cpp */; };
+		A80D29E21963D2A600EC5D8F /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29DF1963D2A600EC5D8F /* EventDispatcher.cpp */; };
+		A80D29E91963D7B100EC5D8F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29E71963D7B100EC5D8F /* Camera.cpp */; };
+		A80D29EA1963D7B100EC5D8F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29E71963D7B100EC5D8F /* Camera.cpp */; };
+		A80D29ED1963E17500EC5D8F /* OrthographicCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29EB1963E17500EC5D8F /* OrthographicCamera.cpp */; };
+		A80D29EE1963E17500EC5D8F /* OrthographicCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29EB1963E17500EC5D8F /* OrthographicCamera.cpp */; };
+		A80D29F11963E84000EC5D8F /* PerspectiveCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29EF1963E84000EC5D8F /* PerspectiveCamera.cpp */; };
+		A80D29F21963E84000EC5D8F /* PerspectiveCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29EF1963E84000EC5D8F /* PerspectiveCamera.cpp */; };
+		A80D29F51963ED2400EC5D8F /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29F31963ED2400EC5D8F /* Texture.cpp */; };
+		A80D29F61963ED2400EC5D8F /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29F31963ED2400EC5D8F /* Texture.cpp */; };
+		A80D29F91963EEEC00EC5D8F /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29F71963EEEC00EC5D8F /* Light.cpp */; };
+		A80D29FA1963EEEC00EC5D8F /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29F71963EEEC00EC5D8F /* Light.cpp */; };
+		A80D29FD1963F02700EC5D8F /* HemisphereLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29FB1963F02700EC5D8F /* HemisphereLight.cpp */; };
+		A80D29FE1963F02700EC5D8F /* HemisphereLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29FB1963F02700EC5D8F /* HemisphereLight.cpp */; };
+		A80D2A011963F1E900EC5D8F /* AmbientLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29FF1963F1E900EC5D8F /* AmbientLight.cpp */; };
+		A80D2A021963F1E900EC5D8F /* AmbientLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D29FF1963F1E900EC5D8F /* AmbientLight.cpp */; };
+		A80D2A051963F31800EC5D8F /* AreaLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A031963F31800EC5D8F /* AreaLight.cpp */; };
+		A80D2A061963F31800EC5D8F /* AreaLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A031963F31800EC5D8F /* AreaLight.cpp */; };
+		A80D2A091963F63A00EC5D8F /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A071963F63A00EC5D8F /* PointLight.cpp */; };
+		A80D2A0A1963F63A00EC5D8F /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A071963F63A00EC5D8F /* PointLight.cpp */; };
+		A80D2A0D1963F7CA00EC5D8F /* DirectionalLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A0B1963F7CA00EC5D8F /* DirectionalLight.cpp */; };
+		A80D2A0E1963F7CA00EC5D8F /* DirectionalLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A0B1963F7CA00EC5D8F /* DirectionalLight.cpp */; };
+		A80D2A12196400D100EC5D8F /* Fog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A10196400D100EC5D8F /* Fog.cpp */; };
+		A80D2A13196400D100EC5D8F /* Fog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A10196400D100EC5D8F /* Fog.cpp */; };
+		A80D2A16196402BC00EC5D8F /* FogExp2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A14196402BC00EC5D8F /* FogExp2.cpp */; };
+		A80D2A17196402BC00EC5D8F /* FogExp2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A14196402BC00EC5D8F /* FogExp2.cpp */; };
+		A80D2A1E1964077100EC5D8F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A1C1964077100EC5D8F /* Event.cpp */; };
+		A80D2A1F1964077100EC5D8F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A1C1964077100EC5D8F /* Event.cpp */; };
+		A80D2A2219640A9C00EC5D8F /* MeshBasicMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2019640A9C00EC5D8F /* MeshBasicMaterial.cpp */; };
+		A80D2A2319640A9C00EC5D8F /* MeshBasicMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2019640A9C00EC5D8F /* MeshBasicMaterial.cpp */; };
+		A80D2A2619640D9C00EC5D8F /* MeshDepthMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2419640D9C00EC5D8F /* MeshDepthMaterial.cpp */; };
+		A80D2A2719640D9C00EC5D8F /* MeshDepthMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2419640D9C00EC5D8F /* MeshDepthMaterial.cpp */; };
+		A80D2A2A19640E6E00EC5D8F /* MeshFaceMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2819640E6E00EC5D8F /* MeshFaceMaterial.cpp */; };
+		A80D2A2B19640E6E00EC5D8F /* MeshFaceMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2819640E6E00EC5D8F /* MeshFaceMaterial.cpp */; };
+		A80D2A2E1964103B00EC5D8F /* MeshLambertMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2C1964103B00EC5D8F /* MeshLambertMaterial.cpp */; };
+		A80D2A2F1964103B00EC5D8F /* MeshLambertMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A2C1964103B00EC5D8F /* MeshLambertMaterial.cpp */; };
+		A80D2A32196415D800EC5D8F /* MeshNormalMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A30196415D800EC5D8F /* MeshNormalMaterial.cpp */; };
+		A80D2A33196415D800EC5D8F /* MeshNormalMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A30196415D800EC5D8F /* MeshNormalMaterial.cpp */; };
+		A80D2A36196417FB00EC5D8F /* MeshPhongMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A34196417FB00EC5D8F /* MeshPhongMaterial.cpp */; };
+		A80D2A37196417FB00EC5D8F /* MeshPhongMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A34196417FB00EC5D8F /* MeshPhongMaterial.cpp */; };
+		A80D2A3A19641AEE00EC5D8F /* ParticleSystemMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A3819641AEE00EC5D8F /* ParticleSystemMaterial.cpp */; };
+		A80D2A3B19641AEE00EC5D8F /* ParticleSystemMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A80D2A3819641AEE00EC5D8F /* ParticleSystemMaterial.cpp */; };
 		A816A9F6195F0F8A00113E4C /* Euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A816A9F4195F0F8A00113E4C /* Euler.cpp */; };
 		A81A94A9196188C6005A4092 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94A7196188C6005A4092 /* Material.cpp */; };
-		A81A94AC1961A3E7005A4092 /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */; };
 		A81A94AF1961AA9F005A4092 /* Object3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AD1961AA9F005A4092 /* Object3D.cpp */; };
 		A8408CCD196332A3007CA462 /* LineBasicMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8408CCB196332A3007CA462 /* LineBasicMaterial.cpp */; };
 		A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B46195D3F1500DF2B47 /* Box2.cpp */; };
@@ -34,7 +76,6 @@
 		A8B3609219634B0100D9E7C1 /* Box2Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8439B3B195D36CF00DF2B47 /* Box2Test.cpp */; };
 		A8B3609319634B0100D9E7C1 /* Box3Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A816A9DB195F0B9800113E4C /* Box3Test.cpp */; };
 		A8B3609419634B2F00D9E7C1 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A853C78B196133DC00F9E39E /* Utils.cpp */; };
-		A8B3609519634B2F00D9E7C1 /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */; };
 		A8B3609619634B2F00D9E7C1 /* Face3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DC3FAA19632C2000A1EAC6 /* Face3.cpp */; };
 		A8B3609719634B2F00D9E7C1 /* Object3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94AD1961AA9F005A4092 /* Object3D.cpp */; };
 		A8B3609819634B2F00D9E7C1 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81A94A7196188C6005A4092 /* Material.cpp */; };
@@ -82,14 +123,56 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A80D29CF1963CDCB00EC5D8F /* LineDashedMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineDashedMaterial.cpp; sourceTree = "<group>"; };
+		A80D29D01963CDCB00EC5D8F /* LineDashedMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDashedMaterial.h; sourceTree = "<group>"; };
+		A80D29DF1963D2A600EC5D8F /* EventDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventDispatcher.cpp; sourceTree = "<group>"; };
+		A80D29E01963D2A600EC5D8F /* EventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDispatcher.h; sourceTree = "<group>"; };
+		A80D29E71963D7B100EC5D8F /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		A80D29E81963D7B100EC5D8F /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		A80D29EB1963E17500EC5D8F /* OrthographicCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrthographicCamera.cpp; sourceTree = "<group>"; };
+		A80D29EC1963E17500EC5D8F /* OrthographicCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrthographicCamera.h; sourceTree = "<group>"; };
+		A80D29EF1963E84000EC5D8F /* PerspectiveCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveCamera.cpp; sourceTree = "<group>"; };
+		A80D29F01963E84000EC5D8F /* PerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerspectiveCamera.h; sourceTree = "<group>"; };
+		A80D29F31963ED2400EC5D8F /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		A80D29F41963ED2400EC5D8F /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		A80D29F71963EEEC00EC5D8F /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		A80D29F81963EEEC00EC5D8F /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		A80D29FB1963F02700EC5D8F /* HemisphereLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HemisphereLight.cpp; sourceTree = "<group>"; };
+		A80D29FC1963F02700EC5D8F /* HemisphereLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HemisphereLight.h; sourceTree = "<group>"; };
+		A80D29FF1963F1E900EC5D8F /* AmbientLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AmbientLight.cpp; sourceTree = "<group>"; };
+		A80D2A001963F1E900EC5D8F /* AmbientLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmbientLight.h; sourceTree = "<group>"; };
+		A80D2A031963F31800EC5D8F /* AreaLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AreaLight.cpp; sourceTree = "<group>"; };
+		A80D2A041963F31800EC5D8F /* AreaLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLight.h; sourceTree = "<group>"; };
+		A80D2A071963F63A00EC5D8F /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointLight.cpp; sourceTree = "<group>"; };
+		A80D2A081963F63A00EC5D8F /* PointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLight.h; sourceTree = "<group>"; };
+		A80D2A0B1963F7CA00EC5D8F /* DirectionalLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectionalLight.cpp; sourceTree = "<group>"; };
+		A80D2A0C1963F7CA00EC5D8F /* DirectionalLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionalLight.h; sourceTree = "<group>"; };
+		A80D2A10196400D100EC5D8F /* Fog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fog.cpp; sourceTree = "<group>"; };
+		A80D2A11196400D100EC5D8F /* Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fog.h; sourceTree = "<group>"; };
+		A80D2A14196402BC00EC5D8F /* FogExp2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FogExp2.cpp; sourceTree = "<group>"; };
+		A80D2A15196402BC00EC5D8F /* FogExp2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogExp2.h; sourceTree = "<group>"; };
+		A80D2A1C1964077100EC5D8F /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
+		A80D2A1D1964077100EC5D8F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		A80D2A2019640A9C00EC5D8F /* MeshBasicMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshBasicMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A2119640A9C00EC5D8F /* MeshBasicMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshBasicMaterial.h; sourceTree = "<group>"; };
+		A80D2A2419640D9C00EC5D8F /* MeshDepthMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshDepthMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A2519640D9C00EC5D8F /* MeshDepthMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshDepthMaterial.h; sourceTree = "<group>"; };
+		A80D2A2819640E6E00EC5D8F /* MeshFaceMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshFaceMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A2919640E6E00EC5D8F /* MeshFaceMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshFaceMaterial.h; sourceTree = "<group>"; };
+		A80D2A2C1964103B00EC5D8F /* MeshLambertMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshLambertMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A2D1964103B00EC5D8F /* MeshLambertMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshLambertMaterial.h; sourceTree = "<group>"; };
+		A80D2A30196415D800EC5D8F /* MeshNormalMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNormalMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A31196415D800EC5D8F /* MeshNormalMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshNormalMaterial.h; sourceTree = "<group>"; };
+		A80D2A34196417FB00EC5D8F /* MeshPhongMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshPhongMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A35196417FB00EC5D8F /* MeshPhongMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshPhongMaterial.h; sourceTree = "<group>"; };
+		A80D2A3819641AEE00EC5D8F /* ParticleSystemMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystemMaterial.cpp; sourceTree = "<group>"; };
+		A80D2A3919641AEE00EC5D8F /* ParticleSystemMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystemMaterial.h; sourceTree = "<group>"; };
 		A816A9DB195F0B9800113E4C /* Box3Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box3Test.cpp; sourceTree = "<group>"; };
 		A816A9DC195F0B9800113E4C /* Box3Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box3Test.h; sourceTree = "<group>"; };
 		A816A9F4195F0F8A00113E4C /* Euler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Euler.cpp; sourceTree = "<group>"; };
 		A816A9F5195F0F8A00113E4C /* Euler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Euler.h; sourceTree = "<group>"; };
 		A81A94A7196188C6005A4092 /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
 		A81A94A8196188C6005A4092 /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
-		A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventDispatcher.cpp; sourceTree = "<group>"; };
-		A81A94AB1961A3E7005A4092 /* EventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDispatcher.h; sourceTree = "<group>"; };
 		A81A94AD1961AA9F005A4092 /* Object3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object3D.cpp; sourceTree = "<group>"; };
 		A81A94AE1961AA9F005A4092 /* Object3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		A8408CCB196332A3007CA462 /* LineBasicMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineBasicMaterial.cpp; sourceTree = "<group>"; };
@@ -203,6 +286,12 @@
 		A853C77B19612EA900F9E39E /* cameras */ = {
 			isa = PBXGroup;
 			children = (
+				A80D29E71963D7B100EC5D8F /* Camera.cpp */,
+				A80D29E81963D7B100EC5D8F /* Camera.h */,
+				A80D29EB1963E17500EC5D8F /* OrthographicCamera.cpp */,
+				A80D29EC1963E17500EC5D8F /* OrthographicCamera.h */,
+				A80D29EF1963E84000EC5D8F /* PerspectiveCamera.cpp */,
+				A80D29F01963E84000EC5D8F /* PerspectiveCamera.h */,
 			);
 			path = cameras;
 			sourceTree = "<group>";
@@ -210,8 +299,10 @@
 		A853C77C19612EA900F9E39E /* cores */ = {
 			isa = PBXGroup;
 			children = (
-				A81A94AA1961A3E7005A4092 /* EventDispatcher.cpp */,
-				A81A94AB1961A3E7005A4092 /* EventDispatcher.h */,
+				A80D2A1C1964077100EC5D8F /* Event.cpp */,
+				A80D2A1D1964077100EC5D8F /* Event.h */,
+				A80D29DF1963D2A600EC5D8F /* EventDispatcher.cpp */,
+				A80D29E01963D2A600EC5D8F /* EventDispatcher.h */,
 				A8DC3FAA19632C2000A1EAC6 /* Face3.cpp */,
 				A8DC3FAB19632C2000A1EAC6 /* Face3.h */,
 				A81A94AD1961AA9F005A4092 /* Object3D.cpp */,
@@ -230,6 +321,18 @@
 		A853C77E19612EA900F9E39E /* lights */ = {
 			isa = PBXGroup;
 			children = (
+				A80D29FF1963F1E900EC5D8F /* AmbientLight.cpp */,
+				A80D2A001963F1E900EC5D8F /* AmbientLight.h */,
+				A80D2A031963F31800EC5D8F /* AreaLight.cpp */,
+				A80D2A041963F31800EC5D8F /* AreaLight.h */,
+				A80D2A0B1963F7CA00EC5D8F /* DirectionalLight.cpp */,
+				A80D2A0C1963F7CA00EC5D8F /* DirectionalLight.h */,
+				A80D29FB1963F02700EC5D8F /* HemisphereLight.cpp */,
+				A80D29FC1963F02700EC5D8F /* HemisphereLight.h */,
+				A80D29F71963EEEC00EC5D8F /* Light.cpp */,
+				A80D29F81963EEEC00EC5D8F /* Light.h */,
+				A80D2A071963F63A00EC5D8F /* PointLight.cpp */,
+				A80D2A081963F63A00EC5D8F /* PointLight.h */,
 			);
 			path = lights;
 			sourceTree = "<group>";
@@ -244,10 +347,26 @@
 		A853C78019612EA900F9E39E /* materials */ = {
 			isa = PBXGroup;
 			children = (
-				A81A94A7196188C6005A4092 /* Material.cpp */,
-				A81A94A8196188C6005A4092 /* Material.h */,
 				A8408CCB196332A3007CA462 /* LineBasicMaterial.cpp */,
 				A8408CCC196332A3007CA462 /* LineBasicMaterial.h */,
+				A80D29CF1963CDCB00EC5D8F /* LineDashedMaterial.cpp */,
+				A80D29D01963CDCB00EC5D8F /* LineDashedMaterial.h */,
+				A81A94A7196188C6005A4092 /* Material.cpp */,
+				A81A94A8196188C6005A4092 /* Material.h */,
+				A80D2A2019640A9C00EC5D8F /* MeshBasicMaterial.cpp */,
+				A80D2A2119640A9C00EC5D8F /* MeshBasicMaterial.h */,
+				A80D2A2419640D9C00EC5D8F /* MeshDepthMaterial.cpp */,
+				A80D2A2519640D9C00EC5D8F /* MeshDepthMaterial.h */,
+				A80D2A2819640E6E00EC5D8F /* MeshFaceMaterial.cpp */,
+				A80D2A2919640E6E00EC5D8F /* MeshFaceMaterial.h */,
+				A80D2A2C1964103B00EC5D8F /* MeshLambertMaterial.cpp */,
+				A80D2A2D1964103B00EC5D8F /* MeshLambertMaterial.h */,
+				A80D2A30196415D800EC5D8F /* MeshNormalMaterial.cpp */,
+				A80D2A31196415D800EC5D8F /* MeshNormalMaterial.h */,
+				A80D2A34196417FB00EC5D8F /* MeshPhongMaterial.cpp */,
+				A80D2A35196417FB00EC5D8F /* MeshPhongMaterial.h */,
+				A80D2A3819641AEE00EC5D8F /* ParticleSystemMaterial.cpp */,
+				A80D2A3919641AEE00EC5D8F /* ParticleSystemMaterial.h */,
 			);
 			path = materials;
 			sourceTree = "<group>";
@@ -271,6 +390,10 @@
 		A853C78319612EA900F9E39E /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A80D2A10196400D100EC5D8F /* Fog.cpp */,
+				A80D2A11196400D100EC5D8F /* Fog.h */,
+				A80D2A14196402BC00EC5D8F /* FogExp2.cpp */,
+				A80D2A15196402BC00EC5D8F /* FogExp2.h */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -278,6 +401,8 @@
 		A853C78419612EA900F9E39E /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				A80D29F31963ED2400EC5D8F /* Texture.cpp */,
+				A80D29F41963ED2400EC5D8F /* Texture.h */,
 			);
 			path = textures;
 			sourceTree = "<group>";
@@ -423,27 +548,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8439B6B195D82F600DF2B47 /* Ray.cpp in Sources */,
+				A80D2A091963F63A00EC5D8F /* PointLight.cpp in Sources */,
 				A8439B4F195D3F1500DF2B47 /* Box3.cpp in Sources */,
 				A853C79519614D6E00F9E39E /* Frustum.cpp in Sources */,
 				A8439B4E195D3F1500DF2B47 /* Box2.cpp in Sources */,
+				A80D2A0D1963F7CA00EC5D8F /* DirectionalLight.cpp in Sources */,
+				A80D2A36196417FB00EC5D8F /* MeshPhongMaterial.cpp in Sources */,
+				A80D29E91963D7B100EC5D8F /* Camera.cpp in Sources */,
 				A8959CD1195C4A9000CE9522 /* main.cpp in Sources */,
+				A80D29D11963CDCB00EC5D8F /* LineDashedMaterial.cpp in Sources */,
+				A80D29F11963E84000EC5D8F /* PerspectiveCamera.cpp in Sources */,
 				A8439B68195D798700DF2B47 /* Triangle.cpp in Sources */,
+				A80D29E11963D2A600EC5D8F /* EventDispatcher.cpp in Sources */,
+				A80D2A1E1964077100EC5D8F /* Event.cpp in Sources */,
 				A8D180DF1960587500BDD1A6 /* Quaternion.cpp in Sources */,
 				A853C78719612EB200F9E39E /* Renderer.cpp in Sources */,
 				A81A94A9196188C6005A4092 /* Material.cpp in Sources */,
 				A853C7981961648400F9E39E /* Spline.cpp in Sources */,
+				A80D2A2219640A9C00EC5D8F /* MeshBasicMaterial.cpp in Sources */,
+				A80D2A3A19641AEE00EC5D8F /* ParticleSystemMaterial.cpp in Sources */,
+				A80D29F91963EEEC00EC5D8F /* Light.cpp in Sources */,
+				A80D2A2E1964103B00EC5D8F /* MeshLambertMaterial.cpp in Sources */,
 				A853C79219613DFA00F9E39E /* Color.cpp in Sources */,
 				A81A94AF1961AA9F005A4092 /* Object3D.cpp in Sources */,
 				A816A9F6195F0F8A00113E4C /* Euler.cpp in Sources */,
+				A80D29FD1963F02700EC5D8F /* HemisphereLight.cpp in Sources */,
+				A80D2A16196402BC00EC5D8F /* FogExp2.cpp in Sources */,
 				A8408CCD196332A3007CA462 /* LineBasicMaterial.cpp in Sources */,
+				A80D2A12196400D100EC5D8F /* Fog.cpp in Sources */,
 				A8DC3FAC19632C2000A1EAC6 /* Face3.cpp in Sources */,
 				A8439B62195D4EFE00DF2B47 /* Line3.cpp in Sources */,
+				A80D2A051963F31800EC5D8F /* AreaLight.cpp in Sources */,
 				A853C78D196133DC00F9E39E /* Utils.cpp in Sources */,
+				A80D29F51963ED2400EC5D8F /* Texture.cpp in Sources */,
+				A80D2A2619640D9C00EC5D8F /* MeshDepthMaterial.cpp in Sources */,
 				A8439B51195D3F1500DF2B47 /* Sphere.cpp in Sources */,
-				A81A94AC1961A3E7005A4092 /* EventDispatcher.cpp in Sources */,
+				A80D2A011963F1E900EC5D8F /* AmbientLight.cpp in Sources */,
+				A80D29ED1963E17500EC5D8F /* OrthographicCamera.cpp in Sources */,
 				A8439B6E195DD40A00DF2B47 /* Constants.cpp in Sources */,
+				A80D2A32196415D800EC5D8F /* MeshNormalMaterial.cpp in Sources */,
 				A8439B65195D680A00DF2B47 /* Plane.cpp in Sources */,
 				A8439B50195D3F1500DF2B47 /* Math.cpp in Sources */,
+				A80D2A2A19640E6E00EC5D8F /* MeshFaceMaterial.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,11 +597,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80D2A2B19640E6E00EC5D8F /* MeshFaceMaterial.cpp in Sources */,
+				A80D2A13196400D100EC5D8F /* Fog.cpp in Sources */,
 				A8B3609419634B2F00D9E7C1 /* Utils.cpp in Sources */,
-				A8B3609519634B2F00D9E7C1 /* EventDispatcher.cpp in Sources */,
+				A80D2A2319640A9C00EC5D8F /* MeshBasicMaterial.cpp in Sources */,
+				A80D29F61963ED2400EC5D8F /* Texture.cpp in Sources */,
 				A8B3609619634B2F00D9E7C1 /* Face3.cpp in Sources */,
+				A80D29EA1963D7B100EC5D8F /* Camera.cpp in Sources */,
 				A8B3609719634B2F00D9E7C1 /* Object3D.cpp in Sources */,
 				A8B3609819634B2F00D9E7C1 /* Material.cpp in Sources */,
+				A80D29FE1963F02700EC5D8F /* HemisphereLight.cpp in Sources */,
 				A8B3609919634B2F00D9E7C1 /* LineBasicMaterial.cpp in Sources */,
 				A8B3609A19634B2F00D9E7C1 /* Constants.cpp in Sources */,
 				A8B3609B19634B2F00D9E7C1 /* Box2.cpp in Sources */,
@@ -463,18 +614,33 @@
 				A8B3609D19634B2F00D9E7C1 /* Color.cpp in Sources */,
 				A8B3609E19634B2F00D9E7C1 /* Euler.cpp in Sources */,
 				A8B3609F19634B2F00D9E7C1 /* Frustum.cpp in Sources */,
+				A80D2A021963F1E900EC5D8F /* AmbientLight.cpp in Sources */,
+				A80D2A33196415D800EC5D8F /* MeshNormalMaterial.cpp in Sources */,
+				A80D2A061963F31800EC5D8F /* AreaLight.cpp in Sources */,
+				A80D2A2719640D9C00EC5D8F /* MeshDepthMaterial.cpp in Sources */,
 				A8B360A019634B2F00D9E7C1 /* Line3.cpp in Sources */,
+				A80D29FA1963EEEC00EC5D8F /* Light.cpp in Sources */,
 				A8B360A119634B2F00D9E7C1 /* Math.cpp in Sources */,
 				A8B360A219634B2F00D9E7C1 /* Plane.cpp in Sources */,
 				A8B360A319634B2F00D9E7C1 /* Quaternion.cpp in Sources */,
+				A80D2A2F1964103B00EC5D8F /* MeshLambertMaterial.cpp in Sources */,
+				A80D2A3B19641AEE00EC5D8F /* ParticleSystemMaterial.cpp in Sources */,
+				A80D2A0E1963F7CA00EC5D8F /* DirectionalLight.cpp in Sources */,
+				A80D29F21963E84000EC5D8F /* PerspectiveCamera.cpp in Sources */,
 				A8B360A419634B2F00D9E7C1 /* Ray.cpp in Sources */,
 				A8B360A519634B2F00D9E7C1 /* Sphere.cpp in Sources */,
 				A8B360A619634B2F00D9E7C1 /* Spline.cpp in Sources */,
+				A80D2A37196417FB00EC5D8F /* MeshPhongMaterial.cpp in Sources */,
 				A8B360A719634B2F00D9E7C1 /* Triangle.cpp in Sources */,
 				A8B360A819634B2F00D9E7C1 /* Renderer.cpp in Sources */,
 				A8B3609219634B0100D9E7C1 /* Box2Test.cpp in Sources */,
+				A80D29E21963D2A600EC5D8F /* EventDispatcher.cpp in Sources */,
 				A8B3609319634B0100D9E7C1 /* Box3Test.cpp in Sources */,
+				A80D2A0A1963F63A00EC5D8F /* PointLight.cpp in Sources */,
+				A80D29EE1963E17500EC5D8F /* OrthographicCamera.cpp in Sources */,
 				A8959CF3195C87A000CE9522 /* main.cpp in Sources */,
+				A80D2A1F1964077100EC5D8F /* Event.cpp in Sources */,
+				A80D2A17196402BC00EC5D8F /* FogExp2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

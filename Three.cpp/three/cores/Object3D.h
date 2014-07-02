@@ -15,6 +15,7 @@
 #include <memory>
 
 #include <json-c/json.h>
+#include <glm/gtc/matrix_transform.hpp>
 #include <glm/glm.hpp>
 
 #include "EventDispatcher.h"
@@ -29,8 +30,16 @@ namespace three {
     static int Object3DIDCount = 0;
     
     class Object3D : public EventDispatcher {
+        protected:
+            int id;
+            string uuid;
+            string name;
+        
         public:
             Object3D();
+            ~Object3D();
+            Object3D& operator=( const Object3D& other );
+            Object3D clone( bool recursive = true ) const;
         
             void applyMatrix( glm::mat4x4& mat );
             void setRotationFrom(glm::vec3& axis, float angle);
@@ -52,7 +61,7 @@ namespace three {
         
             glm::vec3 worldToLocal( glm::vec3& vec );
             glm::vec4 worldToLocal( glm::vec4& vec );
-            void lookAt( glm::vec3& eye );
+            void lookAt( glm::vec3& vec );
         
             void add( Object3D& object );
             void remove( Object3D& object );
@@ -62,15 +71,9 @@ namespace three {
             map<int, shared_ptr<Object3D>> getDescendants();
             void updateMatrix();
             void updateMatrixWorld( bool force );
-            Object3D& operator=( const Object3D& other );
-            Object3D clone( bool recursive = true );
         
         
             /* Data members, should have different access members, but let's wait and see */
-        
-            int id;
-            string uuid;
-            string name;
             
             shared_ptr<Object3D> parent;
             map<int, shared_ptr<Object3D>> children;

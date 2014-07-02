@@ -18,37 +18,37 @@ namespace three {
     class Box3;
     
     class Sphere {
-    public:
-        Sphere();
-        Sphere( const Sphere& rhs );
-        Sphere( glm::vec3 center, float radius );
-        ~Sphere();
-        
-        Sphere& set( glm::vec3 center, float radius );
-        Sphere& setFrom( std::vector<glm::vec3>& points );
-        Sphere& setFrom( std::vector<glm::vec3>& points, glm::vec3 center );
-        Sphere& operator=( const Sphere& rhs );
-        
-        bool empty();
-        bool contains( glm::vec3 point );
-        float distanceTo( glm::vec3 point );
-        bool doesIntersect( Sphere& sphere );
-        glm::vec3 clamp( glm::vec3 point );
-        Box3 getBoundingBox();
-        
-        Sphere& applyMatrix( glm::mat4x4& mat );
-        
-        Sphere& translate( glm::vec3 offset );
-        bool equals( Sphere& rhs );
-        Sphere clone();
-        
-        glm::vec3 center;
-        float radius;
-        
-        friend std::ostream &operator <<( std::ostream& os, const Sphere& sphere ) {
-            os << Utils::toString( sphere.center ) << " radius: " << sphere.radius;
-            return os;
-        }
+        public:
+            Sphere();
+            Sphere( const Sphere& rhs );
+            Sphere( glm::vec3 center, float radius );
+            ~Sphere();
+            
+            Sphere& set( glm::vec3 center, float radius );
+            Sphere& setFrom( std::vector<glm::vec3>& points );
+            Sphere& setFrom( std::vector<glm::vec3>& points, glm::vec3 center );
+            Sphere& operator=( const Sphere& rhs );
+            
+            bool empty();
+            bool contains( glm::vec3 point );
+            float distanceTo( glm::vec3 point );
+            bool doesIntersect( Sphere& sphere );
+            glm::vec3 clamp( glm::vec3 point );
+            Box3 getBoundingBox();
+            
+            Sphere& applyMatrix( glm::mat4x4& mat );
+            
+            Sphere& translate( glm::vec3 offset );
+            bool equals( Sphere& rhs );
+            Sphere clone();
+            
+            glm::vec3 center;
+            float radius;
+            
+            friend std::ostream &operator <<( std::ostream& os, const Sphere& sphere ) {
+                os << Utils::toString( sphere.center ) << " radius: " << sphere.radius;
+                return os;
+            }
     };
 }
 

@@ -68,7 +68,7 @@ namespace three {
         this->visible             = other.visible;
     }
     
-    Material Material::clone() {
+    Material Material::clone() const{
         return Material ( *this );
     }
     

@@ -14,15 +14,15 @@
 namespace three {
     
     Sphere::Sphere() :
-        center(glm::vec3(0, 0, 0)),
-        radius(0.0f)
+        center( glm::vec3(0, 0, 0) ),
+        radius( 0.0f )
     {
     }
     
     
     Sphere::Sphere( glm::vec3 center, float radius ):
-        center(center),
-        radius(radius)
+        center( center ),
+        radius( radius )
     {
     }
     

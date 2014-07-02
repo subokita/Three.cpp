@@ -18,11 +18,11 @@ namespace  three {
     
     Face3::Face3( glm::vec3& a, glm::vec3& b, glm::vec3& c, glm::vec3& normal,
                  Color& color, int material_index ):
-        a( a ),
-        b( b ),
-        c( c ),
-        normal( normal ),
-        color( color ),
+        a            ( a ),
+        b            ( b ),
+        c            ( c ),
+        normal       ( normal ),
+        color        ( color ),
         materialIndex( material_index )
     {}
     
@@ -30,11 +30,11 @@ namespace  three {
     
     
     Face3::Face3( const Face3& rhs ) :
-        a( rhs.a ),
-        b( rhs.b ),
-        c( rhs.c ),
-        normal( rhs.normal ),
-        color( rhs.color ),
+        a            ( rhs.a ),
+        b            ( rhs.b ),
+        c            ( rhs.c ),
+        normal       ( rhs.normal ),
+        color        ( rhs.color ),
         materialIndex( rhs.materialIndex )
     {
         copy( rhs.vertexNormals.begin(), rhs.vertexNormals.end(), back_inserter( vertexNormals ));
@@ -42,7 +42,7 @@ namespace  three {
         copy( rhs.vertexTangents.begin(), rhs.vertexTangents.end(), back_inserter( vertexTangents ));
     }
     
-    Face3 Face3::clone(){
+    Face3 Face3::clone() const{
         return Face3(*this);
     }
 }

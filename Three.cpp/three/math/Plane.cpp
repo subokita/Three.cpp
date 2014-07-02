@@ -15,12 +15,12 @@
 namespace three {
     
     Plane::Plane() :
-        normal( glm::vec3(0, 0, 0) ),
+        normal  ( glm::vec3(0, 0, 0) ),
         constant( 0.0 )
     {}
     
     Plane::Plane( glm::vec3 normal, float constant ):
-        normal( normal ),
+        normal  ( normal ),
         constant( constant )
     {}
     
@@ -28,7 +28,7 @@ namespace three {
     
     
     Plane::Plane(const Plane& rhs ):
-        normal( rhs.normal ),
+        normal  ( rhs.normal ),
         constant( rhs.constant )
     {}
     

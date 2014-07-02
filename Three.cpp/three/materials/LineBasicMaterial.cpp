@@ -17,8 +17,7 @@ namespace three {
         vertexColors( false ),
         fog         ( true ),
         color       ( 0xFFFFFF )
-    {
-    }
+    {}
     
     
     LineBasicMaterial::LineBasicMaterial( const LineBasicMaterial& rhs ) :
@@ -29,13 +28,11 @@ namespace three {
         vertexColors( rhs.vertexColors ),
         fog         ( rhs.fog ),
         color       ( rhs.color )
-    {
-        
-    }
+    {}
     
     LineBasicMaterial::~LineBasicMaterial() {}
     
-    LineBasicMaterial LineBasicMaterial::clone() {
+    LineBasicMaterial LineBasicMaterial::clone() const{
         return LineBasicMaterial( *this );
     }
 }

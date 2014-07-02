@@ -14,6 +14,7 @@
 #include "Constants.h"
 #include "Math.h"
 #include "EventDispatcher.h"
+#include "Color.h"
 
 using namespace std;
 
@@ -32,27 +33,49 @@ namespace three {
         Material(const Material& other);
         ~Material();
         
-        Material clone();
-        
-        int side;
+        Material clone() const;
+        /* Data members */
+        int   side;
         float opacity;
-        bool transparent;
-        int blending;
-        int blendSrc;
-        int blendDst;
-        int blendEquation;
-        
-        bool depthTest;
-        bool depthWrite;
-        
-        bool polygonOffset;
+        bool  transparent;
+        int   blending;
+        int   blendSrc;
+        int   blendDst;
+        int   blendEquation;
+        bool  depthTest;
+        bool  depthWrite;
+        bool  polygonOffset;
         float polygonOffsetFactor;
         float polygonOffsetUnits;
-        
         float alphaTest;
         float overdraw;
-        bool visible;
-        bool needsUpdate;
+        bool  visible;
+        bool  needsUpdate;
+        
+        
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const Material& obj ) {
+            os << "Material {" << std::endl;
+            os << "\tside               : " << obj.side                << std::endl;
+            os << "\topacity            : " << obj.opacity             << std::endl;
+            os << "\ttransparent        : " << obj.transparent         << std::endl;
+            os << "\tblending           : " << obj.blending            << std::endl;
+            os << "\tblendSrc           : " << obj.blendSrc            << std::endl;
+            os << "\tblendDst           : " << obj.blendDst            << std::endl;
+            os << "\tblendEquation      : " << obj.blendEquation       << std::endl;
+            os << "\tdepthTest          : " << obj.depthTest           << std::endl;
+            os << "\tdepthWrite         : " << obj.depthWrite          << std::endl;
+            os << "\tpolygonOffset      : " << obj.polygonOffset       << std::endl;
+            os << "\tpolygonOffsetFactor: " << obj.polygonOffsetFactor << std::endl;
+            os << "\tpolygonOffsetUnits : " << obj.polygonOffsetUnits  << std::endl;
+            os << "\talphaTest          : " << obj.alphaTest           << std::endl;
+            os << "\toverdraw           : " << obj.overdraw            << std::endl;
+            os << "\tvisible            : " << obj.visible             << std::endl;
+            os << "\tneedsUpdate        : " << obj.needsUpdate         << std::endl;
+            os << "}";
+            return os;
+        }
+
     };
 }
 

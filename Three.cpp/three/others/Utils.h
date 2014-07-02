@@ -10,11 +10,16 @@
 #define __Three_cpp__Utils__
 
 #include <iostream>
+#include <vector>
 #include <glm/glm.hpp>
 
 namespace three {
     class Utils {
         public:
+        
+            static std::string toString( std::vector<int>& vec );
+            static std::string toString( std::vector<float>& vec );
+        
             static std::string toString( const glm::vec2& vec );
             static std::string toString( const glm::vec3& vec );
             static std::string toString( const glm::vec4& vec );

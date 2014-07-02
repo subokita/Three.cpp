@@ -7,7 +7,7 @@
 //
 
 #include "EventDispatcher.h"
-
+#include "Event.h"
 
 namespace three {
     void EventDispatcher::addEventListener(){
@@ -20,6 +20,6 @@ namespace three {
     void EventDispatcher::removeEventListener(){
     }
     
-    void EventDispatcher::dispatchEvent(){
+    void EventDispatcher::dispatchEvent(Event event){
     }
 }

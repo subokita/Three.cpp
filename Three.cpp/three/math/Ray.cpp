@@ -15,19 +15,19 @@
 
 namespace three {
     Ray::Ray() :
-        origin(glm::vec3(0, 0, 0)),
-        direction(glm::vec3(0, 0, 0))
+        origin   ( glm::vec3(0, 0, 0) ),
+        direction( glm::vec3(0, 0, 0) )
     { }
     
     Ray::Ray( glm::vec3 origin, glm::vec3 direction ):
-        origin(origin),
-        direction(direction)
+        origin   ( origin ),
+        direction( direction )
     {}
     
     
     Ray::Ray( const Ray& rhs ) :
-        origin(rhs.origin),
-        direction(rhs.direction)
+        origin   ( rhs.origin ),
+        direction( rhs.direction )
     {
         
     }

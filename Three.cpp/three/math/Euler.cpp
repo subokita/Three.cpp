@@ -15,16 +15,16 @@ using namespace std;
 namespace three {
     
     Euler::Euler() :
-        x(0.0),
-        y(0.0),
-        z(0.0),
+        x    ( 0.0 ),
+        y    ( 0.0 ),
+        z    ( 0.0 ),
         order( RotationOrders::XYZ )
     {}
     
     Euler::Euler( float x, float y, float z, RotationOrders rot_order ):
-        x(x),
-        y(y),
-        z(z),
+        x    ( x ),
+        y    ( y ),
+        z    ( z ),
         order( rot_order )
     {}
     
