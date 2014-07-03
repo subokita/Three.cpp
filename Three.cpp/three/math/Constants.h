@@ -13,6 +13,11 @@
 #include <glm/glm.hpp>
 #include <numeric>
 
+
+#define INSTANCE_OF(ptr, class_type) ( dynamic_pointer_cast<class_type>(ptr) != nullptr )
+#define DOWN_CAST(ptr, class_type) ( dynamic_pointer_cast<class_type>(ptr) )
+
+
 static const float MAX_FLOAT = std::numeric_limits<float>::max();
 static const float MIN_FLOAT = std::numeric_limits<float>::min();
 static const glm::vec3 NULL_VEC3 = glm::vec3( MIN_FLOAT, MIN_FLOAT, MIN_FLOAT );

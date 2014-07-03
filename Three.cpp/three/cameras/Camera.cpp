@@ -10,7 +10,6 @@
 
 
 namespace three {
-    
     Camera::Camera(){}
     
     Camera::Camera( const Camera& rhs ):

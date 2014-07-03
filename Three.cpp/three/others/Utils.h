@@ -15,16 +15,19 @@
 
 namespace three {
     class Utils {
-        public:
+    public:
+    
+        static std::string toString( const std::vector<int>& vec );
+        static std::string toString( const std::vector<float>& vec );
         
-            static std::string toString( std::vector<int>& vec );
-            static std::string toString( std::vector<float>& vec );
+        static std::string toString( const std::vector<glm::vec2>& vec );
+        static std::string toString( const std::vector<glm::vec3>& vec );
         
-            static std::string toString( const glm::vec2& vec );
-            static std::string toString( const glm::vec3& vec );
-            static std::string toString( const glm::vec4& vec );
-            static std::string toString( const glm::quat& vec );
-            static std::string toString( const glm::mat4x4& mat );
+        static std::string toString( const glm::vec2& vec );
+        static std::string toString( const glm::vec3& vec );
+        static std::string toString( const glm::vec4& vec );
+        static std::string toString( const glm::quat& vec );
+        static std::string toString( const glm::mat4x4& mat );
     };
 }
 

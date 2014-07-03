@@ -19,40 +19,40 @@
 
 namespace three {
     class Face3 {
-        public:
-            Face3();
-            Face3( const Face3& rhs );
-            Face3( glm::vec3& a, glm::vec3& b, glm::vec3& c, glm::vec3& normal, Color& color, int material_index );
-            ~Face3();
-            
-            Face3 clone() const;
+    public:
+        Face3();
+        Face3( const Face3& rhs );
+        Face3( glm::vec3& a, glm::vec3& b, glm::vec3& c, glm::vec3& normal, Color& color, int material_index );
+        ~Face3();
         
-            /* Data members */
-            glm::vec3 a;
-            glm::vec3 b;
-            glm::vec3 c;
-            glm::vec3 normal;
-            Color     color;
-            int       materialIndex;
+        Face3 clone() const;
+    
+        /* Data members */
+        glm::vec3 a;
+        glm::vec3 b;
+        glm::vec3 c;
+        glm::vec3 normal;
+        Color     color;
+        int       materialIndex;
+    
+        std::vector<glm::vec3> vertexNormals;
+        std::vector<glm::vec3> vertexTangents;
+        std::vector<Color> vertexColors;
+    
         
-            std::vector<glm::vec3> vertexNormals;
-            std::vector<glm::vec3> vertexTangents;
-            std::vector<Color> vertexColors;
-        
-            
-            // FIXME: print the normals, tangents and colors too
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const Face3& obj ) {
-                os << "Face3 {" << std::endl;
-                os << "\ta            : " << Utils::toString( obj.a            ) << std::endl;
-                os << "\tb            : " << Utils::toString( obj.b            ) << std::endl;
-                os << "\tc            : " << Utils::toString( obj.c            ) << std::endl;
-                os << "\tnormal       : " << Utils::toString( obj.normal       ) << std::endl;
-                os << "\tcolor        : " << obj.color         << std::endl;
-                os << "\tmaterialIndex: " << obj.materialIndex << std::endl;
-                os << "}";
-                return os;
-            }
+        // FIXME: print the normals, tangents and colors too
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const Face3& obj ) {
+            os << "Face3 {" << std::endl;
+            os << "\ta            : " << Utils::toString( obj.a            ) << std::endl;
+            os << "\tb            : " << Utils::toString( obj.b            ) << std::endl;
+            os << "\tc            : " << Utils::toString( obj.c            ) << std::endl;
+            os << "\tnormal       : " << Utils::toString( obj.normal       ) << std::endl;
+            os << "\tcolor        : " << obj.color         << std::endl;
+            os << "\tmaterialIndex: " << obj.materialIndex << std::endl;
+            os << "}";
+            return os;
+        }
     };
 }
 

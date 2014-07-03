@@ -19,7 +19,7 @@ namespace three {
         AmbientLight();
         AmbientLight(Color& color);
         AmbientLight( const AmbientLight& rhs );
-        AmbientLight clone();
+        AmbientLight clone() const;
         ~AmbientLight();
     };
 }

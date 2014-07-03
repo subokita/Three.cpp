@@ -15,12 +15,16 @@ namespace three {
         far  ( 1000.0 )
     {}
     
-    Fog::Fog( Color& color, float near, float far ){}
+    Fog::Fog( Color& color, float near, float far ):
+        BaseFog ( color ),
+        near    ( near ),
+        far     ( far )
+    {}
     
     Fog::Fog( const Fog& rhs ):
-        color( rhs.color ),
-        near ( rhs.near ),
-        far  ( rhs.far )
+        BaseFog ( rhs ),
+        near    ( rhs.near ),
+        far     ( rhs.far )
     {}
     
     

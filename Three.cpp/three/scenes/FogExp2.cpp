@@ -16,12 +16,12 @@ namespace three {
     {}
     
     FogExp2::FogExp2( Color& color, float distance ) :
-        color   ( color ),
+        BaseFog ( color ),
         distance( distance )
     {}
     
     FogExp2::FogExp2( const FogExp2& rhs ):
-        color   ( rhs.color ),
+        BaseFog ( rhs ),
         distance( rhs.distance )
     {}
     

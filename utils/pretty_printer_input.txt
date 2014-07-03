@@ -1,7 +1,15 @@
-
-            Color color;
-            Texture map;
-            float size;
-            bool sizeAttenuation;
-            bool vertexColors;
-            bool fog;
+int id;
+        
+        RenderableVertex v1;
+        RenderableVertex v2;
+        RenderableVertex v3;
+        
+        glm::vec3 normalModel;
+        std::vector<glm::vec3> vertexNormalsModel;
+        int vertexNormalsLength;
+        
+        Color color;
+        Material material;
+        std::vector<glm::vec2> uvs;
+        
+        float z;

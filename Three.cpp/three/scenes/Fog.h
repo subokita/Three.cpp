@@ -10,33 +10,30 @@
 #define __Three_cpp__Fog__
 
 #include <iostream>
-#include "Color.h"
+#include "BaseFog.h"
 
 namespace three {
-    class Fog {
-        public:
-            /** Constructors **/
-            Fog();
-            Fog( Color& color, float near, float far );
-            Fog( const Fog& rhs );
-            Fog clone();
-            ~Fog();
+    class Fog : public BaseFog {
+    public:
+        /** Constructors **/
+        Fog();
+        Fog( Color& color, float near, float far );
+        Fog( const Fog& rhs );
+        Fog clone();
+        ~Fog();
+    
+        /* Data members */
+        float near;
+        float far;
         
-            /* Data members */
-            Color color;
-            float near;
-            float far;
-            
-            
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const Fog& obj ) {
-                os << "Fog {" << std::endl;
-                os << "\tcolor: " << obj.color << std::endl;
-                os << "\tnear : " << obj.near  << std::endl;
-                os << "\tfar  : " << obj.far   << std::endl;
-                os << "}";
-                return os;
-            }
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const Fog& obj ) {
+            os << "Fog {" << std::endl;
+            os << "\tnear : " << obj.near  << std::endl;
+            os << "\tfar  : " << obj.far   << std::endl;
+            os << "}";
+            return os;
+        }
     };
 }
 

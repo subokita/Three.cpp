@@ -8,18 +8,19 @@ import string
 filename = "pretty_printer_input.txt"
 
 def main():
-	# alignEqualSign()
+	# alignSign( '=' )
 	text, max_len, max_var_len = extractVariableNames()
 
-	class_name = 'ParticleSystemMaterial'
-	base_class_name = 'Material'
+	class_name = 'RenderableFace'
+	base_class_name = ''
 
-	# generateSomeBoilerplates( class_name )
-	# alignVariables( text, max_len, max_var_len )
-	# generatePrintStatement( text, max_len, max_var_len, class_name )
+	generateSomeBoilerplates( class_name )
+	alignVariables( text, max_len, max_var_len )
+	generatePrintStatement( text, max_len, max_var_len, class_name )
 	createInitializerList( text, max_len, max_var_len, False, base_class_name )
 	createInitializerList( text, max_len, max_var_len, True, base_class_name )
 	
+	createAssignments( text, max_len, max_var_len )
 
 	pass
 
@@ -37,7 +38,7 @@ def generateSomeBoilerplates( class_name ):
 
  # Align all the assigment statements, so that
  # we have perfectly aligned equal signs
-def alignEqualSign() :
+def alignSign( sign = '=' ) :
 	text = {}
 
 	counter = 0
@@ -51,7 +52,7 @@ def alignEqualSign() :
 			if( len( line ) == 0 ):
 				continue
 
-			if "=" not in line:
+			if sign not in line:
 				counter += 1
 				text[counter] = list()
 				text[counter].append( line )
@@ -64,14 +65,14 @@ def alignEqualSign() :
 		
 		max_index = -1;
 		for line in text[entry]:
-			index = line.find('=')
+			index = line.find( sign )
 			if max_index < index:
 				max_index = index
 
 		for line in text[entry]:
-			index = line.find('=')
+			index = line.find( sign )
 			if( index > -1 ):
-				print line[:index].ljust( max_index ) + '=' + line[index+1:]
+				print line[:index].ljust( max_index ) + sign + line[index+1:]
 			else:
 				print '\n' + line
 
@@ -90,7 +91,7 @@ def extractVariableNames() :
 			if( len( line ) == 0 ):
 				continue
 
-			index = line.find(' ')
+			index = line.rfind(' ')
 
 			text.append( (line[ :index ].strip(), line[ index+1: len(line) - 1 ].strip()) )
 
@@ -105,6 +106,12 @@ def extractVariableNames() :
 
 	return (text, max_len, max_var_len)
 
+def createAssignments( text, max_len, max_var_len ):
+	print
+	for t, var in text:
+		print "this->" + var.ljust( max_len ) + " = rhs." + var + ";"
+	print "return *this;"
+	print
 
  # Create an initializer list statement
  # in pretty printed manner

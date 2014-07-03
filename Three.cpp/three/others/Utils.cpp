@@ -15,7 +15,7 @@ using namespace std;
 namespace three {
     
     
-    string Utils::toString( vector<int>& vec ) {
+    string Utils::toString( const vector<int>& vec ) {
         stringstream ss;
         ss << "[";
         for( int i = 0; i < vec.size() - 1; i++ )
@@ -24,12 +24,31 @@ namespace three {
         return ss.str();
     }
     
-    string Utils::toString( vector<float>& vec ) {
+    string Utils::toString( const vector<float>& vec ) {
         stringstream ss;
         ss << "[";
         for( int i = 0; i < vec.size() - 1; i++ )
             ss << i << ", ";
         ss << vec[vec.size()-1] << "]";
+        return ss.str();
+    }
+    
+    
+    string Utils::toString( const vector<glm::vec2>& vec ) {
+        stringstream ss;
+        ss << "[";
+        for( int i = 0; i < vec.size() - 1; i++ )
+            ss << Utils::toString( vec[i] ) << ", ";
+        ss << Utils::toString(vec[vec.size()-1]) << "]";
+        return ss.str();
+    }
+    
+    string Utils::toString( const vector<glm::vec3>& vec ) {
+        stringstream ss;
+        ss << "[";
+        for( int i = 0; i < vec.size() - 1; i++ )
+            ss << Utils::toString( vec[i] ) << ", ";
+        ss << Utils::toString(vec[vec.size()-1]) << "]";
         return ss.str();
     }
     

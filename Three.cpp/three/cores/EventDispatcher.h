@@ -11,19 +11,24 @@
 
 #include <iostream>
 #include <map>
+#include <vector>
+
+using namespace std;
 
 namespace three {
     class Event;
     
     class EventDispatcher {
     public:
-        void addEventListener();
-        bool hasEventListener();
-        void removeEventListener();
+        void addEventListener( string type, shared_ptr<EventDispatcher> obj );
+        bool hasEventListener( string type, shared_ptr<EventDispatcher> obj );
+        void removeEventListener( string type, shared_ptr<EventDispatcher> obj );
         void dispatchEvent( Event event );
+        void setEventHandler( std::function<void(EventDispatcher&, Event&)> handler );
         
     protected:
-        std::map<std::string, std::shared_ptr<EventDispatcher>> listeners;
+        std::function<void(EventDispatcher&, Event&)> eventHandler = [](EventDispatcher&, Event&){};
+        map<string, vector<shared_ptr<EventDispatcher> >> listeners;
     };
 }
 

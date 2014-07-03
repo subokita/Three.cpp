@@ -30,8 +30,7 @@ namespace three {
             /* Data members */
             glm::mat4x4 matrixWorldInverse;
             glm::mat4x4 projectionMatrix;
-            
-            
+        
             /** Output stream overloading */
             friend std::ostream &operator <<( std::ostream& os, const Camera& obj ) {
                 os << "matrixWorldInverse: " << Utils::toString(obj.matrixWorldInverse) << std::endl;

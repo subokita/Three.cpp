@@ -14,14 +14,14 @@
 
 namespace three {
     class MeshFaceMaterial {
-        public:
-            /** Constructors **/
-            MeshFaceMaterial();
-            MeshFaceMaterial( const MeshFaceMaterial& rhs );
-            MeshFaceMaterial clone();
-            ~MeshFaceMaterial();
-            
-            std::vector<Material> materials;
+    public:
+        /** Constructors **/
+        MeshFaceMaterial();
+        MeshFaceMaterial( const MeshFaceMaterial& rhs );
+        MeshFaceMaterial clone();
+        ~MeshFaceMaterial();
+        
+        std::vector<Material> materials;
     };
 }
 

@@ -15,34 +15,34 @@
 
 namespace three {
     class ParticleSystemMaterial : public Material {
-        public:
-            /** Constructors **/
-            ParticleSystemMaterial();
-            ParticleSystemMaterial( const ParticleSystemMaterial& rhs );
-            ParticleSystemMaterial clone();
-            ~ParticleSystemMaterial();
+    public:
+        /** Constructors **/
+        ParticleSystemMaterial();
+        ParticleSystemMaterial( const ParticleSystemMaterial& rhs );
+        ParticleSystemMaterial clone();
+        ~ParticleSystemMaterial();
+    
+        /* Data members */
+        Color   color;
+        Texture map;
+        float   size;
+        bool    sizeAttenuation;
+        bool    vertexColors;
+        bool    fog;
         
-            /* Data members */
-            Color   color;
-            Texture map;
-            float   size;
-            bool    sizeAttenuation;
-            bool    vertexColors;
-            bool    fog;
-            
-            
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const ParticleSystemMaterial& obj ) {
-                os << "ParticleSystemMaterial {" << std::endl;
-                os << "\tcolor          : " << obj.color           << std::endl;
+        
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const ParticleSystemMaterial& obj ) {
+            os << "ParticleSystemMaterial {" << std::endl;
+            os << "\tcolor          : " << obj.color           << std::endl;
 //                os << "\tmap            : " << obj.map             << std::endl;
-                os << "\tsize           : " << obj.size            << std::endl;
-                os << "\tsizeAttenuation: " << obj.sizeAttenuation << std::endl;
-                os << "\tvertexColors   : " << obj.vertexColors    << std::endl;
-                os << "\tfog            : " << obj.fog             << std::endl;
-                os << "}";
-                return os;
-            }
+            os << "\tsize           : " << obj.size            << std::endl;
+            os << "\tsizeAttenuation: " << obj.sizeAttenuation << std::endl;
+            os << "\tvertexColors   : " << obj.vertexColors    << std::endl;
+            os << "\tfog            : " << obj.fog             << std::endl;
+            os << "}";
+            return os;
+        }
     };
 }
 

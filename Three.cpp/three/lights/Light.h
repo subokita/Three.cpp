@@ -16,24 +16,28 @@
 
 namespace three {
     class Light : public Object3D {
-        public:
-            /** Constructors **/
-            Light();
-            Light( Color& color );
-            Light( const Light& rhs );
-            Light clone();
-            ~Light();
-        
-            /* Data members */
-            Color color;
-            
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const Light& obj ) {
-                os << "Light {" << std::endl;
-                os << "\tcolor: " << obj.color << std::endl;
-                os << "}";
-                return os;
-            }
+    public:
+        /** Constructors **/
+        Light();
+        Light( Color& color );
+        Light( const Light& rhs );
+        Light clone();
+        ~Light();
+    
+        /* Data members */
+        Color color;
+        std::shared_ptr<Object3D> target;
+    
+        // FIXME: Is it Light or Object3D?
+        std::vector<std::shared_ptr<Light>> shadowCascadeArray;
+    
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const Light& obj ) {
+            os << "Light {" << std::endl;
+            os << "\tcolor: " << obj.color << std::endl;
+            os << "}";
+            return os;
+        }
     };
 }
 

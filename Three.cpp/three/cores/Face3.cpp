@@ -37,12 +37,12 @@ namespace  three {
         color        ( rhs.color ),
         materialIndex( rhs.materialIndex )
     {
-        copy( rhs.vertexNormals.begin(), rhs.vertexNormals.end(), back_inserter( vertexNormals ));
-        copy( rhs.vertexColors.begin(), rhs.vertexColors.end(), back_inserter( vertexColors ));
+        copy( rhs.vertexNormals.begin(), rhs.vertexNormals.end()  , back_inserter( vertexNormals ));
+        copy( rhs.vertexColors.begin() , rhs.vertexColors.end()   , back_inserter( vertexColors ));
         copy( rhs.vertexTangents.begin(), rhs.vertexTangents.end(), back_inserter( vertexTangents ));
     }
     
-    Face3 Face3::clone() const{
+    Face3 Face3::clone() const {
         return Face3(*this);
     }
 }

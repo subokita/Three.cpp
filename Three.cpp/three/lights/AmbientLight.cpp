@@ -23,7 +23,7 @@ namespace three {
         Light( rhs )
     {}
     
-    AmbientLight AmbientLight::clone(){
+    AmbientLight AmbientLight::clone() const {
         return AmbientLight(*this);
     }
     

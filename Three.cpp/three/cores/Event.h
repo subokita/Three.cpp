@@ -11,12 +11,14 @@
 
 #include <iostream>
 #include "Object3D.h"
+#include "Scene.h"
 
 namespace  three {
     class Event {
-        public:
-            std::string type;
-            std::shared_ptr<Object3D> object;
+    public:
+        std::string type;
+        std::shared_ptr<Object3D> object;
+        std::shared_ptr<Object3D> scene;
     };
 }
 

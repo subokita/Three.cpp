@@ -15,27 +15,27 @@
 
 namespace three {
     class PointLight : public Light {
-        public:
-            /** Constructors **/
-            PointLight();
-            PointLight( float intensity, float distance );
-            PointLight( const PointLight& rhs );
-            PointLight clone();
-            ~PointLight();
+    public:
+        /** Constructors **/
+        PointLight();
+        PointLight( float intensity, float distance );
+        PointLight( const PointLight& rhs );
+        PointLight clone();
+        ~PointLight();
+    
+        /* Data members */
+        float intensity;
+        float distance;
         
-            /* Data members */
-            float intensity;
-            float distance;
-            
-            
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const PointLight& obj ) {
-                os << "PointLight {" << std::endl;
-                os << "\tintensity: " << obj.intensity << std::endl;
-                os << "\tdistance : " << obj.distance  << std::endl;
-                os << "}";
-                return os;
-            }
+        
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const PointLight& obj ) {
+            os << "PointLight {" << std::endl;
+            os << "\tintensity: " << obj.intensity << std::endl;
+            os << "\tdistance : " << obj.distance  << std::endl;
+            os << "}";
+            return os;
+        }
     };
 }
 

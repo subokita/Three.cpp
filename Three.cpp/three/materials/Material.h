@@ -31,9 +31,10 @@ namespace three {
     public:
         Material();
         Material(const Material& other);
-        ~Material();
+        virtual ~Material();
         
         Material clone() const;
+        
         /* Data members */
         int   side;
         float opacity;

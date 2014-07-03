@@ -14,39 +14,39 @@
 
 namespace three {
     class AreaLight : public Light {
-        public:
-            /** Constructors **/
-            AreaLight();
-            AreaLight( Color& color, float intensity );
-            AreaLight( const AreaLight& rhs );
-            AreaLight clone();
-            ~AreaLight();
+    public:
+        /** Constructors **/
+        AreaLight();
+        AreaLight( Color& color, float intensity );
+        AreaLight( const AreaLight& rhs );
+        AreaLight clone() const;
+        ~AreaLight();
+    
+        /* Data members */
+        glm::vec3 normal;
+        glm::vec3 right;
+        float     intensity;
+        float     width;
+        float     height;
+        float     constantAttenuation;
+        float     linearAttenuation;
+        float     quadraticAttenuation;
         
-            /* Data members */
-            glm::vec3 normal;
-            glm::vec3 right;
-            float     intensity;
-            float     width;
-            float     height;
-            float     constantAttenuation;
-            float     linearAttenuation;
-            float     quadraticAttenuation;
-            
-            
-            /** Output stream overloading */
-            friend std::ostream &operator <<( std::ostream& os, const AreaLight& obj ) {
-                os << "AreaLight {" << std::endl;
-                os << "\tnormal              : " << Utils::toString( obj.normal ) << std::endl;
-                os << "\tright               : " << Utils::toString( obj.right ) << std::endl;
-                os << "\tintensity           : " << obj.intensity            << std::endl;
-                os << "\twidth               : " << obj.width                << std::endl;
-                os << "\theight              : " << obj.height               << std::endl;
-                os << "\tconstantAttenuation : " << obj.constantAttenuation  << std::endl;
-                os << "\tlinearAttenuation   : " << obj.linearAttenuation    << std::endl;
-                os << "\tquadraticAttenuation: " << obj.quadraticAttenuation << std::endl;
-                os << "}";
-                return os;
-            }
+        
+        /** Output stream overloading */
+        friend std::ostream &operator <<( std::ostream& os, const AreaLight& obj ) {
+            os << "AreaLight {" << std::endl;
+            os << "\tnormal              : " << Utils::toString( obj.normal ) << std::endl;
+            os << "\tright               : " << Utils::toString( obj.right ) << std::endl;
+            os << "\tintensity           : " << obj.intensity            << std::endl;
+            os << "\twidth               : " << obj.width                << std::endl;
+            os << "\theight              : " << obj.height               << std::endl;
+            os << "\tconstantAttenuation : " << obj.constantAttenuation  << std::endl;
+            os << "\tlinearAttenuation   : " << obj.linearAttenuation    << std::endl;
+            os << "\tquadraticAttenuation: " << obj.quadraticAttenuation << std::endl;
+            os << "}";
+            return os;
+        }
 
     };
 }

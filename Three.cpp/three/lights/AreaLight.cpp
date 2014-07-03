@@ -45,7 +45,7 @@ namespace three {
         quadraticAttenuation( rhs.quadraticAttenuation )
     {}
     
-    AreaLight AreaLight::clone(){
+    AreaLight AreaLight::clone() const {
         return AreaLight(*this);
     }
     
