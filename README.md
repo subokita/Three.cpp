@@ -1,4 +1,4 @@
 Three.cpp [Defunct]
 =========
 
-Defunct, moved to https://github.com/subokita/Three.cpp-Rev-2 instead.
+This version is defunct, moved to [Three.cpp Rev-2 repository](https://github.com/subokita/Three.cpp-Rev-2) instead.
